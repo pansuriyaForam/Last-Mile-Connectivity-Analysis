@@ -1,0 +1,2 @@
+service_id,start_date,end_date,monday,tuesday,wednesday,thursday,friday,saturday,sunday
+MTWTFSS,20260301,20310301,1,1,1,1,1,1,1
