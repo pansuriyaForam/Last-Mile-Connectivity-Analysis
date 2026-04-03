@@ -1,10 +1,3 @@
-**Yes, you should absolutely upload this to GitHub.** To answer your second question: **Yes, this is bordering on research-level work.** While the Greedy MCLP algorithm itself is an established operations research concept, applying a custom inverse-LMCI equity constraint to real-world GTFS data for a specific, developing-world transit corridor (Hyderabad Metro) is exactly the kind of applied research you see in Master's theses or urban planning data science publications. It shows you understand not just how to code, but how to mathematically formulate a real-world business/social problem.
-
-You mentioned providing the submission criteria, but it looks like you forgot to paste the text! However, based on the `v3` notebook, I have drafted a highly professional, portfolio-ready `README.md` that you can drop straight into your repository. 
-
-Here is the markdown code for your `README.md`:
-
-```markdown
 # 🚇 Hyderabad Metro Red Line: Last-Mile Connectivity Optimization
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
