@@ -1,29 +1,3 @@
-"""
-app.py — Hyderabad Metro Red Line · Last-Mile Connectivity Explorer
-====================================================================
-Streamlit interface over the TransitOptimizer pipeline defined in
-Last_Mile_Connectivity_Hyderabad_RedLine_corrected.ipynb
-
-Run:
-    streamlit run app.py
-
-Requirements (beyond the notebook's own deps):
-    pip install streamlit plotly
-All other imports (pandas, geopandas, numpy, scipy, etc.) are already
-required by the notebook itself.
-
-File layout expected (same as the notebook):
-    app.py
-    Data/
-      hmrl/
-        stops.txt          ← HMRL GTFS
-      tgsrtc/
-        stops.txt
-        stop_times.txt
-        trips.txt
-        routes.txt
-"""
-
 # ── stdlib ────────────────────────────────────────────────────────────────────
 import logging
 import sys
@@ -39,24 +13,6 @@ import streamlit as st
 import plotly.graph_objects as go
 from scipy.spatial import cKDTree
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 1. PASTE THE NOTEBOOK CLASSES BELOW
-#    Copy Config, GTFSLoader, TransitOptimizer verbatim from the notebook.
-#    The fallback helpers (_make_fallback_metro, _make_fallback_bus) are also
-#    needed if you want the app to work without live GTFS files.
-#    Everything below the dashed line is YOURS to paste into.
-# ─────────────────────────────────────────────────────────────────────────────
-
-# ---------- BEGIN NOTEBOOK CODE (paste here) ---------------------------------
-#
-#   from notebook Cell 1  → imports already done above
-#   from notebook Cell 2  → logging setup (replicated below)
-#   from notebook Cell 3  → Config dataclass
-#   from notebook Cell 4  → GTFSLoader class
-#   from notebook Cell 5  → _make_fallback_metro / _make_fallback_bus
-#   from notebook Cell 6  → TransitOptimizer class
-#
-# -----------------------------------------------------------------------------
 
 logging.basicConfig(
     level=logging.WARNING,          # keep Streamlit console clean
@@ -259,10 +215,6 @@ def _make_fallback_bus(rng: np.random.Generator) -> tuple:
 
 
 # ── TransitOptimizer ──────────────────────────────────────────────────────────
-# Paste the full TransitOptimizer class verbatim from notebook Cell 6 here.
-# The minimal version below retains only what the app needs (build,
-# compute_peak_frequency, compute_lmci, run_greedy_mclp) so it is
-# drop-in compatible.  Replace with the full class for complete fidelity.
 
 class TransitOptimizer:
     def __init__(self, cfg: Config) -> None:
@@ -486,9 +438,6 @@ class TransitOptimizer:
         gdf["LMCI_improvement"] = gdf["LMCI_after"] - gdf["LMCI"]
         self.gdf_lmci = gdf
         return self
-
-
-# ---------- END NOTEBOOK CODE ------------------------------------------------
 
 
 # ─────────────────────────────────────────────────────────────────────────────
