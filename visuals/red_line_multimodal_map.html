@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bbc66607fb1dc128e9503cf00309e22b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style='position:fixed;bottom:28px;left:28px;z-index:1000;background:white;padding:14px;border-radius:8px;box-shadow:2px 2px 10px rgba(0,0,0,0.28);font-family:Arial;font-size:12px'><b>LMCI Classification</b><br><span style='color:#2ecc71'>&#x25CF;</span> Well-Connected (>=7)<br><span style='color:#f39c12'>&#x25CF;</span> Moderate (4-7)<br><span style='color:#e74c3c'>&#x25CF;</span> Transit Desert (<4)<br><hr style='margin:5px 0'><b>MCLP Feeder Stops</b><br><span style='color:#c0392b'>*</span> Equity-forced desert<br><span style='color:#e67e22'>*</span> Desert zone (free pick)<br><span style='color:#2980b9'>*</span> Non-desert pick</div>
+    
+            <div class="folium-map" id="map_bbc66607fb1dc128e9503cf00309e22b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bbc66607fb1dc128e9503cf00309e22b = L.map(
+                "map_bbc66607fb1dc128e9503cf00309e22b",
+                {
+                    center: [17.420107737037036, 78.46262374444444],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_21b885adfe3daa6b7f27aa7659b59100 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_21b885adfe3daa6b7f27aa7659b59100.addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var circle_marker_1ccd2e0626463711ee21fc92337989f2 = L.circleMarker(
+                [17.4965452, 78.3730262],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.413956587843604, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_5b9218b683f5e8e4a292895cbd01435e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_0c30598d3d81b0628dd7a14a7312fd0b = $(`<div id="html_0c30598d3d81b0628dd7a14a7312fd0b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Miyapur</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.50</b></td></tr><tr><td>Midday LMCI</td><td><b>2.21</b></td></tr><tr><td>Evening LMCI</td><td><b>2.17</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.70 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.36</b></td></tr></table></div></div>`)[0];
+                popup_5b9218b683f5e8e4a292895cbd01435e.setContent(html_0c30598d3d81b0628dd7a14a7312fd0b);
+            
+        
+
+        circle_marker_1ccd2e0626463711ee21fc92337989f2.bindPopup(popup_5b9218b683f5e8e4a292895cbd01435e)
+        ;
+
+        
+    
+    
+            circle_marker_1ccd2e0626463711ee21fc92337989f2.bindTooltip(
+                `<div>
+                     Miyapur  |  Morning LMCI: 1.50  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cffc8c4a611fd60b43ceb8b289fc9361 = L.circleMarker(
+                [17.4987037, 78.3888668],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.405190031298435, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_90b0a82ae98eb12530983b04d6b30ea3 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_25240e6c2ef456c43b7b91b41346b44e = $(`<div id="html_25240e6c2ef456c43b7b91b41346b44e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>JNTU College</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.23</b></td></tr><tr><td>Midday LMCI</td><td><b>3.71</b></td></tr><tr><td>Evening LMCI</td><td><b>3.68</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.49 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.68</b></td></tr></table></div></div>`)[0];
+                popup_90b0a82ae98eb12530983b04d6b30ea3.setContent(html_25240e6c2ef456c43b7b91b41346b44e);
+            
+        
+
+        circle_marker_cffc8c4a611fd60b43ceb8b289fc9361.bindPopup(popup_90b0a82ae98eb12530983b04d6b30ea3)
+        ;
+
+        
+    
+    
+            circle_marker_cffc8c4a611fd60b43ceb8b289fc9361.bindTooltip(
+                `<div>
+                     JNTU College  |  Morning LMCI: 2.23  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7d30cd64b9dc5b6ba58fd0161026afc = L.circleMarker(
+                [17.4937602, 78.4018258],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.066500348038169, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_cd7d569d77490aa49e722e0399d10ed5 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_43fdaabfa4aa211b23d4579f98fe9d7e = $(`<div id="html_43fdaabfa4aa211b23d4579f98fe9d7e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>KPHB Colony</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.15</b></td></tr><tr><td>Midday LMCI</td><td><b>1.15</b></td></tr><tr><td>Evening LMCI</td><td><b>1.15</b></td></tr><tr><td>Temporal Gap</td><td><b>0.00 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>8.44</b></td></tr></table></div></div>`)[0];
+                popup_cd7d569d77490aa49e722e0399d10ed5.setContent(html_43fdaabfa4aa211b23d4579f98fe9d7e);
+            
+        
+
+        circle_marker_a7d30cd64b9dc5b6ba58fd0161026afc.bindPopup(popup_cd7d569d77490aa49e722e0399d10ed5)
+        ;
+
+        
+    
+    
+            circle_marker_a7d30cd64b9dc5b6ba58fd0161026afc.bindTooltip(
+                `<div>
+                     KPHB Colony  |  Morning LMCI: 1.15  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_069804fb51abe7854ff1f3a633a83517 = L.circleMarker(
+                [17.4849033, 78.4117896],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.609643709842214, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_3bd9776c31c8f6c7eacbcd84330551db = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6d3c2b4237d76da387de2fffa70bb262 = $(`<div id="html_6d3c2b4237d76da387de2fffa70bb262" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Kukatpally</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.69</b></td></tr><tr><td>Midday LMCI</td><td><b>3.92</b></td></tr><tr><td>Evening LMCI</td><td><b>4.96</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.23 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.35</b></td></tr></table></div></div>`)[0];
+                popup_3bd9776c31c8f6c7eacbcd84330551db.setContent(html_6d3c2b4237d76da387de2fffa70bb262);
+            
+        
+
+        circle_marker_069804fb51abe7854ff1f3a633a83517.bindPopup(popup_3bd9776c31c8f6c7eacbcd84330551db)
+        ;
+
+        
+    
+    
+            circle_marker_069804fb51abe7854ff1f3a633a83517.bindTooltip(
+                `<div>
+                     Kukatpally  |  Morning LMCI: 3.69  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2bf6fbd7eb1ec50e02325ac4771c5e8 = L.circleMarker(
+                [17.4767464, 78.4221082],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.492552289814014, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_2446cfa6a2e526aa3ec41abdfab78c0f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_7f3459a0b3a069d8005193d02efac512 = $(`<div id="html_7f3459a0b3a069d8005193d02efac512" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Balanagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>0.16</b></td></tr><tr><td>Midday LMCI</td><td><b>0.34</b></td></tr><tr><td>Evening LMCI</td><td><b>1.38</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.17 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>9.15</b></td></tr></table></div></div>`)[0];
+                popup_2446cfa6a2e526aa3ec41abdfab78c0f.setContent(html_7f3459a0b3a069d8005193d02efac512);
+            
+        
+
+        circle_marker_c2bf6fbd7eb1ec50e02325ac4771c5e8.bindPopup(popup_2446cfa6a2e526aa3ec41abdfab78c0f)
+        ;
+
+        
+    
+    
+            circle_marker_c2bf6fbd7eb1ec50e02325ac4771c5e8.bindTooltip(
+                `<div>
+                     Balanagar  |  Morning LMCI: 0.16  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e6137a8c84f4ecf215634e96075dbbf = L.circleMarker(
+                [17.4718855, 78.4261182],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.531475493892442, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_f9adc9f300e303d5973f9984d386a3d7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_abcdeff3b260ced17a25336b6fb172c1 = $(`<div id="html_abcdeff3b260ced17a25336b6fb172c1" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Moosapet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.02</b></td></tr><tr><td>Midday LMCI</td><td><b>4.92</b></td></tr><tr><td>Evening LMCI</td><td><b>4.92</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.90 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.22</b></td></tr></table></div></div>`)[0];
+                popup_f9adc9f300e303d5973f9984d386a3d7.setContent(html_abcdeff3b260ced17a25336b6fb172c1);
+            
+        
+
+        circle_marker_8e6137a8c84f4ecf215634e96075dbbf.bindPopup(popup_f9adc9f300e303d5973f9984d386a3d7)
+        ;
+
+        
+    
+    
+            circle_marker_8e6137a8c84f4ecf215634e96075dbbf.bindTooltip(
+                `<div>
+                     Moosapet  |  Morning LMCI: 3.02  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_458260e275a290e2646ffec1b21d6fbc = L.circleMarker(
+                [17.4629092, 78.4305364],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.039757359633349, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_929143b877bb45bdfef8f5f731d8c607 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a335f90e56123871276869a3ebbf4f4a = $(`<div id="html_a335f90e56123871276869a3ebbf4f4a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Bharat Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.15</b></td></tr><tr><td>Midday LMCI</td><td><b>3.95</b></td></tr><tr><td>Evening LMCI</td><td><b>3.88</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.80 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.07</b></td></tr></table></div></div>`)[0];
+                popup_929143b877bb45bdfef8f5f731d8c607.setContent(html_a335f90e56123871276869a3ebbf4f4a);
+            
+        
+
+        circle_marker_458260e275a290e2646ffec1b21d6fbc.bindPopup(popup_929143b877bb45bdfef8f5f731d8c607)
+        ;
+
+        
+    
+    
+            circle_marker_458260e275a290e2646ffec1b21d6fbc.bindTooltip(
+                `<div>
+                     Bharat Nagar  |  Morning LMCI: 3.15  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5f3d274de944c3c27110345763dedba = L.circleMarker(
+                [17.4570487, 78.4335811],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.758683634134808, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_d4273616ebde109a43deeb363f641c27 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_db3e0a4e99fdfe953f1f89007f25bec1 = $(`<div id="html_db3e0a4e99fdfe953f1f89007f25bec1" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Erragadda</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.42</b></td></tr><tr><td>Midday LMCI</td><td><b>1.80</b></td></tr><tr><td>Evening LMCI</td><td><b>1.38</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.38 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.93</b></td></tr></table></div></div>`)[0];
+                popup_d4273616ebde109a43deeb363f641c27.setContent(html_db3e0a4e99fdfe953f1f89007f25bec1);
+            
+        
+
+        circle_marker_a5f3d274de944c3c27110345763dedba.bindPopup(popup_d4273616ebde109a43deeb363f641c27)
+        ;
+
+        
+    
+    
+            circle_marker_a5f3d274de944c3c27110345763dedba.bindTooltip(
+                `<div>
+                     Erragadda  |  Morning LMCI: 1.42  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6875d643e897d0a5a8360754e1e0c7b8 = L.circleMarker(
+                [17.4486969, 78.4376283],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.263654651857287, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_d26974be9d5896c35d4a224bcd2030a6 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6db313d1a674f510c133ed8f6e924b9c = $(`<div id="html_6db313d1a674f510c133ed8f6e924b9c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>ESI Hospital</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.44</b></td></tr><tr><td>Midday LMCI</td><td><b>2.65</b></td></tr><tr><td>Evening LMCI</td><td><b>2.34</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.21 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.11</b></td></tr></table></div></div>`)[0];
+                popup_d26974be9d5896c35d4a224bcd2030a6.setContent(html_6db313d1a674f510c133ed8f6e924b9c);
+            
+        
+
+        circle_marker_6875d643e897d0a5a8360754e1e0c7b8.bindPopup(popup_d26974be9d5896c35d4a224bcd2030a6)
+        ;
+
+        
+    
+    
+            circle_marker_6875d643e897d0a5a8360754e1e0c7b8.bindTooltip(
+                `<div>
+                     ESI Hospital  |  Morning LMCI: 1.44  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d615a5f0b15fc55c42c3c0ffceee6c7c = L.circleMarker(
+                [17.4431205, 78.4407241],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.670293520241447, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_f62baa45138380be8c7adf52692a3ab5 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a5982b628d905c423229ee74bb153c3e = $(`<div id="html_a5982b628d905c423229ee74bb153c3e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>S. R. Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.63</b></td></tr><tr><td>Midday LMCI</td><td><b>3.95</b></td></tr><tr><td>Evening LMCI</td><td><b>3.06</b></td></tr><tr><td>Temporal Gap</td><td><b>-2.32 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>6.12</b></td></tr></table></div></div>`)[0];
+                popup_f62baa45138380be8c7adf52692a3ab5.setContent(html_a5982b628d905c423229ee74bb153c3e);
+            
+        
+
+        circle_marker_d615a5f0b15fc55c42c3c0ffceee6c7c.bindPopup(popup_f62baa45138380be8c7adf52692a3ab5)
+        ;
+
+        
+    
+    
+            circle_marker_d615a5f0b15fc55c42c3c0ffceee6c7c.bindTooltip(
+                `<div>
+                     S. R. Nagar  |  Morning LMCI: 1.63  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa22f587d03541c6e39217814dc00e26 = L.circleMarker(
+                [17.4357214, 78.4447933],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.169227098568271, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_6967f4949406ab5c0e79378b84b9769f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e7b593caebbd66d3df14af05908158ec = $(`<div id="html_e7b593caebbd66d3df14af05908158ec" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Ameerpet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.95</b></td></tr><tr><td>Midday LMCI</td><td><b>3.82</b></td></tr><tr><td>Evening LMCI</td><td><b>3.73</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.88 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.28</b></td></tr></table></div></div>`)[0];
+                popup_6967f4949406ab5c0e79378b84b9769f.setContent(html_e7b593caebbd66d3df14af05908158ec);
+            
+        
+
+        circle_marker_fa22f587d03541c6e39217814dc00e26.bindPopup(popup_6967f4949406ab5c0e79378b84b9769f)
+        ;
+
+        
+    
+    
+            circle_marker_fa22f587d03541c6e39217814dc00e26.bindTooltip(
+                `<div>
+                     Ameerpet  |  Morning LMCI: 2.95  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c98b429820ae009c5e68272d5a812ba5 = L.circleMarker(
+                [17.4289362, 78.450955],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.871779208693304, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_5a654df697c54ccf33c588fe4644a476 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d662f41bfa873a269fbb5590f2d9d1ac = $(`<div id="html_d662f41bfa873a269fbb5590f2d9d1ac" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Panjagutta</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.47</b></td></tr><tr><td>Midday LMCI</td><td><b>5.77</b></td></tr><tr><td>Evening LMCI</td><td><b>5.07</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.31 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>None</b></td></tr><tr><td>Priority Score</td><td><b>3.12</b></td></tr></table></div></div>`)[0];
+                popup_5a654df697c54ccf33c588fe4644a476.setContent(html_d662f41bfa873a269fbb5590f2d9d1ac);
+            
+        
+
+        circle_marker_c98b429820ae009c5e68272d5a812ba5.bindPopup(popup_5a654df697c54ccf33c588fe4644a476)
+        ;
+
+        
+    
+    
+            circle_marker_c98b429820ae009c5e68272d5a812ba5.bindTooltip(
+                `<div>
+                     Panjagutta  |  Morning LMCI: 4.47  |  None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a36a59085d1df6e49ce5612057df9534 = L.circleMarker(
+                [17.4202292, 78.4563489],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.724392009535913, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_ba4671b92e2da5d5db354eef0d3a5225 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_4626d42e22f82efbfbc3a2e525ac51c0 = $(`<div id="html_4626d42e22f82efbfbc3a2e525ac51c0" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Erra Manzil</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.76</b></td></tr><tr><td>Midday LMCI</td><td><b>4.53</b></td></tr><tr><td>Evening LMCI</td><td><b>3.85</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.77 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.54</b></td></tr></table></div></div>`)[0];
+                popup_ba4671b92e2da5d5db354eef0d3a5225.setContent(html_4626d42e22f82efbfbc3a2e525ac51c0);
+            
+        
+
+        circle_marker_a36a59085d1df6e49ce5612057df9534.bindPopup(popup_ba4671b92e2da5d5db354eef0d3a5225)
+        ;
+
+        
+    
+    
+            circle_marker_a36a59085d1df6e49ce5612057df9534.bindTooltip(
+                `<div>
+                     Erra Manzil  |  Morning LMCI: 3.76  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5490c92e8cd0bac9b6e30960f2eb4fc3 = L.circleMarker(
+                [17.4116323, 78.4608678],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.48327406282116, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_3e40d2dbc505eb3a32ab6fb397f7b9fd = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e5b691c3ada5f026e275c2e08f25bed6 = $(`<div id="html_e5b691c3ada5f026e275c2e08f25bed6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Khairatabad</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.44</b></td></tr><tr><td>Midday LMCI</td><td><b>4.71</b></td></tr><tr><td>Evening LMCI</td><td><b>3.89</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.28 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.14</b></td></tr></table></div></div>`)[0];
+                popup_3e40d2dbc505eb3a32ab6fb397f7b9fd.setContent(html_e5b691c3ada5f026e275c2e08f25bed6);
+            
+        
+
+        circle_marker_5490c92e8cd0bac9b6e30960f2eb4fc3.bindPopup(popup_3e40d2dbc505eb3a32ab6fb397f7b9fd)
+        ;
+
+        
+    
+    
+            circle_marker_5490c92e8cd0bac9b6e30960f2eb4fc3.bindTooltip(
+                `<div>
+                     Khairatabad  |  Morning LMCI: 4.44  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa1e01523508ae574d88c3f2c7e6fede = L.circleMarker(
+                [17.4040433, 78.4649442],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.243121675160808, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_985c26a44984b06ef5f59d1dd549924d = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_991cba603f432632c296ef663e27e815 = $(`<div id="html_991cba603f432632c296ef663e27e815" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Lakdi-ka-pul</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.21</b></td></tr><tr><td>Midday LMCI</td><td><b>7.22</b></td></tr><tr><td>Evening LMCI</td><td><b>6.92</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.01 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.41</b></td></tr></table></div></div>`)[0];
+                popup_985c26a44984b06ef5f59d1dd549924d.setContent(html_991cba603f432632c296ef663e27e815);
+            
+        
+
+        circle_marker_aa1e01523508ae574d88c3f2c7e6fede.bindPopup(popup_985c26a44984b06ef5f59d1dd549924d)
+        ;
+
+        
+    
+    
+            circle_marker_aa1e01523508ae574d88c3f2c7e6fede.bindTooltip(
+                `<div>
+                     Lakdi-ka-pul  |  Morning LMCI: 7.21  |  None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0a1d173cb8d9ccd9a955ff9beaad083 = L.circleMarker(
+                [17.3979907, 78.4708797],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.645790928534176, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_3049b5a34ef8a940e5b775f692d8e4bf = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_040cabfe1fd05b3ce82059dd72dbcc42 = $(`<div id="html_040cabfe1fd05b3ce82059dd72dbcc42" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Assembly</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.88</b></td></tr><tr><td>Midday LMCI</td><td><b>3.25</b></td></tr><tr><td>Evening LMCI</td><td><b>2.60</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.37 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>6.08</b></td></tr></table></div></div>`)[0];
+                popup_3049b5a34ef8a940e5b775f692d8e4bf.setContent(html_040cabfe1fd05b3ce82059dd72dbcc42);
+            
+        
+
+        circle_marker_b0a1d173cb8d9ccd9a955ff9beaad083.bindPopup(popup_3049b5a34ef8a940e5b775f692d8e4bf)
+        ;
+
+        
+    
+    
+            circle_marker_b0a1d173cb8d9ccd9a955ff9beaad083.bindTooltip(
+                `<div>
+                     Assembly  |  Morning LMCI: 2.88  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_694c5843ee9204596821c52b82064892 = L.circleMarker(
+                [17.392222, 78.4701612],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.902559888713363, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_c3decc86eab544019a0921d09314b5a6 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_36c0f17035fbf86e92fd63952ddd9fc6 = $(`<div id="html_36c0f17035fbf86e92fd63952ddd9fc6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Nampally</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.41</b></td></tr><tr><td>Midday LMCI</td><td><b>1.50</b></td></tr><tr><td>Evening LMCI</td><td><b>1.16</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.08 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>8.17</b></td></tr></table></div></div>`)[0];
+                popup_c3decc86eab544019a0921d09314b5a6.setContent(html_36c0f17035fbf86e92fd63952ddd9fc6);
+            
+        
+
+        circle_marker_694c5843ee9204596821c52b82064892.bindPopup(popup_c3decc86eab544019a0921d09314b5a6)
+        ;
+
+        
+    
+    
+            circle_marker_694c5843ee9204596821c52b82064892.bindTooltip(
+                `<div>
+                     Nampally  |  Morning LMCI: 1.41  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e44963b1f207129ac1f2dbcf50cd78c7 = L.circleMarker(
+                [17.3858253, 78.4733347],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.488530250783196, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_914281d9669f055c8d4d14de0ac87bf3 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_df8a7bf7a14f030483ae267dc310da21 = $(`<div id="html_df8a7bf7a14f030483ae267dc310da21" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Gandhi Bhavan</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.60</b></td></tr><tr><td>Midday LMCI</td><td><b>3.24</b></td></tr><tr><td>Evening LMCI</td><td><b>2.48</b></td></tr><tr><td>Temporal Gap</td><td><b>0.36 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.81</b></td></tr></table></div></div>`)[0];
+                popup_914281d9669f055c8d4d14de0ac87bf3.setContent(html_df8a7bf7a14f030483ae267dc310da21);
+            
+        
+
+        circle_marker_e44963b1f207129ac1f2dbcf50cd78c7.bindPopup(popup_914281d9669f055c8d4d14de0ac87bf3)
+        ;
+
+        
+    
+    
+            circle_marker_e44963b1f207129ac1f2dbcf50cd78c7.bindTooltip(
+                `<div>
+                     Gandhi Bhavan  |  Morning LMCI: 3.60  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8023cd6d58f0a6072b7347d966988fab = L.circleMarker(
+                [17.3820769, 78.4817011],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.502774611511809, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_7f34b3a0c2ea3086608129853f097278 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_ee483a14c3d9daa7503f728c40e82328 = $(`<div id="html_ee483a14c3d9daa7503f728c40e82328" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Osmania Medical College</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.43</b></td></tr><tr><td>Midday LMCI</td><td><b>6.89</b></td></tr><tr><td>Evening LMCI</td><td><b>6.06</b></td></tr><tr><td>Temporal Gap</td><td><b>0.55 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.84</b></td></tr></table></div></div>`)[0];
+                popup_7f34b3a0c2ea3086608129853f097278.setContent(html_ee483a14c3d9daa7503f728c40e82328);
+            
+        
+
+        circle_marker_8023cd6d58f0a6072b7347d966988fab.bindPopup(popup_7f34b3a0c2ea3086608129853f097278)
+        ;
+
+        
+    
+    
+            circle_marker_8023cd6d58f0a6072b7347d966988fab.bindTooltip(
+                `<div>
+                     Osmania Medical College  |  Morning LMCI: 7.43  |  None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8fa52bf6b68880d22dd282014b42ec6a = L.circleMarker(
+                [17.3797886, 78.4861571],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.062563283743508, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_3cd685ea1bf161f289ddcca79eb9d21f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_3c967b888d45e549c95c7e876dc3bb7e = $(`<div id="html_3c967b888d45e549c95c7e876dc3bb7e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Mahatma Gandhi Bus Station</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.71</b></td></tr><tr><td>Midday LMCI</td><td><b>3.77</b></td></tr><tr><td>Evening LMCI</td><td><b>3.41</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.05 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.10</b></td></tr></table></div></div>`)[0];
+                popup_3cd685ea1bf161f289ddcca79eb9d21f.setContent(html_3c967b888d45e549c95c7e876dc3bb7e);
+            
+        
+
+        circle_marker_8fa52bf6b68880d22dd282014b42ec6a.bindPopup(popup_3cd685ea1bf161f289ddcca79eb9d21f)
+        ;
+
+        
+    
+    
+            circle_marker_8fa52bf6b68880d22dd282014b42ec6a.bindTooltip(
+                `<div>
+                     Mahatma Gandhi Bus Station  |  Morning LMCI: 3.71  |  Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e393288e682d8809b660dd6ea9900719 = L.circleMarker(
+                [17.3771888, 78.4939356],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.112845683276825, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_62bffc3c7464088b9b4596bf39dfd24e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_88fe4f21e13b517d1d894487021f035d = $(`<div id="html_88fe4f21e13b517d1d894487021f035d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Malakpet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.68</b></td></tr><tr><td>Midday LMCI</td><td><b>5.47</b></td></tr><tr><td>Evening LMCI</td><td><b>4.26</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.79 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>None</b></td></tr><tr><td>Priority Score</td><td><b>3.52</b></td></tr></table></div></div>`)[0];
+                popup_62bffc3c7464088b9b4596bf39dfd24e.setContent(html_88fe4f21e13b517d1d894487021f035d);
+            
+        
+
+        circle_marker_e393288e682d8809b660dd6ea9900719.bindPopup(popup_62bffc3c7464088b9b4596bf39dfd24e)
+        ;
+
+        
+    
+    
+            circle_marker_e393288e682d8809b660dd6ea9900719.bindTooltip(
+                `<div>
+                     Malakpet  |  Morning LMCI: 4.68  |  None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b27c3c4521a0e79860c9a5688baefd9e = L.circleMarker(
+                [17.3734454, 78.5031791],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.63669859112704, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_9b4f19811919ad8095dad22ff19a35ad = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_c9d6ce631cb4e0b2eddf324d1eb4e610 = $(`<div id="html_c9d6ce631cb4e0b2eddf324d1eb4e610" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>New Market</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.60</b></td></tr><tr><td>Midday LMCI</td><td><b>5.19</b></td></tr><tr><td>Evening LMCI</td><td><b>3.67</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.59 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.39</b></td></tr></table></div></div>`)[0];
+                popup_9b4f19811919ad8095dad22ff19a35ad.setContent(html_c9d6ce631cb4e0b2eddf324d1eb4e610);
+            
+        
+
+        circle_marker_b27c3c4521a0e79860c9a5688baefd9e.bindPopup(popup_9b4f19811919ad8095dad22ff19a35ad)
+        ;
+
+        
+    
+    
+            circle_marker_b27c3c4521a0e79860c9a5688baefd9e.bindTooltip(
+                `<div>
+                     New Market  |  Morning LMCI: 3.60  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_72d11e2285feb2b92c43e7b173cd6a88 = L.circleMarker(
+                [17.3710873, 78.5119545],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.852403579033211, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_3c15b5712851f4cb540b30b80f912965 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a7eacfbb499a03c72971be070f666564 = $(`<div id="html_a7eacfbb499a03c72971be070f666564" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Musarambagh</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.64</b></td></tr><tr><td>Midday LMCI</td><td><b>4.57</b></td></tr><tr><td>Evening LMCI</td><td><b>3.46</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.93 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.75</b></td></tr></table></div></div>`)[0];
+                popup_3c15b5712851f4cb540b30b80f912965.setContent(html_a7eacfbb499a03c72971be070f666564);
+            
+        
+
+        circle_marker_72d11e2285feb2b92c43e7b173cd6a88.bindPopup(popup_3c15b5712851f4cb540b30b80f912965)
+        ;
+
+        
+    
+    
+            circle_marker_72d11e2285feb2b92c43e7b173cd6a88.bindTooltip(
+                `<div>
+                     Musarambagh  |  Morning LMCI: 3.64  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dde1ef3cba842fd0a40a0d6a36040090 = L.circleMarker(
+                [17.3685493, 78.5253873],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.004003205816742, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_773c82e55f8136616b182df1246cae52 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_bc6082d6e638f00b08088fcd8f20c538 = $(`<div id="html_bc6082d6e638f00b08088fcd8f20c538" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Dilsukh Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.95</b></td></tr><tr><td>Midday LMCI</td><td><b>4.19</b></td></tr><tr><td>Evening LMCI</td><td><b>2.97</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.24 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>5.01</b></td></tr></table></div></div>`)[0];
+                popup_773c82e55f8136616b182df1246cae52.setContent(html_bc6082d6e638f00b08088fcd8f20c538);
+            
+        
+
+        circle_marker_dde1ef3cba842fd0a40a0d6a36040090.bindPopup(popup_773c82e55f8136616b182df1246cae52)
+        ;
+
+        
+    
+    
+            circle_marker_dde1ef3cba842fd0a40a0d6a36040090.bindTooltip(
+                `<div>
+                     Dilsukh Nagar  |  Morning LMCI: 3.95  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29b72d3fbf9d7ebac0686913d7736f17 = L.circleMarker(
+                [17.3681501, 78.5381335],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.478605549303573, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_c7f6c5038a68db6b317e6746af78ff3b = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e3b921f1f02c78f23e75c0a58ff36c1d = $(`<div id="html_e3b921f1f02c78f23e75c0a58ff36c1d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Chaitanyapuri</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.94</b></td></tr><tr><td>Midday LMCI</td><td><b>4.47</b></td></tr><tr><td>Evening LMCI</td><td><b>3.65</b></td></tr><tr><td>Temporal Gap</td><td><b>0.47 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.13</b></td></tr></table></div></div>`)[0];
+                popup_c7f6c5038a68db6b317e6746af78ff3b.setContent(html_e3b921f1f02c78f23e75c0a58ff36c1d);
+            
+        
+
+        circle_marker_29b72d3fbf9d7ebac0686913d7736f17.bindPopup(popup_c7f6c5038a68db6b317e6746af78ff3b)
+        ;
+
+        
+    
+    
+            circle_marker_29b72d3fbf9d7ebac0686913d7736f17.bindTooltip(
+                `<div>
+                     Chaitanyapuri  |  Morning LMCI: 4.94  |  Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f59a1d1bef4a340344d0d358b7d1594 = L.circleMarker(
+                [17.3618565, 78.5439622],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.898945128837443, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_3e25f71785857ed71dd57d0a2f411c77 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_7dea9f972de4c7e2b4269a732c816480 = $(`<div id="html_7dea9f972de4c7e2b4269a732c816480" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Victoria Memorial</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.19</b></td></tr><tr><td>Midday LMCI</td><td><b>6.32</b></td></tr><tr><td>Evening LMCI</td><td><b>5.41</b></td></tr><tr><td>Temporal Gap</td><td><b>0.87 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>1.50</b></td></tr></table></div></div>`)[0];
+                popup_3e25f71785857ed71dd57d0a2f411c77.setContent(html_7dea9f972de4c7e2b4269a732c816480);
+            
+        
+
+        circle_marker_7f59a1d1bef4a340344d0d358b7d1594.bindPopup(popup_3e25f71785857ed71dd57d0a2f411c77)
+        ;
+
+        
+    
+    
+            circle_marker_7f59a1d1bef4a340344d0d358b7d1594.bindTooltip(
+                `<div>
+                     Victoria Memorial  |  Morning LMCI: 7.19  |  None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e27e3130085fd51d2d8fc624b64d33a = L.circleMarker(
+                [17.349846, 78.5479412],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.000000000809063, "stroke": true, "weight": 2.0}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+        var popup_7c4c8371714ca0143c289d692761c3c1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f66ead17839a1874d74696834284e682 = $(`<div id="html_f66ead17839a1874d74696834284e682" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>L. B. Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.76</b></td></tr><tr><td>Midday LMCI</td><td><b>7.35</b></td></tr><tr><td>Evening LMCI</td><td><b>7.13</b></td></tr><tr><td>Temporal Gap</td><td><b>0.41 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.00</b></td></tr></table></div></div>`)[0];
+                popup_7c4c8371714ca0143c289d692761c3c1.setContent(html_f66ead17839a1874d74696834284e682);
+            
+        
+
+        circle_marker_9e27e3130085fd51d2d8fc624b64d33a.bindPopup(popup_7c4c8371714ca0143c289d692761c3c1)
+        ;
+
+        
+    
+    
+            circle_marker_9e27e3130085fd51d2d8fc624b64d33a.bindTooltip(
+                `<div>
+                     L. B. Nagar  |  Morning LMCI: 7.76  |  None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4e9b62bc6290cb2f480a861d82480748 = L.marker(
+                [17.45118358901935, 78.42387506733995],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_011dadf12b7a973ca2e3ae37199858c9 = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_99078b695ef86a4bddb75701f62f0323 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_e4a20da540f44df24676449d72f18454 = $(`<div id="html_e4a20da540f44df24676449d72f18454" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #1</b><br>Weighted gain: 6.780<br>Cum. coverage: 42.8%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_99078b695ef86a4bddb75701f62f0323.setContent(html_e4a20da540f44df24676449d72f18454);
+            
+        
+
+        marker_4e9b62bc6290cb2f480a861d82480748.bindPopup(popup_99078b695ef86a4bddb75701f62f0323)
+        ;
+
+        
+    
+    
+            marker_4e9b62bc6290cb2f480a861d82480748.bindTooltip(
+                `<div>
+                     Stop #1 | gain=6.780
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4e9b62bc6290cb2f480a861d82480748.setIcon(div_icon_011dadf12b7a973ca2e3ae37199858c9);
+            
+    
+            var marker_b15723b3453463bb2e314e417e40db08 = L.marker(
+                [17.403122377960134, 78.48173372802134],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_8126c5220aebbfd8c486e30066e3d9a5 = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_52f2ccc243464371d7e78e219d33038d = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_75e7a4a5822dca20cfabce73a3997119 = $(`<div id="html_75e7a4a5822dca20cfabce73a3997119" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #2</b><br>Weighted gain: 5.917<br>Cum. coverage: 46.9%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_52f2ccc243464371d7e78e219d33038d.setContent(html_75e7a4a5822dca20cfabce73a3997119);
+            
+        
+
+        marker_b15723b3453463bb2e314e417e40db08.bindPopup(popup_52f2ccc243464371d7e78e219d33038d)
+        ;
+
+        
+    
+    
+            marker_b15723b3453463bb2e314e417e40db08.bindTooltip(
+                `<div>
+                     Stop #2 | gain=5.917
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b15723b3453463bb2e314e417e40db08.setIcon(div_icon_8126c5220aebbfd8c486e30066e3d9a5);
+            
+    
+            var marker_8d06287ee79ed798fa2bcfd26655c38e = L.marker(
+                [17.437729822319817, 78.43112084436002],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_514d92d16595a4506466029ab5322b7a = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_1057d9308499e8c02bb042f0cb25c1a4 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_84234c206df05f393d164cb7b557c431 = $(`<div id="html_84234c206df05f393d164cb7b557c431" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #3</b><br>Weighted gain: 5.594<br>Cum. coverage: 50.8%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_1057d9308499e8c02bb042f0cb25c1a4.setContent(html_84234c206df05f393d164cb7b557c431);
+            
+        
+
+        marker_8d06287ee79ed798fa2bcfd26655c38e.bindPopup(popup_1057d9308499e8c02bb042f0cb25c1a4)
+        ;
+
+        
+    
+    
+            marker_8d06287ee79ed798fa2bcfd26655c38e.bindTooltip(
+                `<div>
+                     Stop #3 | gain=5.594
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8d06287ee79ed798fa2bcfd26655c38e.setIcon(div_icon_514d92d16595a4506466029ab5322b7a);
+            
+    
+            var marker_993f68c202e2f053b02d8bf76f7f5af2 = L.marker(
+                [17.49238142687627, 78.35774073478466],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_28e85e60cfc623eca6f145c5055fb343 = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_5aae8f8b2c6a8cea5e00cc51eb10ece5 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_1f3ed93b93cd19552a5b71bce6efe0c4 = $(`<div id="html_1f3ed93b93cd19552a5b71bce6efe0c4" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #4</b><br>Weighted gain: 5.491<br>Cum. coverage: 54.7%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_5aae8f8b2c6a8cea5e00cc51eb10ece5.setContent(html_1f3ed93b93cd19552a5b71bce6efe0c4);
+            
+        
+
+        marker_993f68c202e2f053b02d8bf76f7f5af2.bindPopup(popup_5aae8f8b2c6a8cea5e00cc51eb10ece5)
+        ;
+
+        
+    
+    
+            marker_993f68c202e2f053b02d8bf76f7f5af2.bindTooltip(
+                `<div>
+                     Stop #4 | gain=5.491
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_993f68c202e2f053b02d8bf76f7f5af2.setIcon(div_icon_28e85e60cfc623eca6f145c5055fb343);
+            
+    
+            var marker_dc441c42a15aeb021835d2c1719089e0 = L.marker(
+                [17.50666969868494, 78.41400773769531],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_e9500f9f4f9fd61aa396f1d54d9b1741 = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_5a5402b9227f2fd1b814768f309f042e = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_c57d22a0d8480c616cf3b3a90e392816 = $(`<div id="html_c57d22a0d8480c616cf3b3a90e392816" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #5</b><br>Weighted gain: 5.442<br>Cum. coverage: 58.5%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_5a5402b9227f2fd1b814768f309f042e.setContent(html_c57d22a0d8480c616cf3b3a90e392816);
+            
+        
+
+        marker_dc441c42a15aeb021835d2c1719089e0.bindPopup(popup_5a5402b9227f2fd1b814768f309f042e)
+        ;
+
+        
+    
+    
+            marker_dc441c42a15aeb021835d2c1719089e0.bindTooltip(
+                `<div>
+                     Stop #5 | gain=5.442
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dc441c42a15aeb021835d2c1719089e0.setIcon(div_icon_e9500f9f4f9fd61aa396f1d54d9b1741);
+            
+    
+            var marker_2e7131ecc1888f621c4c859ec656e0cf = L.marker(
+                [17.461340217235588, 78.44675897113237],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_d5780f4eaa87c768bab713ddd80832a9 = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_bc1ee11037e4198d71bfe5f5771c04f3 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_f4c194b4fd9b5f67b1eabf475af39d55 = $(`<div id="html_f4c194b4fd9b5f67b1eabf475af39d55" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #6</b><br>Weighted gain: 5.238<br>Cum. coverage: 62.1%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_bc1ee11037e4198d71bfe5f5771c04f3.setContent(html_f4c194b4fd9b5f67b1eabf475af39d55);
+            
+        
+
+        marker_2e7131ecc1888f621c4c859ec656e0cf.bindPopup(popup_bc1ee11037e4198d71bfe5f5771c04f3)
+        ;
+
+        
+    
+    
+            marker_2e7131ecc1888f621c4c859ec656e0cf.bindTooltip(
+                `<div>
+                     Stop #6 | gain=5.238
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e7131ecc1888f621c4c859ec656e0cf.setIcon(div_icon_d5780f4eaa87c768bab713ddd80832a9);
+            
+    
+            var marker_76d92d5b35eb14f0e89056a0d4c48d5e = L.marker(
+                [17.389689481410688, 78.45866151687059],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_a5abf1c39b771ca60352c2675ac76ca0 = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_9118741cef13d1664b5b56b16292bafb = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_21c66718dfc99ba45917cfcd4e6e7bae = $(`<div id="html_21c66718dfc99ba45917cfcd4e6e7bae" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #7</b><br>Weighted gain: 4.675<br>Cum. coverage: 65.4%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_9118741cef13d1664b5b56b16292bafb.setContent(html_21c66718dfc99ba45917cfcd4e6e7bae);
+            
+        
+
+        marker_76d92d5b35eb14f0e89056a0d4c48d5e.bindPopup(popup_9118741cef13d1664b5b56b16292bafb)
+        ;
+
+        
+    
+    
+            marker_76d92d5b35eb14f0e89056a0d4c48d5e.bindTooltip(
+                `<div>
+                     Stop #7 | gain=4.675
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76d92d5b35eb14f0e89056a0d4c48d5e.setIcon(div_icon_a5abf1c39b771ca60352c2675ac76ca0);
+            
+    
+            var marker_51f677fec3438491827c1f7f394afb77 = L.marker(
+                [17.389772584928647, 78.50429600469656],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_ff462dfc40cb4ccf4569c5392f50abac = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_b248d0a1f4c2dec1e925bdb2f27158c7 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_6ef21f4f2730cf4658845cffc90a91ba = $(`<div id="html_6ef21f4f2730cf4658845cffc90a91ba" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #8</b><br>Weighted gain: 4.315<br>Cum. coverage: 68.4%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_b248d0a1f4c2dec1e925bdb2f27158c7.setContent(html_6ef21f4f2730cf4658845cffc90a91ba);
+            
+        
+
+        marker_51f677fec3438491827c1f7f394afb77.bindPopup(popup_b248d0a1f4c2dec1e925bdb2f27158c7)
+        ;
+
+        
+    
+    
+            marker_51f677fec3438491827c1f7f394afb77.bindTooltip(
+                `<div>
+                     Stop #8 | gain=4.315
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_51f677fec3438491827c1f7f394afb77.setIcon(div_icon_ff462dfc40cb4ccf4569c5392f50abac);
+            
+    
+            var marker_be17af8d18fc4dd57632cc712fe70b07 = L.marker(
+                [17.490401362531152, 78.39187640630541],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_8ee939a7a605cee9fc66f0628707868c = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_f9c811bd10ea5116374e4346a489f494 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_095284407c077f082a9a92b05c7e57ca = $(`<div id="html_095284407c077f082a9a92b05c7e57ca" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #9</b><br>Weighted gain: 3.540<br>Cum. coverage: 70.9%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_f9c811bd10ea5116374e4346a489f494.setContent(html_095284407c077f082a9a92b05c7e57ca);
+            
+        
+
+        marker_be17af8d18fc4dd57632cc712fe70b07.bindPopup(popup_f9c811bd10ea5116374e4346a489f494)
+        ;
+
+        
+    
+    
+            marker_be17af8d18fc4dd57632cc712fe70b07.bindTooltip(
+                `<div>
+                     Stop #9 | gain=3.540
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_be17af8d18fc4dd57632cc712fe70b07.setIcon(div_icon_8ee939a7a605cee9fc66f0628707868c);
+            
+    
+            var marker_a0621146714993224f07e396eda34442 = L.marker(
+                [17.44016525144024, 78.4560009335381],
+                {
+}
+            ).addTo(map_bbc66607fb1dc128e9503cf00309e22b);
+        
+    
+            var div_icon_8816c76500a92221d7fd742658cc81be = L.divIcon({
+  "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
+  "iconSize": [22, 22],
+  "iconAnchor": [11, 11],
+  "className": "empty",
+});
+        
+    
+        var popup_6054451e357eac941423a39af596307c = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_5106441d6bd1ebe9768fc3e9748283d3 = $(`<div id="html_5106441d6bd1ebe9768fc3e9748283d3" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #10</b><br>Weighted gain: 2.772<br>Cum. coverage: 72.8%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_6054451e357eac941423a39af596307c.setContent(html_5106441d6bd1ebe9768fc3e9748283d3);
+            
+        
+
+        marker_a0621146714993224f07e396eda34442.bindPopup(popup_6054451e357eac941423a39af596307c)
+        ;
+
+        
+    
+    
+            marker_a0621146714993224f07e396eda34442.bindTooltip(
+                `<div>
+                     Stop #10 | gain=2.772
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a0621146714993224f07e396eda34442.setIcon(div_icon_8816c76500a92221d7fd742658cc81be);
+            
+</script>
+</html>
