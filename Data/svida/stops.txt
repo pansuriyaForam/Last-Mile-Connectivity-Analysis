@@ -1,0 +1,22 @@
+stop_id,stop_name,stop_lat,stop_lon,location_type
+MYP_ENT03,Miyapur Arm B,17.4963756,78.3724185,0
+LBN_ENT05,LB Nagar Arm C,17.3502938,78.5478238,0
+S_ALW,Allwyn X Road,17.493,78.349,0
+S_GNB,Gangaram DCB Bank,17.502,78.336,0
+S_LIN,Lingampally Bus Stop,17.485,78.324,0
+S_MXR,Miyapur X Road,17.490793,78.352188,0
+S_BAC,Bachupally X Roads,17.5468,78.365,0
+S_BEE,Beeramguda,17.5208,78.2979,0
+S_BHL,BHEL,17.4954,78.296,0
+S_RCP,R C Puram Bus Stop,17.5192,78.3066,0
+S_ASH,Ashoknagar Bus Stop,17.48,78.31,0
+S_NGO,NGO Colony,17.3334,78.5623,0
+S_GVH,Government Hospital,17.341,78.558,0
+S_GNT,Ganesh Temple,17.338,78.56,0
+S_VAN,Vanasthalipuram,17.33,78.57,0
+S_LBR,LB Nagar Ring Road,17.3471,78.5499,0
+S_PAN,Panama X Road,17.3387,78.5588,0
+S_SRR,Sagar Ring Road,17.345,78.545,0
+S_OMK,Omkar Nagar,17.336601,78.5534564,0
+S_HAS,Hastinapuram,17.3262,78.5513,0
+S_BNR,BN Reddy Colony,17.3141,78.5613,0

@@ -1,0 +1,23 @@
+route_id,service_id,trip_id,trip_headsign,direction_id,shape_id
+MYP_R01,SVIDA_REG,MYP_R01_AM,Lingampally,0,MYP_R01_shape
+MYP_R01,SVIDA_REG,MYP_R01_PM,Lingampally,0,MYP_R01_shape
+MYP_R02,SVIDA_REG,MYP_R02_AM,Gangaram DCB Bank,0,MYP_R02_shape
+MYP_R02,SVIDA_REG,MYP_R02_PM,Gangaram DCB Bank,0,MYP_R02_shape
+MYP_R03,SVIDA_REG,MYP_R03_AM,Miyapur X Road,0,MYP_R03_shape
+MYP_R03,SVIDA_REG,MYP_R03_PM,Miyapur X Road,0,MYP_R03_shape
+MYP_R04,SVIDA_REG,MYP_R04_AM,Bachupally X Roads,0,MYP_R04_shape
+MYP_R04,SVIDA_REG,MYP_R04_PM,Bachupally X Roads,0,MYP_R04_shape
+MYP_R05,SVIDA_REG,MYP_R05_AM,Beeramguda,0,MYP_R05_shape
+MYP_R05,SVIDA_REG,MYP_R05_PM,Beeramguda,0,MYP_R05_shape
+MYP_R06,SVIDA_REG,MYP_R06_AM,BHEL,0,MYP_R06_shape
+MYP_R06,SVIDA_REG,MYP_R06_PM,BHEL,0,MYP_R06_shape
+MYP_R07,SVIDA_REG,MYP_R07_AM,R C Puram Bus Stop,0,MYP_R07_shape
+MYP_R07,SVIDA_REG,MYP_R07_PM,R C Puram Bus Stop,0,MYP_R07_shape
+MYP_R08,SVIDA_REG,MYP_R08_AM,Ashoknagar Bus Stop,0,MYP_R08_shape
+MYP_R08,SVIDA_REG,MYP_R08_PM,Ashoknagar Bus Stop,0,MYP_R08_shape
+LBN_R01,SVIDA_REG,LBN_R01_AM,Vanasthalipuram,0,LBN_R01_shape
+LBN_R01,SVIDA_REG,LBN_R01_PM,Vanasthalipuram,0,LBN_R01_shape
+LBN_R02,SVIDA_REG,LBN_R02_AM,Ganesh Temple,0,LBN_R02_shape
+LBN_R02,SVIDA_REG,LBN_R02_PM,Ganesh Temple,0,LBN_R02_shape
+LBN_R03,SVIDA_REG,LBN_R03_AM,BN Reddy Colony,0,LBN_R03_shape
+LBN_R03,SVIDA_REG,LBN_R03_PM,BN Reddy Colony,0,LBN_R03_shape

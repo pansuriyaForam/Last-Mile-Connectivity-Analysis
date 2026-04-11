@@ -1,0 +1,22 @@
+stop_id,stop_name,stop_lat,stop_lon,source,quality
+MYP_ENT03,Miyapur Arm B,17.4963756,78.3724185,HMRL uploaded stops.txt,exact_from_uploaded_stops
+LBN_ENT05,LB Nagar Arm C,17.3502938,78.5478238,HMRL uploaded stops.txt,exact_from_uploaded_stops
+S_ALW,Allwyn X Road,17.493,78.349,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_GNB,Gangaram DCB Bank,17.502,78.336,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_LIN,Lingampally Bus Stop,17.485,78.324,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_MXR,Miyapur X Road,17.490793,78.352188,Web result Miyapur Cross Road,web_or_map_approximation
+S_BAC,Bachupally X Roads,17.5468,78.365,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_BEE,Beeramguda,17.5208,78.2979,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_BHL,BHEL,17.4954,78.296,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_RCP,R C Puram Bus Stop,17.5192,78.3066,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_ASH,Ashoknagar Bus Stop,17.48,78.31,Uploaded GTFS PDF p.3,uploaded_pdf_geocoded
+S_NGO,NGO Colony,17.3334,78.5623,Uploaded GTFS PDF p.4,uploaded_pdf_geocoded
+S_GVH,Government Hospital,17.341,78.558,Uploaded GTFS PDF p.4,uploaded_pdf_geocoded
+S_GNT,Ganesh Temple,17.338,78.56,Uploaded GTFS PDF p.4,uploaded_pdf_geocoded
+S_VAN,Vanasthalipuram,17.33,78.57,Uploaded GTFS PDF p.4,uploaded_pdf_geocoded
+S_LBR,LB Nagar Ring Road,17.3471,78.5499,Web result LB Nagar Ring Road Bus Stop,web_or_map_approximation
+S_PAN,Panama X Road,17.3387,78.5588,Approx from web references Panama X Road / Panama Circle,web_or_map_approximation
+S_SRR,Sagar Ring Road,17.345,78.545,Uploaded GTFS PDF p.4,uploaded_pdf_geocoded
+S_OMK,Omkar Nagar,17.336601,78.5534564,Web result Omkar Nagar,web_or_map_approximation
+S_HAS,Hastinapuram,17.3262,78.5513,Web result Hastinapuram,web_or_map_approximation
+S_BNR,BN Reddy Colony,17.3141,78.5613,Uploaded GTFS PDF p.4,uploaded_pdf_geocoded

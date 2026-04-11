@@ -1,0 +1,12 @@
+route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_color,route_text_color
+MYP_R01,SVIDA,Route 01,Miyapur to Lingampally,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R02,SVIDA,Route 02,Miyapur to Gangaram DCB Bank,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R03,SVIDA,Route 03,Miyapur to Miyapur X Road,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R04,SVIDA,Route 04,Miyapur to Bachupally X Roads,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R05,SVIDA,Route 05,Miyapur to Beeramguda,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R06,SVIDA,Route 06,Miyapur to BHEL,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R07,SVIDA,Route 07,Miyapur to R C Puram Bus Stop,7-Seater Feeder,3,1D4ED8,FFFFFF
+MYP_R08,SVIDA,Route 08,Miyapur to Ashoknagar Bus Stop,7-Seater Feeder,3,1D4ED8,FFFFFF
+LBN_R01,SVIDA,Route 01,LB Nagar to Vanasthalipuram,12-Seater Feeder,3,1D4ED8,FFFFFF
+LBN_R02,SVIDA,Route 02,LB Nagar to Ganesh Temple,12-Seater Feeder,3,1D4ED8,FFFFFF
+LBN_R03,SVIDA,Route 03,LB Nagar to BN Reddy Colony,12-Seater Feeder,3,1D4ED8,FFFFFF
