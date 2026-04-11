@@ -7,3 +7,5 @@ shapely>=1.8.0
 folium>=0.12.0
 scikit-learn>=1.0.0
 networkx>=2.6.0
+osmnx>=1.1.0
+gtfs_kit>=0.3.0
