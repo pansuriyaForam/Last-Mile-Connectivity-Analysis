@@ -1,2 +1,2 @@
 recommended_budget_k,coverage_at_recommended_k_pct,coverage_at_max_k_pct,marginal_gain_first_stop_pct,marginal_gain_last_stop_pct,forced_desert_share_pct,selected_stop_share_in_desert_pct
-10,71.23511485732347,71.23511485732347,42.49079952089888,2.0310098274537864,0.0,100.0
+10,71.6258030871091,71.6258030871091,42.772289483744366,2.075985037548179,0.0,100.0

@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_61df816173b98e22e28e987bf368d463 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+position: fixed;
+top: 10px; left: 50%; transform: translateX(-50%);
+z-index: 9999;
+background: rgba(255,255,255,0.97);
+padding: 12px 18px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+font-family: Arial;
+text-align: center;">
+  <div style="font-size: 22px; font-weight: 800; color: #1f2937;">
+    Proposed Feeder Network — Hyderabad Metro Red Line
+  </div>
+  <div style="font-size: 14px; color: #374151; margin-top: 4px;">
+    Existing terminal feeder services vs algorithm-suggested routes
+  </div>
+</div>
+    
+<div style="
+position: fixed;
+bottom: 28px; left: 28px; z-index: 9999;
+background: rgba(255,255,255,0.97);
+padding: 14px 16px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.22);
+font-family: Arial;
+font-size: 12px;
+line-height: 1.45;">
+  <b>Legend</b><br>
+  <span style="display:inline-block;width:18px;height:4px;background:#d32f2f;vertical-align:middle;"></span>
+  Metro Red Line<br>
+  <span style="color:#e53935;font-weight:700;">◆</span> Metro terminal<br>
+  <span style="display:inline-block;width:10px;height:10px;background:#f59e0b;border-radius:50%;"></span>
+  Transit desert / underserved station<br>
+  <span style="display:inline-block;width:10px;height:10px;background:#6b7280;border-radius:50%;"></span>
+  Other metro station<br>
+  <span style="display:inline-block;width:18px;height:0;border-top:3px dashed #93c5fd;"></span>
+  Existing feeder — Miyapur<br>
+  <span style="display:inline-block;width:18px;height:0;border-top:3px dashed #fdba74;"></span>
+  Existing feeder — LB Nagar<br>
+  <span style="display:inline-block;width:18px;height:4px;background:#2563eb;vertical-align:middle;"></span>
+  Proposed direct-to-metro<br>
+  <span style="display:inline-block;width:18px;height:4px;background:#16a34a;vertical-align:middle;"></span>
+  Proposed MMTS-link route<br>
+  <span style="display:inline-block;width:18px;height:4px;background:#7c3aed;vertical-align:middle;"></span>
+  Proposed circular micro-feeder<br>
+  <span style="display:inline-block;width:10px;height:10px;background:#c4b5fd;border-radius:50%;border:2px solid #7c3aed;"></span>
+  Demand cluster / desert zone<br>
+  <hr style="margin:6px 0;">
+  Existing feeder routes found: 4<br>
+  Proposed shortlisted routes: 5
+</div>
+    
+            <div class="folium-map" id="map_61df816173b98e22e28e987bf368d463" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_61df816173b98e22e28e987bf368d463 = L.map(
+                "map_61df816173b98e22e28e987bf368d463",
+                {
+                    center: [17.420107737037036, 78.46262374444444],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aeda0ff59ca275e8c982da79878c7f66 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_aeda0ff59ca275e8c982da79878c7f66.addTo(map_61df816173b98e22e28e987bf368d463);
+        
+    
+            var feature_group_c77057fd4f06bfddfddf2efbc2d93bc7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_d02e2b18790634c797ccdd08cbc01ebb = L.polyline(
+                [[17.4965452, 78.3730262], [17.4987037, 78.3888668], [17.4937602, 78.4018258], [17.4849033, 78.4117896], [17.4767464, 78.4221082], [17.4718855, 78.4261182], [17.4629092, 78.4305364], [17.4570487, 78.4335811], [17.4486969, 78.4376283], [17.4431205, 78.4407241], [17.4357214, 78.4447933], [17.4289362, 78.450955], [17.4202292, 78.4563489], [17.4116323, 78.4608678], [17.4040433, 78.4649442], [17.3979907, 78.4708797], [17.392222, 78.4701612], [17.3858253, 78.4733347], [17.3820769, 78.4817011], [17.3797886, 78.4861571], [17.3771888, 78.4939356], [17.3734454, 78.5031791], [17.3710873, 78.5119545], [17.3685493, 78.5253873], [17.3681501, 78.5381335], [17.3618565, 78.5439622], [17.349846, 78.5479412]],
+                {"bubblingMouseEvents": true, "color": "#d32f2f", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#d32f2f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+            poly_line_d02e2b18790634c797ccdd08cbc01ebb.bindTooltip(
+                `<div>
+                     Hyderabad Metro Red Line
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6abea91ddfd65ff6a3fd3994d78b0437 = L.marker(
+                [17.4965452, 78.3730262],
+                {
+}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+            var div_icon_45ce681fcf108791e71bceda5df5ed39 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"\n            position: relative;\n            transform: translate(-10px, -10px) rotate(45deg);\n            width: 20px; height: 20px;\n            background: #e53935;\n            border: 3px solid white;\n            box-shadow: 0 0 6px rgba(0,0,0,0.35);\n        \"\u003e\u003c/div\u003e\n        \u003cdiv style=\"\n            position: relative; top: -4px; left: 18px;\n            background: rgba(255,255,255,0.95);\n            border: 1px solid #ef5350;\n            border-radius: 6px;\n            padding: 3px 6px;\n            font-weight: 700;\n            font-size: 12px;\n            color: #d32f2f;\n            white-space: nowrap;\n        \"\u003eMiyapur\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+                marker_6abea91ddfd65ff6a3fd3994d78b0437.setIcon(div_icon_45ce681fcf108791e71bceda5df5ed39);
+            
+    
+            var circle_marker_1c8e26c746699158dbaa4aac13b6e011 = L.circleMarker(
+                [17.4987037, 78.3888668],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_64e94479c95a0f2252aaf83012a05d27 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_ae21de873923f95323a965c34aa8a801 = $(`<div id="html_ae21de873923f95323a965c34aa8a801" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">JNTU College</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>2.22</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.71</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.68</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.21</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_64e94479c95a0f2252aaf83012a05d27.setContent(html_ae21de873923f95323a965c34aa8a801);
+            
+        
+
+        circle_marker_1c8e26c746699158dbaa4aac13b6e011.bindPopup(popup_64e94479c95a0f2252aaf83012a05d27)
+        ;
+
+        
+    
+    
+            circle_marker_1c8e26c746699158dbaa4aac13b6e011.bindTooltip(
+                `<div>
+                     JNTU College | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f78dc7e0095157effb1c2545f5c297b5 = L.circleMarker(
+                [17.4937602, 78.4018258],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_71f0c9f41f2ac09405ccb68b86a59c2e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_e27df43a5b6226c35775e33666945ff2 = $(`<div id="html_e27df43a5b6226c35775e33666945ff2" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">KPHB Colony</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>1.15</b></td></tr>               <tr><td>Midday LMCI</td><td><b>1.15</b></td></tr>               <tr><td>Evening LMCI</td><td><b>1.15</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>1.15</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_71f0c9f41f2ac09405ccb68b86a59c2e.setContent(html_e27df43a5b6226c35775e33666945ff2);
+            
+        
+
+        circle_marker_f78dc7e0095157effb1c2545f5c297b5.bindPopup(popup_71f0c9f41f2ac09405ccb68b86a59c2e)
+        ;
+
+        
+    
+    
+            circle_marker_f78dc7e0095157effb1c2545f5c297b5.bindTooltip(
+                `<div>
+                     KPHB Colony | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_658781eaa7680fea263121667873590a = L.circleMarker(
+                [17.4849033, 78.4117896],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_c047a31c83e1cfa5ec67618ccd8d5ea4 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_3ab621457d4d44a0206aa2bfeddd661b = $(`<div id="html_3ab621457d4d44a0206aa2bfeddd661b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Kukatpally</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.69</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.92</b></td></tr>               <tr><td>Evening LMCI</td><td><b>4.96</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.19</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_c047a31c83e1cfa5ec67618ccd8d5ea4.setContent(html_3ab621457d4d44a0206aa2bfeddd661b);
+            
+        
+
+        circle_marker_658781eaa7680fea263121667873590a.bindPopup(popup_c047a31c83e1cfa5ec67618ccd8d5ea4)
+        ;
+
+        
+    
+    
+            circle_marker_658781eaa7680fea263121667873590a.bindTooltip(
+                `<div>
+                     Kukatpally | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f1487ece769ca552f48df10272897c63 = L.circleMarker(
+                [17.4767464, 78.4221082],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_2b9d054c4048c45bfc17b0e768724ea7 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_cc108a1aa5c708a228af58dfcb68a53f = $(`<div id="html_cc108a1aa5c708a228af58dfcb68a53f" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Balanagar</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>0.16</b></td></tr>               <tr><td>Midday LMCI</td><td><b>0.34</b></td></tr>               <tr><td>Evening LMCI</td><td><b>1.38</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>0.63</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_2b9d054c4048c45bfc17b0e768724ea7.setContent(html_cc108a1aa5c708a228af58dfcb68a53f);
+            
+        
+
+        circle_marker_f1487ece769ca552f48df10272897c63.bindPopup(popup_2b9d054c4048c45bfc17b0e768724ea7)
+        ;
+
+        
+    
+    
+            circle_marker_f1487ece769ca552f48df10272897c63.bindTooltip(
+                `<div>
+                     Balanagar | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_524b0ccfee2f18ae65a871fcf1713ff8 = L.circleMarker(
+                [17.4718855, 78.4261182],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_c9e6676526cc19f937bce55efda456ad = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_1442a5391e6e1ec2984b0626944c3e4c = $(`<div id="html_1442a5391e6e1ec2984b0626944c3e4c" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Moosapet</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.02</b></td></tr>               <tr><td>Midday LMCI</td><td><b>4.92</b></td></tr>               <tr><td>Evening LMCI</td><td><b>4.92</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.29</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_c9e6676526cc19f937bce55efda456ad.setContent(html_1442a5391e6e1ec2984b0626944c3e4c);
+            
+        
+
+        circle_marker_524b0ccfee2f18ae65a871fcf1713ff8.bindPopup(popup_c9e6676526cc19f937bce55efda456ad)
+        ;
+
+        
+    
+    
+            circle_marker_524b0ccfee2f18ae65a871fcf1713ff8.bindTooltip(
+                `<div>
+                     Moosapet | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d63ffcee0e76341ff46d6b964f296c5 = L.circleMarker(
+                [17.4629092, 78.4305364],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_3a50dff20b9e4c0e28846afa66084759 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_784ed03f4c2a57fc0305d0832b9f6149 = $(`<div id="html_784ed03f4c2a57fc0305d0832b9f6149" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Bharat Nagar</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.15</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.95</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.88</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.66</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_3a50dff20b9e4c0e28846afa66084759.setContent(html_784ed03f4c2a57fc0305d0832b9f6149);
+            
+        
+
+        circle_marker_0d63ffcee0e76341ff46d6b964f296c5.bindPopup(popup_3a50dff20b9e4c0e28846afa66084759)
+        ;
+
+        
+    
+    
+            circle_marker_0d63ffcee0e76341ff46d6b964f296c5.bindTooltip(
+                `<div>
+                     Bharat Nagar | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6dd39245995477ff29c994f97a516aaa = L.circleMarker(
+                [17.4570487, 78.4335811],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_eabfca63350b35ad078c4b53beb02886 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_2df2fa4779b4b4329f994d30a42b9a80 = $(`<div id="html_2df2fa4779b4b4329f994d30a42b9a80" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Erragadda</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>1.42</b></td></tr>               <tr><td>Midday LMCI</td><td><b>1.80</b></td></tr>               <tr><td>Evening LMCI</td><td><b>1.38</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>1.53</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_eabfca63350b35ad078c4b53beb02886.setContent(html_2df2fa4779b4b4329f994d30a42b9a80);
+            
+        
+
+        circle_marker_6dd39245995477ff29c994f97a516aaa.bindPopup(popup_eabfca63350b35ad078c4b53beb02886)
+        ;
+
+        
+    
+    
+            circle_marker_6dd39245995477ff29c994f97a516aaa.bindTooltip(
+                `<div>
+                     Erragadda | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fb2498af16f5d997c5e6c4f94373191 = L.circleMarker(
+                [17.4486969, 78.4376283],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_d4acccd9457f4557a419a608f44ea6d5 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_301cd785713ed12e547044e556abec94 = $(`<div id="html_301cd785713ed12e547044e556abec94" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">ESI Hospital</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>1.44</b></td></tr>               <tr><td>Midday LMCI</td><td><b>2.65</b></td></tr>               <tr><td>Evening LMCI</td><td><b>2.34</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>2.15</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_d4acccd9457f4557a419a608f44ea6d5.setContent(html_301cd785713ed12e547044e556abec94);
+            
+        
+
+        circle_marker_3fb2498af16f5d997c5e6c4f94373191.bindPopup(popup_d4acccd9457f4557a419a608f44ea6d5)
+        ;
+
+        
+    
+    
+            circle_marker_3fb2498af16f5d997c5e6c4f94373191.bindTooltip(
+                `<div>
+                     ESI Hospital | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e4b52278920ef387449f0d7ddde584b5 = L.circleMarker(
+                [17.4431205, 78.4407241],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_20471d020462d43d3fd8ae9cb70f317a = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_a5e5452da55342d4cea1e6b91c80c8f6 = $(`<div id="html_a5e5452da55342d4cea1e6b91c80c8f6" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">S. R. Nagar</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>1.63</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.95</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.06</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>2.88</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_20471d020462d43d3fd8ae9cb70f317a.setContent(html_a5e5452da55342d4cea1e6b91c80c8f6);
+            
+        
+
+        circle_marker_e4b52278920ef387449f0d7ddde584b5.bindPopup(popup_20471d020462d43d3fd8ae9cb70f317a)
+        ;
+
+        
+    
+    
+            circle_marker_e4b52278920ef387449f0d7ddde584b5.bindTooltip(
+                `<div>
+                     S. R. Nagar | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_680e85b1e16f09c6e2ef74e36e27d8af = L.circleMarker(
+                [17.4357214, 78.4447933],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_2b7b003e331d19e370c886d1ae593e07 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_b083a14af117852ded3feed1af04d468 = $(`<div id="html_b083a14af117852ded3feed1af04d468" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Ameerpet</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>2.94</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.82</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.73</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.50</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_2b7b003e331d19e370c886d1ae593e07.setContent(html_b083a14af117852ded3feed1af04d468);
+            
+        
+
+        circle_marker_680e85b1e16f09c6e2ef74e36e27d8af.bindPopup(popup_2b7b003e331d19e370c886d1ae593e07)
+        ;
+
+        
+    
+    
+            circle_marker_680e85b1e16f09c6e2ef74e36e27d8af.bindTooltip(
+                `<div>
+                     Ameerpet | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_59685370cf00495fd6727c6a33932c4d = L.circleMarker(
+                [17.4289362, 78.450955],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b7280", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_7452def744b46dae0ae7c8b06368dfbc = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_f106d4a340c3dc25a12fe61153cfc1d2 = $(`<div id="html_f106d4a340c3dc25a12fe61153cfc1d2" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Panjagutta</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>4.46</b></td></tr>               <tr><td>Midday LMCI</td><td><b>5.77</b></td></tr>               <tr><td>Evening LMCI</td><td><b>5.06</b></td></tr>               <tr><td>Severity</td><td><b>None</b></td></tr>               <tr><td>Mean LMCI</td><td><b>5.10</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_7452def744b46dae0ae7c8b06368dfbc.setContent(html_f106d4a340c3dc25a12fe61153cfc1d2);
+            
+        
+
+        circle_marker_59685370cf00495fd6727c6a33932c4d.bindPopup(popup_7452def744b46dae0ae7c8b06368dfbc)
+        ;
+
+        
+    
+    
+            circle_marker_59685370cf00495fd6727c6a33932c4d.bindTooltip(
+                `<div>
+                     Panjagutta | None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc3e346687bb7c06830f50183199aa85 = L.circleMarker(
+                [17.4202292, 78.4563489],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_bef395b5b7a46a728f16db558467799c = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6fd3a0de474a41f4d3d7f1384b790ceb = $(`<div id="html_6fd3a0de474a41f4d3d7f1384b790ceb" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Erra Manzil</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.76</b></td></tr>               <tr><td>Midday LMCI</td><td><b>4.53</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.85</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.05</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_bef395b5b7a46a728f16db558467799c.setContent(html_6fd3a0de474a41f4d3d7f1384b790ceb);
+            
+        
+
+        circle_marker_fc3e346687bb7c06830f50183199aa85.bindPopup(popup_bef395b5b7a46a728f16db558467799c)
+        ;
+
+        
+    
+    
+            circle_marker_fc3e346687bb7c06830f50183199aa85.bindTooltip(
+                `<div>
+                     Erra Manzil | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a6ab20f50ac5095b76b365d56c2bae3 = L.circleMarker(
+                [17.4116323, 78.4608678],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_0f4044901f0cf9c4a542cec4e4770f19 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_12c8de716893c598cf28c3731071f55b = $(`<div id="html_12c8de716893c598cf28c3731071f55b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Khairatabad</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>4.43</b></td></tr>               <tr><td>Midday LMCI</td><td><b>4.71</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.89</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.35</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_0f4044901f0cf9c4a542cec4e4770f19.setContent(html_12c8de716893c598cf28c3731071f55b);
+            
+        
+
+        circle_marker_2a6ab20f50ac5095b76b365d56c2bae3.bindPopup(popup_0f4044901f0cf9c4a542cec4e4770f19)
+        ;
+
+        
+    
+    
+            circle_marker_2a6ab20f50ac5095b76b365d56c2bae3.bindTooltip(
+                `<div>
+                     Khairatabad | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3d31e1dd417f8e6c9ee343adc110791d = L.circleMarker(
+                [17.4040433, 78.4649442],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b7280", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_38f12a868c48962453f2a9303c30d77e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_ea2bf24eca3a6201488b3370d4b5e21c = $(`<div id="html_ea2bf24eca3a6201488b3370d4b5e21c" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Lakdi-ka-pul</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>7.20</b></td></tr>               <tr><td>Midday LMCI</td><td><b>7.21</b></td></tr>               <tr><td>Evening LMCI</td><td><b>6.92</b></td></tr>               <tr><td>Severity</td><td><b>None</b></td></tr>               <tr><td>Mean LMCI</td><td><b>7.11</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_38f12a868c48962453f2a9303c30d77e.setContent(html_ea2bf24eca3a6201488b3370d4b5e21c);
+            
+        
+
+        circle_marker_3d31e1dd417f8e6c9ee343adc110791d.bindPopup(popup_38f12a868c48962453f2a9303c30d77e)
+        ;
+
+        
+    
+    
+            circle_marker_3d31e1dd417f8e6c9ee343adc110791d.bindTooltip(
+                `<div>
+                     Lakdi-ka-pul | None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db1350fec40dbd5ec835c2f22b330823 = L.circleMarker(
+                [17.3979907, 78.4708797],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_9703578879ca8f6c476c47f0452e2f9c = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_b565310ec2d3743c60d6c72d6d40fc81 = $(`<div id="html_b565310ec2d3743c60d6c72d6d40fc81" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Assembly</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>2.88</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.25</b></td></tr>               <tr><td>Evening LMCI</td><td><b>2.60</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>2.91</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_9703578879ca8f6c476c47f0452e2f9c.setContent(html_b565310ec2d3743c60d6c72d6d40fc81);
+            
+        
+
+        circle_marker_db1350fec40dbd5ec835c2f22b330823.bindPopup(popup_9703578879ca8f6c476c47f0452e2f9c)
+        ;
+
+        
+    
+    
+            circle_marker_db1350fec40dbd5ec835c2f22b330823.bindTooltip(
+                `<div>
+                     Assembly | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e675321598c50088744271198534eb1d = L.circleMarker(
+                [17.392222, 78.4701612],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_2d14420b6b73dcb40629cc035fdcc221 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_3c334fa78c281d72e30db5dc0d9fcc38 = $(`<div id="html_3c334fa78c281d72e30db5dc0d9fcc38" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Nampally</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>1.41</b></td></tr>               <tr><td>Midday LMCI</td><td><b>1.49</b></td></tr>               <tr><td>Evening LMCI</td><td><b>1.16</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>1.36</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_2d14420b6b73dcb40629cc035fdcc221.setContent(html_3c334fa78c281d72e30db5dc0d9fcc38);
+            
+        
+
+        circle_marker_e675321598c50088744271198534eb1d.bindPopup(popup_2d14420b6b73dcb40629cc035fdcc221)
+        ;
+
+        
+    
+    
+            circle_marker_e675321598c50088744271198534eb1d.bindTooltip(
+                `<div>
+                     Nampally | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a63d7a4e28c80c46af8560055572c64 = L.circleMarker(
+                [17.3858253, 78.4733347],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_adbdef644cd5a408c3099415a6923eba = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_e2ab25a0666a8a7a30a8ec261a84fa52 = $(`<div id="html_e2ab25a0666a8a7a30a8ec261a84fa52" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Gandhi Bhavan</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.59</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.24</b></td></tr>               <tr><td>Evening LMCI</td><td><b>2.48</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.10</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_adbdef644cd5a408c3099415a6923eba.setContent(html_e2ab25a0666a8a7a30a8ec261a84fa52);
+            
+        
+
+        circle_marker_4a63d7a4e28c80c46af8560055572c64.bindPopup(popup_adbdef644cd5a408c3099415a6923eba)
+        ;
+
+        
+    
+    
+            circle_marker_4a63d7a4e28c80c46af8560055572c64.bindTooltip(
+                `<div>
+                     Gandhi Bhavan | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_079bdd906d350e40ea65e9acb786c269 = L.circleMarker(
+                [17.3820769, 78.4817011],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b7280", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_bc39deb8d666856a8c1b3e292cb62753 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_7c74d647387a2c482f2f629b6b406d97 = $(`<div id="html_7c74d647387a2c482f2f629b6b406d97" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Osmania Medical College</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>7.43</b></td></tr>               <tr><td>Midday LMCI</td><td><b>6.88</b></td></tr>               <tr><td>Evening LMCI</td><td><b>6.06</b></td></tr>               <tr><td>Severity</td><td><b>None</b></td></tr>               <tr><td>Mean LMCI</td><td><b>6.79</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_bc39deb8d666856a8c1b3e292cb62753.setContent(html_7c74d647387a2c482f2f629b6b406d97);
+            
+        
+
+        circle_marker_079bdd906d350e40ea65e9acb786c269.bindPopup(popup_bc39deb8d666856a8c1b3e292cb62753)
+        ;
+
+        
+    
+    
+            circle_marker_079bdd906d350e40ea65e9acb786c269.bindTooltip(
+                `<div>
+                     Osmania Medical College | None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e45c5a28b2adc9152cb9c8e18876e96 = L.circleMarker(
+                [17.3797886, 78.4861571],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_2438cd6b1d32652bdc418ba01e9512aa = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_bc50d7e88fe9d2a8d1ec094e029f447e = $(`<div id="html_bc50d7e88fe9d2a8d1ec094e029f447e" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Mahatma Gandhi Bus Station</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.71</b></td></tr>               <tr><td>Midday LMCI</td><td><b>3.76</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.41</b></td></tr>               <tr><td>Severity</td><td><b>Persistent</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.63</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_2438cd6b1d32652bdc418ba01e9512aa.setContent(html_bc50d7e88fe9d2a8d1ec094e029f447e);
+            
+        
+
+        circle_marker_4e45c5a28b2adc9152cb9c8e18876e96.bindPopup(popup_2438cd6b1d32652bdc418ba01e9512aa)
+        ;
+
+        
+    
+    
+            circle_marker_4e45c5a28b2adc9152cb9c8e18876e96.bindTooltip(
+                `<div>
+                     Mahatma Gandhi Bus Station | Persistent
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b626271c54449057c74b14c078b3db41 = L.circleMarker(
+                [17.3771888, 78.4939356],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b7280", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_75dcbf84f7a6550474c757c6bb4675ed = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_25c31e8fcdc4eb10a97f84fcdab62efd = $(`<div id="html_25c31e8fcdc4eb10a97f84fcdab62efd" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Malakpet</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>4.68</b></td></tr>               <tr><td>Midday LMCI</td><td><b>5.47</b></td></tr>               <tr><td>Evening LMCI</td><td><b>4.25</b></td></tr>               <tr><td>Severity</td><td><b>None</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.80</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_75dcbf84f7a6550474c757c6bb4675ed.setContent(html_25c31e8fcdc4eb10a97f84fcdab62efd);
+            
+        
+
+        circle_marker_b626271c54449057c74b14c078b3db41.bindPopup(popup_75dcbf84f7a6550474c757c6bb4675ed)
+        ;
+
+        
+    
+    
+            circle_marker_b626271c54449057c74b14c078b3db41.bindTooltip(
+                `<div>
+                     Malakpet | None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_24cdb155a09da8a7ae4e94f1bea129d8 = L.circleMarker(
+                [17.3734454, 78.5031791],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_0085cb2981956839cf1855f73b436ece = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_bd73ec59dfecd644c178267bfea812ba = $(`<div id="html_bd73ec59dfecd644c178267bfea812ba" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">New Market</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.60</b></td></tr>               <tr><td>Midday LMCI</td><td><b>5.19</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.67</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.15</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_0085cb2981956839cf1855f73b436ece.setContent(html_bd73ec59dfecd644c178267bfea812ba);
+            
+        
+
+        circle_marker_24cdb155a09da8a7ae4e94f1bea129d8.bindPopup(popup_0085cb2981956839cf1855f73b436ece)
+        ;
+
+        
+    
+    
+            circle_marker_24cdb155a09da8a7ae4e94f1bea129d8.bindTooltip(
+                `<div>
+                     New Market | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1bafc324302a0864cedb571d0a3028b2 = L.circleMarker(
+                [17.3710873, 78.5119545],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_2c48a4abb22ca219ec20358c613f04c2 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_7d31ac9222f9fe3f35adf0ca0b30179b = $(`<div id="html_7d31ac9222f9fe3f35adf0ca0b30179b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Musarambagh</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>3.64</b></td></tr>               <tr><td>Midday LMCI</td><td><b>4.57</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.45</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.89</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_2c48a4abb22ca219ec20358c613f04c2.setContent(html_7d31ac9222f9fe3f35adf0ca0b30179b);
+            
+        
+
+        circle_marker_1bafc324302a0864cedb571d0a3028b2.bindPopup(popup_2c48a4abb22ca219ec20358c613f04c2)
+        ;
+
+        
+    
+    
+            circle_marker_1bafc324302a0864cedb571d0a3028b2.bindTooltip(
+                `<div>
+                     Musarambagh | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_24b1e5beaf7906857d8e7721839a522f = L.circleMarker(
+                [17.3685493, 78.5253873],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_1842ed43ff036df33b9b9baac4e8c046 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_9d08b6833fbf48a53325cd40f6aa80eb = $(`<div id="html_9d08b6833fbf48a53325cd40f6aa80eb" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Dilsukh Nagar</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>4.15</b></td></tr>               <tr><td>Midday LMCI</td><td><b>4.44</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.15</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>3.91</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_1842ed43ff036df33b9b9baac4e8c046.setContent(html_9d08b6833fbf48a53325cd40f6aa80eb);
+            
+        
+
+        circle_marker_24b1e5beaf7906857d8e7721839a522f.bindPopup(popup_1842ed43ff036df33b9b9baac4e8c046)
+        ;
+
+        
+    
+    
+            circle_marker_24b1e5beaf7906857d8e7721839a522f.bindTooltip(
+                `<div>
+                     Dilsukh Nagar | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_490b786b1d2181c647fcf3a574ff478a = L.circleMarker(
+                [17.3681501, 78.5381335],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fbbf24", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_20a22cabb30b8310228a4bb0211b75fd = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_fb6447fe0dd4e3feb0cf2d4664d408b9 = $(`<div id="html_fb6447fe0dd4e3feb0cf2d4664d408b9" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Chaitanyapuri</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>5.06</b></td></tr>               <tr><td>Midday LMCI</td><td><b>4.58</b></td></tr>               <tr><td>Evening LMCI</td><td><b>3.74</b></td></tr>               <tr><td>Severity</td><td><b>Partial</b></td></tr>               <tr><td>Mean LMCI</td><td><b>4.46</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_20a22cabb30b8310228a4bb0211b75fd.setContent(html_fb6447fe0dd4e3feb0cf2d4664d408b9);
+            
+        
+
+        circle_marker_490b786b1d2181c647fcf3a574ff478a.bindPopup(popup_20a22cabb30b8310228a4bb0211b75fd)
+        ;
+
+        
+    
+    
+            circle_marker_490b786b1d2181c647fcf3a574ff478a.bindTooltip(
+                `<div>
+                     Chaitanyapuri | Partial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fd5dd5456291331f83f1d5e100d04c8 = L.circleMarker(
+                [17.3618565, 78.5439622],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b7280", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+        var popup_78b66c0b0375e2f8b00227128eb83cc6 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_d13f6a616ffe6fac8fac485f5428b8bc = $(`<div id="html_d13f6a616ffe6fac8fac485f5428b8bc" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Victoria Memorial</div>                    <table style="font-size:12px; width:100%;">               <tr><td>Morning LMCI</td><td><b>7.18</b></td></tr>               <tr><td>Midday LMCI</td><td><b>6.31</b></td></tr>               <tr><td>Evening LMCI</td><td><b>5.41</b></td></tr>               <tr><td>Severity</td><td><b>None</b></td></tr>               <tr><td>Mean LMCI</td><td><b>6.30</b></td></tr>             </table>                  </div>     </div>`)[0];
+                popup_78b66c0b0375e2f8b00227128eb83cc6.setContent(html_d13f6a616ffe6fac8fac485f5428b8bc);
+            
+        
+
+        circle_marker_3fd5dd5456291331f83f1d5e100d04c8.bindPopup(popup_78b66c0b0375e2f8b00227128eb83cc6)
+        ;
+
+        
+    
+    
+            circle_marker_3fd5dd5456291331f83f1d5e100d04c8.bindTooltip(
+                `<div>
+                     Victoria Memorial | None
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_167c5efc933434ce75b758b9d13e2aa1 = L.marker(
+                [17.349846, 78.5479412],
+                {
+}
+            ).addTo(feature_group_c77057fd4f06bfddfddf2efbc2d93bc7);
+        
+    
+            var div_icon_b799d78de12676d4e7c6e1864f92e553 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"\n            position: relative;\n            transform: translate(-10px, -10px) rotate(45deg);\n            width: 20px; height: 20px;\n            background: #e53935;\n            border: 3px solid white;\n            box-shadow: 0 0 6px rgba(0,0,0,0.35);\n        \"\u003e\u003c/div\u003e\n        \u003cdiv style=\"\n            position: relative; top: -4px; left: 18px;\n            background: rgba(255,255,255,0.95);\n            border: 1px solid #ef5350;\n            border-radius: 6px;\n            padding: 3px 6px;\n            font-weight: 700;\n            font-size: 12px;\n            color: #d32f2f;\n            white-space: nowrap;\n        \"\u003eL. B. Nagar\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+                marker_167c5efc933434ce75b758b9d13e2aa1.setIcon(div_icon_b799d78de12676d4e7c6e1864f92e553);
+            
+    
+            feature_group_c77057fd4f06bfddfddf2efbc2d93bc7.addTo(map_61df816173b98e22e28e987bf368d463);
+        
+    
+            var feature_group_22fed00fefad6b1798f6bb9c97cb5bd4 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_9df269e5de84727b46b24cfc32c55051 = L.polyline(
+                [[17.3503, 78.5478], [17.3251, 78.5666], [17.3315, 78.5685], [17.334, 78.5714], [17.3275, 78.5721]],
+                {"bubblingMouseEvents": true, "color": "#fdba74", "dashArray": "7 8", "dashOffset": null, "fill": false, "fillColor": "#fdba74", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_22fed00fefad6b1798f6bb9c97cb5bd4);
+        
+    
+            poly_line_9df269e5de84727b46b24cfc32c55051.bindTooltip(
+                `<div>
+                     Existing feeder | LB Nagar | Route 01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_290775952fe8afa3834f92c0cb031bc5 = L.polyline(
+                [[17.3503, 78.5478], [17.3456, 78.5522], [17.3402, 78.5663], [17.334, 78.5714]],
+                {"bubblingMouseEvents": true, "color": "#fdba74", "dashArray": "7 8", "dashOffset": null, "fill": false, "fillColor": "#fdba74", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_22fed00fefad6b1798f6bb9c97cb5bd4);
+        
+    
+            poly_line_290775952fe8afa3834f92c0cb031bc5.bindTooltip(
+                `<div>
+                     Existing feeder | LB Nagar | Route 02
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_309bb5bff93575feae5d69cf5eb5f995 = L.polyline(
+                [[17.3503, 78.5478], [17.3456, 78.5522], [17.3364, 78.5562], [17.3392, 78.5545], [17.3288, 78.5539], [17.3208, 78.5611]],
+                {"bubblingMouseEvents": true, "color": "#fdba74", "dashArray": "7 8", "dashOffset": null, "fill": false, "fillColor": "#fdba74", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_22fed00fefad6b1798f6bb9c97cb5bd4);
+        
+    
+            poly_line_309bb5bff93575feae5d69cf5eb5f995.bindTooltip(
+                `<div>
+                     Existing feeder | LB Nagar | Route 03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1a61a68fb845b1b8db3cbf00f923242e = L.polyline(
+                [[17.4968, 78.3414], [17.4942, 78.3496]],
+                {"bubblingMouseEvents": true, "color": "#93c5fd", "dashArray": "7 8", "dashOffset": null, "fill": false, "fillColor": "#93c5fd", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_22fed00fefad6b1798f6bb9c97cb5bd4);
+        
+    
+            poly_line_1a61a68fb845b1b8db3cbf00f923242e.bindTooltip(
+                `<div>
+                     Existing feeder | Miyapur | Route 03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_22fed00fefad6b1798f6bb9c97cb5bd4.addTo(map_61df816173b98e22e28e987bf368d463);
+        
+    
+            var feature_group_963dbbc25b1e206c4c330de71f5cc4b2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_435aec1eb28071dac8e4a8951b6ecbed = L.circleMarker(
+                [17.39051701676697, 78.47552182610183],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c4b5fd", "fillOpacity": 0.35, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22, "stroke": true, "weight": 2}
+            ).addTo(feature_group_963dbbc25b1e206c4c330de71f5cc4b2);
+        
+    
+        var popup_e711521dc685951be54612fb1061aaaf = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_4b585a9d6ffa623eaa268f31f98a905c = $(`<div id="html_4b585a9d6ffa623eaa268f31f98a905c" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Cluster 0</div>                <table style="font-size:12px; width:100%;">           <tr><td>Demand points</td><td><b>93</b></td></tr>           <tr><td>Nearest metro</td><td><b>Gandhi Bhavan</b></td></tr>           <tr><td>Worst window</td><td><b>Evening</b></td></tr>           <tr><td>Worst LMCI</td><td><b>2.48</b></td></tr>           <tr><td>Avg dist. to metro</td><td><b>1524 m</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_e711521dc685951be54612fb1061aaaf.setContent(html_4b585a9d6ffa623eaa268f31f98a905c);
+            
+        
+
+        circle_marker_435aec1eb28071dac8e4a8951b6ecbed.bindPopup(popup_e711521dc685951be54612fb1061aaaf)
+        ;
+
+        
+    
+    
+            circle_marker_435aec1eb28071dac8e4a8951b6ecbed.bindTooltip(
+                `<div>
+                     Cluster 0 | demand=93
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b32d5f8202e155e095aa650bf2a28a5 = L.circleMarker(
+                [17.461235783551327, 78.4218217713677],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c4b5fd", "fillOpacity": 0.35, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22, "stroke": true, "weight": 2}
+            ).addTo(feature_group_963dbbc25b1e206c4c330de71f5cc4b2);
+        
+    
+        var popup_e3ad0c71f80007721d2d055f4a7f0ab2 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_df3a6ab0c556649e1be4aebfdd05a63b = $(`<div id="html_df3a6ab0c556649e1be4aebfdd05a63b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Cluster 1</div>                <table style="font-size:12px; width:100%;">           <tr><td>Demand points</td><td><b>202</b></td></tr>           <tr><td>Nearest metro</td><td><b>Bharat Nagar</b></td></tr>           <tr><td>Worst window</td><td><b>Morning</b></td></tr>           <tr><td>Worst LMCI</td><td><b>3.15</b></td></tr>           <tr><td>Avg dist. to metro</td><td><b>1197 m</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_e3ad0c71f80007721d2d055f4a7f0ab2.setContent(html_df3a6ab0c556649e1be4aebfdd05a63b);
+            
+        
+
+        circle_marker_2b32d5f8202e155e095aa650bf2a28a5.bindPopup(popup_e3ad0c71f80007721d2d055f4a7f0ab2)
+        ;
+
+        
+    
+    
+            circle_marker_2b32d5f8202e155e095aa650bf2a28a5.bindTooltip(
+                `<div>
+                     Cluster 1 | demand=202
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76e7a2bc720affa83f67a698332a4758 = L.circleMarker(
+                [17.37281847931417, 78.52100680750722],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c4b5fd", "fillOpacity": 0.35, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22, "stroke": true, "weight": 2}
+            ).addTo(feature_group_963dbbc25b1e206c4c330de71f5cc4b2);
+        
+    
+        var popup_faf02f765638421417c07b52fa6b35f9 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_85b79652f9b4d94f2ea09f584b522ba2 = $(`<div id="html_85b79652f9b4d94f2ea09f584b522ba2" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Cluster 2</div>                <table style="font-size:12px; width:100%;">           <tr><td>Demand points</td><td><b>82</b></td></tr>           <tr><td>Nearest metro</td><td><b>Dilsukh Nagar</b></td></tr>           <tr><td>Worst window</td><td><b>Evening</b></td></tr>           <tr><td>Worst LMCI</td><td><b>2.97</b></td></tr>           <tr><td>Avg dist. to metro</td><td><b>1434 m</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_faf02f765638421417c07b52fa6b35f9.setContent(html_85b79652f9b4d94f2ea09f584b522ba2);
+            
+        
+
+        circle_marker_76e7a2bc720affa83f67a698332a4758.bindPopup(popup_faf02f765638421417c07b52fa6b35f9)
+        ;
+
+        
+    
+    
+            circle_marker_76e7a2bc720affa83f67a698332a4758.bindTooltip(
+                `<div>
+                     Cluster 2 | demand=82
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b4d86ebb7132e2ed49588fd915325b8 = L.circleMarker(
+                [17.51559952347418, 78.37895120953844],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c4b5fd", "fillOpacity": 0.35, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_963dbbc25b1e206c4c330de71f5cc4b2);
+        
+    
+        var popup_dd262ec2b67e00c297fe29cf2c8b9421 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_474b0906f4bdb4bb41ae5197803435c3 = $(`<div id="html_474b0906f4bdb4bb41ae5197803435c3" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Cluster 3</div>                <table style="font-size:12px; width:100%;">           <tr><td>Demand points</td><td><b>3</b></td></tr>           <tr><td>Nearest metro</td><td><b>JNTU College</b></td></tr>           <tr><td>Worst window</td><td><b>Morning</b></td></tr>           <tr><td>Worst LMCI</td><td><b>2.23</b></td></tr>           <tr><td>Avg dist. to metro</td><td><b>2750 m</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_dd262ec2b67e00c297fe29cf2c8b9421.setContent(html_474b0906f4bdb4bb41ae5197803435c3);
+            
+        
+
+        circle_marker_9b4d86ebb7132e2ed49588fd915325b8.bindPopup(popup_dd262ec2b67e00c297fe29cf2c8b9421)
+        ;
+
+        
+    
+    
+            circle_marker_9b4d86ebb7132e2ed49588fd915325b8.bindTooltip(
+                `<div>
+                     Cluster 3 | demand=3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_963dbbc25b1e206c4c330de71f5cc4b2.addTo(map_61df816173b98e22e28e987bf368d463);
+        
+    
+            var feature_group_58ea465b6cfb43fbe05670ebcb9a9284 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_27f44a59c2bbf9b3b37d41e1a5969e53 = L.polyline(
+                [[17.39051701676697, 78.47552182610183], [17.3858253, 78.4733347]],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2563eb", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+        var popup_6f9fd199e1874ca857c65bc818452b62 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2e516fe760236fec4e3486a75d981da5 = $(`<div id="html_2e516fe760236fec4e3486a75d981da5" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">#4 FR_00_A</div>                <table style="font-size:12px; width:100%;">           <tr><td>Type</td><td><b>direct_to_metro</b></td></tr>           <tr><td>Anchor</td><td><b>Gandhi Bhavan</b></td></tr>           <tr><td>Demand</td><td><b>93</b></td></tr>           <tr><td>Length</td><td><b>768 m</b></td></tr>           <tr><td>Score</td><td><b>0.615</b></td></tr>           <tr><td>Worst window</td><td><b>Evening</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_6f9fd199e1874ca857c65bc818452b62.setContent(html_2e516fe760236fec4e3486a75d981da5);
+            
+        
+
+        poly_line_27f44a59c2bbf9b3b37d41e1a5969e53.bindPopup(popup_6f9fd199e1874ca857c65bc818452b62)
+        ;
+
+        
+    
+    
+            poly_line_27f44a59c2bbf9b3b37d41e1a5969e53.bindTooltip(
+                `<div>
+                     #4 FR_00_A | direct_to_metro | score=0.615
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9bbf24cca058f68b79d1e8f72881d88 = L.circleMarker(
+                [17.39051701676697, 78.47552182610183],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var circle_marker_dedaa97384c7dd741ec54807f7c7c0ed = L.circleMarker(
+                [17.3858253, 78.4733347],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var poly_line_4cbeea6f7bb6635ca5b3fc83040fac08 = L.polyline(
+                [[17.39051701676697, 78.47552182610183], [17.392450000000004, 78.46759]],
+                {"bubblingMouseEvents": true, "color": "#16a34a", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#16a34a", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+        var popup_47d818ce22017da0ad60defbb1b737fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2e5cf6b339fad731a441bd3c743145b = $(`<div id="html_b2e5cf6b339fad731a441bd3c743145b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">#5 FR_00_B</div>                <table style="font-size:12px; width:100%;">           <tr><td>Type</td><td><b>link_to_mmts_hub</b></td></tr>           <tr><td>Anchor</td><td><b>HYDERABAD</b></td></tr>           <tr><td>Demand</td><td><b>93</b></td></tr>           <tr><td>Length</td><td><b>1174 m</b></td></tr>           <tr><td>Score</td><td><b>0.611</b></td></tr>           <tr><td>Worst window</td><td><b>Evening</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_47d818ce22017da0ad60defbb1b737fe.setContent(html_b2e5cf6b339fad731a441bd3c743145b);
+            
+        
+
+        poly_line_4cbeea6f7bb6635ca5b3fc83040fac08.bindPopup(popup_47d818ce22017da0ad60defbb1b737fe)
+        ;
+
+        
+    
+    
+            poly_line_4cbeea6f7bb6635ca5b3fc83040fac08.bindTooltip(
+                `<div>
+                     #5 FR_00_B | link_to_mmts_hub | score=0.611
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7670b34a20a00c2d3523241638b78cc0 = L.circleMarker(
+                [17.39051701676697, 78.47552182610183],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a34a", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var circle_marker_18f1b7898296c4a5375e749d6986304e = L.circleMarker(
+                [17.392450000000004, 78.46759],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a34a", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var poly_line_f258979aba1b6c5cb4f41a2fff4fd0c1 = L.polyline(
+                [[17.461235783551327, 78.4218217713677], [17.4629092, 78.4305364]],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2563eb", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+        var popup_4355e1482a21288a1b177e9feb983083 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b8313bb86951eabfb5f28ffd500940c6 = $(`<div id="html_b8313bb86951eabfb5f28ffd500940c6" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">#2 FR_01_A</div>                <table style="font-size:12px; width:100%;">           <tr><td>Type</td><td><b>direct_to_metro</b></td></tr>           <tr><td>Anchor</td><td><b>Bharat Nagar</b></td></tr>           <tr><td>Demand</td><td><b>202</b></td></tr>           <tr><td>Length</td><td><b>1275 m</b></td></tr>           <tr><td>Score</td><td><b>0.762</b></td></tr>           <tr><td>Worst window</td><td><b>Morning</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_4355e1482a21288a1b177e9feb983083.setContent(html_b8313bb86951eabfb5f28ffd500940c6);
+            
+        
+
+        poly_line_f258979aba1b6c5cb4f41a2fff4fd0c1.bindPopup(popup_4355e1482a21288a1b177e9feb983083)
+        ;
+
+        
+    
+    
+            poly_line_f258979aba1b6c5cb4f41a2fff4fd0c1.bindTooltip(
+                `<div>
+                     #2 FR_01_A | direct_to_metro | score=0.762
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_974387e44b81eafc83e87387a6ea9e09 = L.circleMarker(
+                [17.461235783551327, 78.4218217713677],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var circle_marker_e6ff7b4a91a1d12fd0b18e7cfa33f0e2 = L.circleMarker(
+                [17.4629092, 78.4305364],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var poly_line_a46ea42d13b4d6215bbc60cd3b098b8d = L.polyline(
+                [[17.461235783551327, 78.4218217713677], [17.46256, 78.43016]],
+                {"bubblingMouseEvents": true, "color": "#16a34a", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#16a34a", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+        var popup_469fb286b124c752e094ae92815a1ce1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_558c8d8d61f9c1100475d9bf0e244688 = $(`<div id="html_558c8d8d61f9c1100475d9bf0e244688" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">#1 FR_01_B</div>                <table style="font-size:12px; width:100%;">           <tr><td>Type</td><td><b>link_to_mmts_hub</b></td></tr>           <tr><td>Anchor</td><td><b>BHARATNAGAR</b></td></tr>           <tr><td>Demand</td><td><b>202</b></td></tr>           <tr><td>Length</td><td><b>1213 m</b></td></tr>           <tr><td>Score</td><td><b>0.763</b></td></tr>           <tr><td>Worst window</td><td><b>Morning</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_469fb286b124c752e094ae92815a1ce1.setContent(html_558c8d8d61f9c1100475d9bf0e244688);
+            
+        
+
+        poly_line_a46ea42d13b4d6215bbc60cd3b098b8d.bindPopup(popup_469fb286b124c752e094ae92815a1ce1)
+        ;
+
+        
+    
+    
+            poly_line_a46ea42d13b4d6215bbc60cd3b098b8d.bindTooltip(
+                `<div>
+                     #1 FR_01_B | link_to_mmts_hub | score=0.763
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d945c96508b7155de4b6f99c19adbe43 = L.circleMarker(
+                [17.461235783551327, 78.4218217713677],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a34a", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var circle_marker_df2cf6fedda274fc0aaf8335c8db2ccb = L.circleMarker(
+                [17.46256, 78.43016],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a34a", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var poly_line_4b6b050531c4378f29d4f9e051f81dbc = L.polyline(
+                [[17.46133324639281, 78.4293485421994], [17.46641285191909, 78.42707222284761], [17.468459728228087, 78.42172005080965], [17.466274774763445, 78.41642749979171], [17.461138036478168, 78.41429504931568], [17.456058613060364, 78.41657161597816], [17.454011833061568, 78.42192344314606], [17.456196604417727, 78.42721574685332], [17.46133324639281, 78.4293485421994]],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#7c3aed", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+        var popup_c40a0f5cc2be8cedb494b63d1b76f3c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_afc77fe221a1b1cde681807244e00e99 = $(`<div id="html_afc77fe221a1b1cde681807244e00e99" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial; min-width:260px">       <div style="font-size:14px; font-weight:700; margin-bottom:4px;">#3 FR_01_C</div>                <table style="font-size:12px; width:100%;">           <tr><td>Type</td><td><b>circular_microfeeder</b></td></tr>           <tr><td>Anchor</td><td><b>Bharat Nagar</b></td></tr>           <tr><td>Demand</td><td><b>202</b></td></tr>           <tr><td>Length</td><td><b>5026 m</b></td></tr>           <tr><td>Score</td><td><b>0.731</b></td></tr>           <tr><td>Worst window</td><td><b>Morning</b></td></tr>         </table>              </div>     </div>`)[0];
+                popup_c40a0f5cc2be8cedb494b63d1b76f3c9.setContent(html_afc77fe221a1b1cde681807244e00e99);
+            
+        
+
+        poly_line_4b6b050531c4378f29d4f9e051f81dbc.bindPopup(popup_c40a0f5cc2be8cedb494b63d1b76f3c9)
+        ;
+
+        
+    
+    
+            poly_line_4b6b050531c4378f29d4f9e051f81dbc.bindTooltip(
+                `<div>
+                     #3 FR_01_C | circular_microfeeder | score=0.731
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84ddd716d5acc9a56bed8bb19d543399 = L.circleMarker(
+                [17.46133324639281, 78.4293485421994],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            var circle_marker_d7896d4813e0869ca8f546a1a9f5aed4 = L.circleMarker(
+                [17.46133324639281, 78.4293485421994],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_58ea465b6cfb43fbe05670ebcb9a9284);
+        
+    
+            feature_group_58ea465b6cfb43fbe05670ebcb9a9284.addTo(map_61df816173b98e22e28e987bf368d463);
+        
+    
+            var feature_group_19657c3f53754e7e2f6830d112dcd059 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b15ef481addbe5cce6f9ec7dd738a8d1 = L.circleMarker(
+                [17.511305, 78.28248],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_b15ef481addbe5cce6f9ec7dd738a8d1.bindTooltip(
+                `<div>
+                     MMTS: RAMACHANDRAPURAM TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fd12424901b13342826250574b91cda0 = L.circleMarker(
+                [17.502301, 78.282051],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_fd12424901b13342826250574b91cda0.bindTooltip(
+                `<div>
+                     MMTS: BHEL HALT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db04bbcae22619962893a93992c68384 = L.circleMarker(
+                [17.474877, 78.284883],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_db04bbcae22619962893a93992c68384.bindTooltip(
+                `<div>
+                     MMTS: TELAPUR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4b7a14781509d2f2093f9b50f90112d9 = L.circleMarker(
+                [17.483083999999998, 78.31698399999998],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_4b7a14781509d2f2093f9b50f90112d9.bindTooltip(
+                `<div>
+                     MMTS: LINGAMPALLI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f4cde534a9b43f1c4b50fd2ffde9b87 = L.circleMarker(
+                [17.43868, 78.45817],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_6f4cde534a9b43f1c4b50fd2ffde9b87.bindTooltip(
+                `<div>
+                     MMTS: BEGUMPET
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a29dc1788fd82150c4b6c97cd1a5dc89 = L.circleMarker(
+                [17.43374, 78.50158],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_a29dc1788fd82150c4b6c97cd1a5dc89.bindTooltip(
+                `<div>
+                     MMTS: SECUNDERABAD
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_963289c86679949d84b13ea87a7889a0 = L.circleMarker(
+                [17.39245, 78.46759],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_963289c86679949d84b13ea87a7889a0.bindTooltip(
+                `<div>
+                     MMTS: HYDERABAD
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13f85d7ec948f5e4f2750747b36390a6 = L.circleMarker(
+                [17.389651, 78.49984599999998],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_13f85d7ec948f5e4f2750747b36390a6.bindTooltip(
+                `<div>
+                     MMTS: KACHEGUDA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d1c1a82ca41c21fde45d1a53dd875f3d = L.circleMarker(
+                [17.448022, 78.529236],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_d1c1a82ca41c21fde45d1a53dd875f3d.bindTooltip(
+                `<div>
+                     MMTS: MALKAJGIRI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a61b0548246f02809ed33c986b5a143 = L.circleMarker(
+                [17.263162, 78.393373],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_3a61b0548246f02809ed33c986b5a143.bindTooltip(
+                `<div>
+                     MMTS: UMDANAGAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2f77e69609dfff88131416b8f48fde08 = L.circleMarker(
+                [17.63995, 78.47528],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_2f77e69609dfff88131416b8f48fde08.bindTooltip(
+                `<div>
+                     MMTS: MEDCHAL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7d302901eba13bace233932d3c96e64 = L.circleMarker(
+                [17.37664, 78.4948],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_e7d302901eba13bace233932d3c96e64.bindTooltip(
+                `<div>
+                     MMTS: MALAKPET
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c440e123b011e0b45effcf73402e8cfe = L.circleMarker(
+                [17.33272, 78.47516],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_c440e123b011e0b45effcf73402e8cfe.bindTooltip(
+                `<div>
+                     MMTS: FALAKNUMA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03a2178ec48201dbda7029b32f6f19b5 = L.circleMarker(
+                [17.3098373, 78.4249782],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_03a2178ec48201dbda7029b32f6f19b5.bindTooltip(
+                `<div>
+                     MMTS: BUDVEL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_170d5211815af6deb1032623d59aa4b9 = L.circleMarker(
+                [17.5332793, 78.5151467],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_170d5211815af6deb1032623d59aa4b9.bindTooltip(
+                `<div>
+                     MMTS: BOLARUM
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7158d1ca0aabd340a6e50483475e30f1 = L.circleMarker(
+                [17.458072, 78.60601899999997],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_7158d1ca0aabd340a6e50483475e30f1.bindTooltip(
+                `<div>
+                     MMTS: CHARLAPALLI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1fc0f6ad73f4691c47d05ad4bf2fa645 = L.circleMarker(
+                [17.453016, 78.678117],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_1fc0f6ad73f4691c47d05ad4bf2fa645.bindTooltip(
+                `<div>
+                     MMTS: GHATKESAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a908367ee2b49bc87bf5b1d95c7746ec = L.circleMarker(
+                [17.42839, 78.51961],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_a908367ee2b49bc87bf5b1d95c7746ec.bindTooltip(
+                `<div>
+                     MMTS: SITAFALMANDI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32723adbbcfd2f04476faa7f43e5bab3 = L.circleMarker(
+                [17.61075, 78.46827],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_32723adbbcfd2f04476faa7f43e5bab3.bindTooltip(
+                `<div>
+                     MMTS: GOWDAVALLI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b250321162fb7033cbb87324a9316dc2 = L.circleMarker(
+                [17.403717999999998, 78.463197],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_b250321162fb7033cbb87324a9316dc2.bindTooltip(
+                `<div>
+                     MMTS: LAKDIKAPUL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8197f75be753c653523f30e8aaf41b61 = L.circleMarker(
+                [17.41298, 78.46106],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_8197f75be753c653523f30e8aaf41b61.bindTooltip(
+                `<div>
+                     MMTS: KHAIRATABAD
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b43a0a2508c1fa8a962aca949bc3ce9 = L.circleMarker(
+                [17.423578, 78.463111],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_8b43a0a2508c1fa8a962aca949bc3ce9.bindTooltip(
+                `<div>
+                     MMTS: NECKLACE ROAD
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ea31f80a642ebdd2c963550c50026a37 = L.circleMarker(
+                [17.44572, 78.45221],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_ea31f80a642ebdd2c963550c50026a37.bindTooltip(
+                `<div>
+                     MMTS: NATURE CURE HOSPITAL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f02fc1b0007e41cb0fe6103e7357232b = L.circleMarker(
+                [17.45588, 78.45008],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_f02fc1b0007e41cb0fe6103e7357232b.bindTooltip(
+                `<div>
+                     MMTS: FATEHNAGAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_35c07957bb1f819e5e36408863b0c01f = L.circleMarker(
+                [17.46256, 78.43016],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_35c07957bb1f819e5e36408863b0c01f.bindTooltip(
+                `<div>
+                     MMTS: BHARATNAGAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b22eccc2b3d4ef8c446941ee811bbeb6 = L.circleMarker(
+                [17.45918, 78.40782],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_b22eccc2b3d4ef8c446941ee811bbeb6.bindTooltip(
+                `<div>
+                     MMTS: BORABANDA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7607b98a6029251f855bc942b49ed768 = L.circleMarker(
+                [17.46978, 78.38524100000002],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_7607b98a6029251f855bc942b49ed768.bindTooltip(
+                `<div>
+                     MMTS: HITECH CITY
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1296b78cdc93002d9057eaa40cf5bcda = L.circleMarker(
+                [17.482695, 78.363075],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_1296b78cdc93002d9057eaa40cf5bcda.bindTooltip(
+                `<div>
+                     MMTS: HAFIZPETA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3569ebe1d844ea629456def535839171 = L.circleMarker(
+                [17.48738, 78.33271],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_3569ebe1d844ea629456def535839171.bindTooltip(
+                `<div>
+                     MMTS: CHANDANAGAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3aec860dab067a0d49f0ac4f886c3bfc = L.circleMarker(
+                [17.34132, 78.48244],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_3aec860dab067a0d49f0ac4f886c3bfc.bindTooltip(
+                `<div>
+                     MMTS: HUPPUGUDA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de5ba492dbd6c4082ca3d902b0fecd57 = L.circleMarker(
+                [17.36001, 78.49207],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_de5ba492dbd6c4082ca3d902b0fecd57.bindTooltip(
+                `<div>
+                     MMTS: YAKUTPURA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6cd7d88455136d7a76ebfd6a222e811b = L.circleMarker(
+                [17.36659, 78.49037],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_6cd7d88455136d7a76ebfd6a222e811b.bindTooltip(
+                `<div>
+                     MMTS: DABIRPURA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_143791aeef1d2b353161f4f64a56ea40 = L.circleMarker(
+                [17.40218, 78.51121],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_143791aeef1d2b353161f4f64a56ea40.bindTooltip(
+                `<div>
+                     MMTS: VIDYA NAGAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ca5a572db2d6dbf9fb6bd6e4b1e3367 = L.circleMarker(
+                [17.4116, 78.51839],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_7ca5a572db2d6dbf9fb6bd6e4b1e3367.bindTooltip(
+                `<div>
+                     MMTS: JAMAI OSMANIA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_07ca93927f2cbd10434d2ceb10f2d068 = L.circleMarker(
+                [17.41846, 78.519995],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_07ca93927f2cbd10434d2ceb10f2d068.bindTooltip(
+                `<div>
+                     MMTS: ARTS COLLEGE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffd35413c6fa9a14c032d346ae947a75 = L.circleMarker(
+                [17.43287, 78.48722],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_ffd35413c6fa9a14c032d346ae947a75.bindTooltip(
+                `<div>
+                     MMTS: JAMES STREET
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_17842076dd2e17e702ccb4c357ee4508 = L.circleMarker(
+                [17.43561, 78.47672],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_17842076dd2e17e702ccb4c357ee4508.bindTooltip(
+                `<div>
+                     MMTS: SANJEEVAIAH PARK
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9caa9f0fc5e7faaac54eebe3cf3f75d4 = L.circleMarker(
+                [17.440775, 78.524823],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_9caa9f0fc5e7faaac54eebe3cf3f75d4.bindTooltip(
+                `<div>
+                     MMTS: LALAGUDA GATE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf350c821f29f8367ec9fcfd895d8df2 = L.circleMarker(
+                [17.456537, 78.53164],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_bf350c821f29f8367ec9fcfd895d8df2.bindTooltip(
+                `<div>
+                     MMTS: DAYANAND NAGAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3ffd9d41ab56c374de8abc4f8d4bd66 = L.circleMarker(
+                [17.461531, 78.53296999999998],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_b3ffd9d41ab56c374de8abc4f8d4bd66.bindTooltip(
+                `<div>
+                     MMTS: SAFILGUDA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0967154a81cc38b53608d388bb5f5c00 = L.circleMarker(
+                [17.476719, 78.52889300000002],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_0967154a81cc38b53608d388bb5f5c00.bindTooltip(
+                `<div>
+                     MMTS: RMKRSHNAPRM GTE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_09d633ed0a6639793de09c66b6ae3b0c = L.circleMarker(
+                [17.486829, 78.527005],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_09d633ed0a6639793de09c66b6ae3b0c.bindTooltip(
+                `<div>
+                     MMTS: AMMUGUDA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f85f1a93781e56f722047e362713b0cd = L.circleMarker(
+                [17.494934, 78.51889399999997],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_f85f1a93781e56f722047e362713b0cd.bindTooltip(
+                `<div>
+                     MMTS: CAVALRY BARRCKS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_001bea15b8cf1442032514a99e098883 = L.circleMarker(
+                [17.505289, 78.514516],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_001bea15b8cf1442032514a99e098883.bindTooltip(
+                `<div>
+                     MMTS: ALWAL HALT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1fd201112da885508df125fade4577d5 = L.circleMarker(
+                [17.51764, 78.51568],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_1fd201112da885508df125fade4577d5.bindTooltip(
+                `<div>
+                     MMTS: BOLARUM BAZAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b7c49cedf0c30171de8157e42212fd4 = L.circleMarker(
+                [17.32359, 78.4374],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_9b7c49cedf0c30171de8157e42212fd4.bindTooltip(
+                `<div>
+                     MMTS: NPA SHIVRAMPALLI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f699d1a5f1f692a894589732d7d8a89b = L.circleMarker(
+                [17.56896, 78.48779],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19657c3f53754e7e2f6830d112dcd059);
+        
+    
+            circle_marker_f699d1a5f1f692a894589732d7d8a89b.bindTooltip(
+                `<div>
+                     MMTS: G POCHAMPALLI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            map_61df816173b98e22e28e987bf368d463.fitBounds(
+                [[17.349846, 78.3730262], [17.51559952347418, 78.5479412]],
+                {}
+            );
+        
+    
+            var layer_control_abd32c8b0f9ec1c45aa6bc8772e726e7_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_aeda0ff59ca275e8c982da79878c7f66,
+                },
+                overlays :  {
+                    "Metro line \u0026 stations" : feature_group_c77057fd4f06bfddfddf2efbc2d93bc7,
+                    "Existing feeder services" : feature_group_22fed00fefad6b1798f6bb9c97cb5bd4,
+                    "Demand clusters / desert zones" : feature_group_963dbbc25b1e206c4c330de71f5cc4b2,
+                    "Algorithm-suggested routes" : feature_group_58ea465b6cfb43fbe05670ebcb9a9284,
+                    "MMTS contextual stations" : feature_group_19657c3f53754e7e2f6830d112dcd059,
+                },
+            };
+            let layer_control_abd32c8b0f9ec1c45aa6bc8772e726e7 = L.control.layers(
+                layer_control_abd32c8b0f9ec1c45aa6bc8772e726e7_layers.base_layers,
+                layer_control_abd32c8b0f9ec1c45aa6bc8772e726e7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_61df816173b98e22e28e987bf368d463);
+
+        
+</script>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f6615b3dec0a6080f131f4138ff83321 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+position: fixed;
+top: 10px; left: 50%; transform: translateX(-50%);
+z-index: 9999;
+background: rgba(255,255,255,0.96);
+padding: 12px 18px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+font-family: Arial;
+text-align: center;">
+  <div style="font-size: 22px; font-weight: 800; color: #1f2937;">
+    Feeder Service Network — Hyderabad Metro Red Line Terminal Stations
+  </div>
+  <div style="font-size: 14px; color: #374151; margin-top: 4px;">
+    Existing feeder routes linked to Miyapur and LB Nagar terminals
+  </div>
+</div>
+    
+<div style="
+position: fixed;
+bottom: 28px; left: 28px; z-index: 9999;
+background: rgba(255,255,255,0.96);
+padding: 14px 16px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.22);
+font-family: Arial;
+font-size: 12px;
+line-height: 1.45;">
+  <b>Legend</b><br>
+  <span style="display:inline-block;width:14px;height:4px;background:#4f83ff;vertical-align:middle;"></span>
+  Miyapur-linked feeder routes<br>
+  <span style="display:inline-block;width:14px;height:4px;background:#c7771a;vertical-align:middle;"></span>
+  LB Nagar-linked feeder routes<br>
+  <span style="display:inline-block;width:10px;height:10px;background:#455a64;border-radius:50%;display:inline-block;"></span>
+  Feeder stop<br>
+  <span style="color:#e53935;font-weight:700;">◆</span>
+  Metro terminal<br>
+  <hr style="margin:6px 0;">
+  <b>Counts</b><br>
+  Miyapur-linked routes: 1<br>
+  LB Nagar-linked routes: 3
+</div>
+    
+            <div class="folium-map" id="map_f6615b3dec0a6080f131f4138ff83321" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f6615b3dec0a6080f131f4138ff83321 = L.map(
+                "map_f6615b3dec0a6080f131f4138ff83321",
+                {
+                    center: [17.413560486956527, 78.44790727826089],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_961d84828ad0205e8ac96bb99f1355b0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_961d84828ad0205e8ac96bb99f1355b0.addTo(map_f6615b3dec0a6080f131f4138ff83321);
+        
+    
+            var feature_group_8c2949c75704371ddb8cc8c1a280d298 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_1a7cc86c764e9d413fdfd7f1d74748aa = L.polyline(
+                [[17.4968, 78.3414], [17.4942, 78.3496]],
+                {"bubblingMouseEvents": true, "color": "#a6cee4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#a6cee4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_8c2949c75704371ddb8cc8c1a280d298);
+        
+    
+            poly_line_1a7cc86c764e9d413fdfd7f1d74748aa.bindTooltip(
+                `<div>
+                     <div style='font-family:Arial;font-size:12px'><b>Route 03</b><br>Assigned terminal: Miyapur<br>Representative trip: MYP_R03_AM<br>Stops shown: 2</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ea39260e61368aebaeaf882e0ed3d2c = L.circleMarker(
+                [17.4942, 78.3496],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a6cee4", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8c2949c75704371ddb8cc8c1a280d298);
+        
+    
+            feature_group_8c2949c75704371ddb8cc8c1a280d298.addTo(map_f6615b3dec0a6080f131f4138ff83321);
+        
+    
+            var feature_group_5cf980cd5da25cddbca7cc6bb031be04 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_443abdcefb8f1bdc108c5fcd79a01df6 = L.polyline(
+                [[17.3503, 78.5478], [17.3251, 78.5666], [17.3315, 78.5685], [17.334, 78.5714], [17.3275, 78.5721]],
+                {"bubblingMouseEvents": true, "color": "#feca5d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#feca5d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_5cf980cd5da25cddbca7cc6bb031be04);
+        
+    
+            poly_line_443abdcefb8f1bdc108c5fcd79a01df6.bindTooltip(
+                `<div>
+                     <div style='font-family:Arial;font-size:12px'><b>Route 01</b><br>Assigned terminal: LB Nagar<br>Representative trip: LBN_R01_AM<br>Stops shown: 5</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47aefa787b0f9438baa297e622b3082c = L.circleMarker(
+                [17.3315, 78.5685],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#feca5d", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5cf980cd5da25cddbca7cc6bb031be04);
+        
+    
+            var poly_line_913ca79e71665a03dac24530b26b8dce = L.polyline(
+                [[17.3503, 78.5478], [17.3456, 78.5522], [17.3402, 78.5663], [17.334, 78.5714]],
+                {"bubblingMouseEvents": true, "color": "#eb6f14", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#eb6f14", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_5cf980cd5da25cddbca7cc6bb031be04);
+        
+    
+            poly_line_913ca79e71665a03dac24530b26b8dce.bindTooltip(
+                `<div>
+                     <div style='font-family:Arial;font-size:12px'><b>Route 02</b><br>Assigned terminal: LB Nagar<br>Representative trip: LBN_R02_AM<br>Stops shown: 4</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a11783693ac4dcbc052f8bfe2ef229b = L.circleMarker(
+                [17.3402, 78.5663],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#eb6f14", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5cf980cd5da25cddbca7cc6bb031be04);
+        
+    
+            var poly_line_2a4619928b7ee0863e473984cf7ef3e7 = L.polyline(
+                [[17.3503, 78.5478], [17.3456, 78.5522], [17.3364, 78.5562], [17.3392, 78.5545], [17.3288, 78.5539], [17.3208, 78.5611]],
+                {"bubblingMouseEvents": true, "color": "#8e3104", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#8e3104", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_5cf980cd5da25cddbca7cc6bb031be04);
+        
+    
+            poly_line_2a4619928b7ee0863e473984cf7ef3e7.bindTooltip(
+                `<div>
+                     <div style='font-family:Arial;font-size:12px'><b>Route 03</b><br>Assigned terminal: LB Nagar<br>Representative trip: LBN_R03_AM<br>Stops shown: 6</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84cd12e29e42eab0cd0ae4a39f8103af = L.circleMarker(
+                [17.3392, 78.5545],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e3104", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5cf980cd5da25cddbca7cc6bb031be04);
+        
+    
+            feature_group_5cf980cd5da25cddbca7cc6bb031be04.addTo(map_f6615b3dec0a6080f131f4138ff83321);
+        
+    
+            var feature_group_501bd8db2a3d77aabc23e437a500eac5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2b0555451813969cc18b07b4fea32176 = L.circleMarker(
+                [17.4968, 78.3414],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_2b0555451813969cc18b07b4fea32176.bindTooltip(
+                `<div>
+                     Miyapur Arm B
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0799221cc250fd2edff06db8843fd66 = L.circleMarker(
+                [17.3503, 78.5478],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_c0799221cc250fd2edff06db8843fd66.bindTooltip(
+                `<div>
+                     LB Nagar Arm C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_611768a158ee4059f607eb8826853c7b = L.circleMarker(
+                [17.4942, 78.3496],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_611768a158ee4059f607eb8826853c7b.bindTooltip(
+                `<div>
+                     Miyapur X Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e0626bcc14121f2bf2a0d98c8663ca95 = L.circleMarker(
+                [17.4951, 78.3308],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_e0626bcc14121f2bf2a0d98c8663ca95.bindTooltip(
+                `<div>
+                     Allwyn X Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4104bc35905bebd76d65b33e5db0be1 = L.circleMarker(
+                [17.4895, 78.3185],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_a4104bc35905bebd76d65b33e5db0be1.bindTooltip(
+                `<div>
+                     Gangaram DCB Bank
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfbee34f75402a3a709a062a6d5548db = L.circleMarker(
+                [17.4842, 78.3045],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_dfbee34f75402a3a709a062a6d5548db.bindTooltip(
+                `<div>
+                     Lingampally
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e646a1e725e609e58df8741c1d7c113b = L.circleMarker(
+                [17.531, 78.3752],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_e646a1e725e609e58df8741c1d7c113b.bindTooltip(
+                `<div>
+                     Bachupally X Roads
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_949ea2932597dd148dfcf52a4d4b9e67 = L.circleMarker(
+                [17.5135, 78.2835],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_949ea2932597dd148dfcf52a4d4b9e67.bindTooltip(
+                `<div>
+                     Beeramguda
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d509b5944bebe152709fa56c2ec3cc7c = L.circleMarker(
+                [17.4855, 78.3031],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_d509b5944bebe152709fa56c2ec3cc7c.bindTooltip(
+                `<div>
+                     BHEL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6acc48b78dc30ba8b205ead741bd8e63 = L.circleMarker(
+                [17.5028, 78.2932],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_6acc48b78dc30ba8b205ead741bd8e63.bindTooltip(
+                `<div>
+                     R C Puram Bus Stop
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_08a5ee2f69f0198451c6340722e137b9 = L.circleMarker(
+                [17.4935, 78.3105],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_08a5ee2f69f0198451c6340722e137b9.bindTooltip(
+                `<div>
+                     Ashoknagar Bus Stop
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_715e6578e31d0561f2eb35fa289ca3f7 = L.circleMarker(
+                [17.3456, 78.5522],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_715e6578e31d0561f2eb35fa289ca3f7.bindTooltip(
+                `<div>
+                     LB Nagar Ring Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e28aa71057b800c7af7e28e2b44021f = L.circleMarker(
+                [17.3402, 78.5663],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_9e28aa71057b800c7af7e28e2b44021f.bindTooltip(
+                `<div>
+                     Panama X Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5105c0716d06a7b327a18e910959265b = L.circleMarker(
+                [17.334, 78.5714],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_5105c0716d06a7b327a18e910959265b.bindTooltip(
+                `<div>
+                     Ganesh Temple
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f0120a544310e23704c43b07d22f6398 = L.circleMarker(
+                [17.3275, 78.5721],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_f0120a544310e23704c43b07d22f6398.bindTooltip(
+                `<div>
+                     Vanasthalipuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47c6d705bc20c7e7d7e1d1f4831f9b30 = L.circleMarker(
+                [17.3251, 78.5666],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_47c6d705bc20c7e7d7e1d1f4831f9b30.bindTooltip(
+                `<div>
+                     NGO Colony
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c6e471c4b1270dc066aff2a426c7249c = L.circleMarker(
+                [17.3392, 78.5545],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_c6e471c4b1270dc066aff2a426c7249c.bindTooltip(
+                `<div>
+                     Omkar Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_01d7920990dbe3053790961f149307af = L.circleMarker(
+                [17.3288, 78.5539],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_01d7920990dbe3053790961f149307af.bindTooltip(
+                `<div>
+                     Hastinapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cffea56768eaea86e639236fe32dd04a = L.circleMarker(
+                [17.3364, 78.5562],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_cffea56768eaea86e639236fe32dd04a.bindTooltip(
+                `<div>
+                     Sagar Ring Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1469d4866bd92b6278ef47955cc079b9 = L.circleMarker(
+                [17.3208, 78.5611],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_1469d4866bd92b6278ef47955cc079b9.bindTooltip(
+                `<div>
+                     BN Reddy Colony
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_537bc85f0230916dc981c8f47939e81a = L.circleMarker(
+                [17.3315, 78.5685],
+                {"bubblingMouseEvents": true, "color": "#455a64", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455a64", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_501bd8db2a3d77aabc23e437a500eac5);
+        
+    
+            circle_marker_537bc85f0230916dc981c8f47939e81a.bindTooltip(
+                `<div>
+                     Government Hospital
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var feature_group_75945f1d8768f0679e2f4cd43db72eb1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_7a2e1b93ca000cfb1cc1c9264d1380bd = L.marker(
+                [17.4965452, 78.3730262],
+                {
+}
+            ).addTo(feature_group_75945f1d8768f0679e2f4cd43db72eb1);
+        
+    
+            var div_icon_82ee331f5063b36475f3ad0be8885f40 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"\n            position: relative;\n            transform: translate(-12px, -12px) rotate(45deg);\n            width: 24px; height: 24px;\n            background: #e53935;\n            border: 3px solid white;\n            box-shadow: 0 0 6px rgba(0,0,0,0.35);\n        \"\u003e\u003c/div\u003e\n        \u003cdiv style=\"\n            position: relative; top: -4px; left: 18px;\n            background: rgba(255,255,255,0.95);\n            border: 1px solid #e53935;\n            border-radius: 6px;\n            padding: 4px 7px;\n            font-weight: 700;\n            font-size: 12px;\n            color: #d32f2f;\n            white-space: nowrap;\n        \"\u003eMiyapur (Metro Terminal)\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+                marker_7a2e1b93ca000cfb1cc1c9264d1380bd.setIcon(div_icon_82ee331f5063b36475f3ad0be8885f40);
+            
+    
+            var marker_c21a4c29ca805da7296d09695f170bf5 = L.marker(
+                [17.349846, 78.5479412],
+                {
+}
+            ).addTo(feature_group_75945f1d8768f0679e2f4cd43db72eb1);
+        
+    
+            var div_icon_f18fb8e7d2fcc3cad838a2fdbb34769d = L.divIcon({
+  "html": "\n        \u003cdiv style=\"\n            position: relative;\n            transform: translate(-12px, -12px) rotate(45deg);\n            width: 24px; height: 24px;\n            background: #e53935;\n            border: 3px solid white;\n            box-shadow: 0 0 6px rgba(0,0,0,0.35);\n        \"\u003e\u003c/div\u003e\n        \u003cdiv style=\"\n            position: relative; top: -4px; left: 18px;\n            background: rgba(255,255,255,0.95);\n            border: 1px solid #e53935;\n            border-radius: 6px;\n            padding: 4px 7px;\n            font-weight: 700;\n            font-size: 12px;\n            color: #d32f2f;\n            white-space: nowrap;\n        \"\u003eLB Nagar (Metro Terminal)\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+                marker_c21a4c29ca805da7296d09695f170bf5.setIcon(div_icon_f18fb8e7d2fcc3cad838a2fdbb34769d);
+            
+    
+            feature_group_75945f1d8768f0679e2f4cd43db72eb1.addTo(map_f6615b3dec0a6080f131f4138ff83321);
+        
+    
+            map_f6615b3dec0a6080f131f4138ff83321.fitBounds(
+                [[17.3208, 78.2835], [17.531, 78.5721]],
+                {}
+            );
+        
+    
+            var layer_control_eb58ea6913eaad48b0b98177e2dd16bf_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_961d84828ad0205e8ac96bb99f1355b0,
+                },
+                overlays :  {
+                    "Miyapur terminal routes (1)" : feature_group_8c2949c75704371ddb8cc8c1a280d298,
+                    "LB Nagar terminal routes (3)" : feature_group_5cf980cd5da25cddbca7cc6bb031be04,
+                    "Feeder stops" : feature_group_501bd8db2a3d77aabc23e437a500eac5,
+                    "Metro terminals" : feature_group_75945f1d8768f0679e2f4cd43db72eb1,
+                },
+            };
+            let layer_control_eb58ea6913eaad48b0b98177e2dd16bf = L.control.layers(
+                layer_control_eb58ea6913eaad48b0b98177e2dd16bf_layers.base_layers,
+                layer_control_eb58ea6913eaad48b0b98177e2dd16bf_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_f6615b3dec0a6080f131f4138ff83321);
+
+        
+</script>
+</html>
