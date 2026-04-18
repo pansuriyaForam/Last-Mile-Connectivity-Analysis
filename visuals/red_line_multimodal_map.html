@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_327bea75f78f5db1a09073e50e363a09 {
+                #map_97905a1def812c9e672659176fcf1692 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,14 +55,14 @@
     
     <div style='position:fixed;bottom:28px;left:28px;z-index:1000;background:white;padding:14px;border-radius:8px;box-shadow:2px 2px 10px rgba(0,0,0,0.28);font-family:Arial;font-size:12px'><b>LMCI Classification</b><br><span style='color:#2ecc71'>&#x25CF;</span> Well-Connected (>=7)<br><span style='color:#f39c12'>&#x25CF;</span> Moderate (4-7)<br><span style='color:#e74c3c'>&#x25CF;</span> Transit Desert (<4)<br><hr style='margin:5px 0'><b>MCLP Feeder Stops</b><br><span style='color:#c0392b'>*</span> Equity-forced desert<br><span style='color:#e67e22'>*</span> Desert zone (free pick)<br><span style='color:#2980b9'>*</span> Non-desert pick</div>
     
-            <div class="folium-map" id="map_327bea75f78f5db1a09073e50e363a09" ></div>
+            <div class="folium-map" id="map_97905a1def812c9e672659176fcf1692" ></div>
         
 </body>
 <script>
     
     
-            var map_327bea75f78f5db1a09073e50e363a09 = L.map(
-                "map_327bea75f78f5db1a09073e50e363a09",
+            var map_97905a1def812c9e672659176fcf1692 = L.map(
+                "map_97905a1def812c9e672659176fcf1692",
                 {
                     center: [17.420107737037036, 78.46262374444444],
                     crs: L.CRS.EPSG3857,
@@ -79,7 +79,7 @@
 
         
     
-            var tile_layer_4b782d53a18e5b95db4a3dc9424fc943 = L.tileLayer(
+            var tile_layer_8cf949cbd8d81493adaa1e65dfedb281 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -96,33 +96,33 @@
             );
         
     
-            tile_layer_4b782d53a18e5b95db4a3dc9424fc943.addTo(map_327bea75f78f5db1a09073e50e363a09);
+            tile_layer_8cf949cbd8d81493adaa1e65dfedb281.addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var circle_marker_d00397287e06186a4f2ad787391c5263 = L.circleMarker(
+            var circle_marker_b52d3bd33408efabd48145dd0b200980 = L.circleMarker(
                 [17.4965452, 78.3730262],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.204633850768953, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_a09689b0bfca695039cc0925ee001f61 = L.popup({
+        var popup_7b359604ddefea72381d043d07db6f9b = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_905f121796b6be800ebf7b1369335c45 = $(`<div id="html_905f121796b6be800ebf7b1369335c45" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Miyapur</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.60</b></td></tr><tr><td>Midday LMCI</td><td><b>2.51</b></td></tr><tr><td>Evening LMCI</td><td><b>2.55</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.91 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.01</b></td></tr></table></div></div>`)[0];
-                popup_a09689b0bfca695039cc0925ee001f61.setContent(html_905f121796b6be800ebf7b1369335c45);
+                var html_7f5cc364243eaa3c6d8f9130be69e3ba = $(`<div id="html_7f5cc364243eaa3c6d8f9130be69e3ba" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Miyapur</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.60</b></td></tr><tr><td>Midday LMCI</td><td><b>2.51</b></td></tr><tr><td>Evening LMCI</td><td><b>2.55</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.91 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.01</b></td></tr></table></div></div>`)[0];
+                popup_7b359604ddefea72381d043d07db6f9b.setContent(html_7f5cc364243eaa3c6d8f9130be69e3ba);
             
         
 
-        circle_marker_d00397287e06186a4f2ad787391c5263.bindPopup(popup_a09689b0bfca695039cc0925ee001f61)
+        circle_marker_b52d3bd33408efabd48145dd0b200980.bindPopup(popup_7b359604ddefea72381d043d07db6f9b)
         ;
 
         
     
     
-            circle_marker_d00397287e06186a4f2ad787391c5263.bindTooltip(
+            circle_marker_b52d3bd33408efabd48145dd0b200980.bindTooltip(
                 `<div>
                      Miyapur  |  Morning LMCI: 1.60  |  Persistent
                  </div>`,
@@ -132,30 +132,30 @@
             );
         
     
-            var circle_marker_27e5d60165815ff02fd8b2a57b662ee7 = L.circleMarker(
+            var circle_marker_219cf60c85cb0a2cb42626d236661a6a = L.circleMarker(
                 [17.4987037, 78.3888668],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.409664000245282, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_ad291ddb1e6556d6ab28d1cab44465a4 = L.popup({
+        var popup_8600c5b9e985e0e4cb8125a0005f846e = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_2c410c841535f0a2f97a51368f8da5b0 = $(`<div id="html_2c410c841535f0a2f97a51368f8da5b0" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>JNTU College</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.22</b></td></tr><tr><td>Midday LMCI</td><td><b>3.71</b></td></tr><tr><td>Evening LMCI</td><td><b>3.68</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.49 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.68</b></td></tr></table></div></div>`)[0];
-                popup_ad291ddb1e6556d6ab28d1cab44465a4.setContent(html_2c410c841535f0a2f97a51368f8da5b0);
+                var html_01b1654eba5306c204cfdaac68b2fa23 = $(`<div id="html_01b1654eba5306c204cfdaac68b2fa23" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>JNTU College</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.22</b></td></tr><tr><td>Midday LMCI</td><td><b>3.71</b></td></tr><tr><td>Evening LMCI</td><td><b>3.68</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.49 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.68</b></td></tr></table></div></div>`)[0];
+                popup_8600c5b9e985e0e4cb8125a0005f846e.setContent(html_01b1654eba5306c204cfdaac68b2fa23);
             
         
 
-        circle_marker_27e5d60165815ff02fd8b2a57b662ee7.bindPopup(popup_ad291ddb1e6556d6ab28d1cab44465a4)
+        circle_marker_219cf60c85cb0a2cb42626d236661a6a.bindPopup(popup_8600c5b9e985e0e4cb8125a0005f846e)
         ;
 
         
     
     
-            circle_marker_27e5d60165815ff02fd8b2a57b662ee7.bindTooltip(
+            circle_marker_219cf60c85cb0a2cb42626d236661a6a.bindTooltip(
                 `<div>
                      JNTU College  |  Morning LMCI: 2.22  |  Persistent
                  </div>`,
@@ -165,30 +165,30 @@
             );
         
     
-            var circle_marker_2f0b884e6e8f48bfdbd5787f7fa93d1e = L.circleMarker(
+            var circle_marker_bc34cc9a0047d94a22d10f591ceb3f68 = L.circleMarker(
                 [17.4937602, 78.4018258],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.068321365429735, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_19ffd3aa92fd8036a7ab18bf85f1818e = L.popup({
+        var popup_9027148eef5833c4dbe2b919ec8105a9 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_d5a7564ef6c9400ed8351a487d905627 = $(`<div id="html_d5a7564ef6c9400ed8351a487d905627" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>KPHB Colony</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.15</b></td></tr><tr><td>Midday LMCI</td><td><b>1.15</b></td></tr><tr><td>Evening LMCI</td><td><b>1.15</b></td></tr><tr><td>Temporal Gap</td><td><b>0.00 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>8.45</b></td></tr></table></div></div>`)[0];
-                popup_19ffd3aa92fd8036a7ab18bf85f1818e.setContent(html_d5a7564ef6c9400ed8351a487d905627);
+                var html_649bed5a5305087e20fab614bfe43168 = $(`<div id="html_649bed5a5305087e20fab614bfe43168" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>KPHB Colony</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.15</b></td></tr><tr><td>Midday LMCI</td><td><b>1.15</b></td></tr><tr><td>Evening LMCI</td><td><b>1.15</b></td></tr><tr><td>Temporal Gap</td><td><b>0.00 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>8.45</b></td></tr></table></div></div>`)[0];
+                popup_9027148eef5833c4dbe2b919ec8105a9.setContent(html_649bed5a5305087e20fab614bfe43168);
             
         
 
-        circle_marker_2f0b884e6e8f48bfdbd5787f7fa93d1e.bindPopup(popup_19ffd3aa92fd8036a7ab18bf85f1818e)
+        circle_marker_bc34cc9a0047d94a22d10f591ceb3f68.bindPopup(popup_9027148eef5833c4dbe2b919ec8105a9)
         ;
 
         
     
     
-            circle_marker_2f0b884e6e8f48bfdbd5787f7fa93d1e.bindTooltip(
+            circle_marker_bc34cc9a0047d94a22d10f591ceb3f68.bindTooltip(
                 `<div>
                      KPHB Colony  |  Morning LMCI: 1.15  |  Persistent
                  </div>`,
@@ -198,30 +198,30 @@
             );
         
     
-            var circle_marker_c5842f868db2573bca21addb82ab068e = L.circleMarker(
+            var circle_marker_84465ea3feb4295f168d1a425e671c10 = L.circleMarker(
                 [17.4849033, 78.4117896],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.61441294983895, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_cd4e9b6d7ea87c70a697b72b7764bacb = L.popup({
+        var popup_2b9613818040915deaf7516aa9eb15eb = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_b4fd09d128269778003a44f0462954dc = $(`<div id="html_b4fd09d128269778003a44f0462954dc" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Kukatpally</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.69</b></td></tr><tr><td>Midday LMCI</td><td><b>3.92</b></td></tr><tr><td>Evening LMCI</td><td><b>4.96</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.23 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.36</b></td></tr></table></div></div>`)[0];
-                popup_cd4e9b6d7ea87c70a697b72b7764bacb.setContent(html_b4fd09d128269778003a44f0462954dc);
+                var html_2c7fff0e2937278588d74dd583d6d19b = $(`<div id="html_2c7fff0e2937278588d74dd583d6d19b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Kukatpally</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.69</b></td></tr><tr><td>Midday LMCI</td><td><b>3.92</b></td></tr><tr><td>Evening LMCI</td><td><b>4.96</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.23 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.36</b></td></tr></table></div></div>`)[0];
+                popup_2b9613818040915deaf7516aa9eb15eb.setContent(html_2c7fff0e2937278588d74dd583d6d19b);
             
         
 
-        circle_marker_c5842f868db2573bca21addb82ab068e.bindPopup(popup_cd4e9b6d7ea87c70a697b72b7764bacb)
+        circle_marker_84465ea3feb4295f168d1a425e671c10.bindPopup(popup_2b9613818040915deaf7516aa9eb15eb)
         ;
 
         
     
     
-            circle_marker_c5842f868db2573bca21addb82ab068e.bindTooltip(
+            circle_marker_84465ea3feb4295f168d1a425e671c10.bindTooltip(
                 `<div>
                      Kukatpally  |  Morning LMCI: 3.69  |  Partial
                  </div>`,
@@ -231,30 +231,30 @@
             );
         
     
-            var circle_marker_dfbda8a7b81d382623f44db1c83549c8 = L.circleMarker(
+            var circle_marker_5fd2f5a49ec8f59dee269886f3add84e = L.circleMarker(
                 [17.4767464, 78.4221082],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.493162502637649, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_716a1fa4421ece3efee339ecbbe2e18f = L.popup({
+        var popup_e8522aee76a9a891520bfd3a6fa77572 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_b04d5da9c5c06741f3282fcd13ba86b5 = $(`<div id="html_b04d5da9c5c06741f3282fcd13ba86b5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Balanagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>0.16</b></td></tr><tr><td>Midday LMCI</td><td><b>0.34</b></td></tr><tr><td>Evening LMCI</td><td><b>1.38</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.17 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>9.16</b></td></tr></table></div></div>`)[0];
-                popup_716a1fa4421ece3efee339ecbbe2e18f.setContent(html_b04d5da9c5c06741f3282fcd13ba86b5);
+                var html_52ffb27802bb8f2dd0933a0e1f646886 = $(`<div id="html_52ffb27802bb8f2dd0933a0e1f646886" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Balanagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>0.16</b></td></tr><tr><td>Midday LMCI</td><td><b>0.34</b></td></tr><tr><td>Evening LMCI</td><td><b>1.38</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.17 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>9.16</b></td></tr></table></div></div>`)[0];
+                popup_e8522aee76a9a891520bfd3a6fa77572.setContent(html_52ffb27802bb8f2dd0933a0e1f646886);
             
         
 
-        circle_marker_dfbda8a7b81d382623f44db1c83549c8.bindPopup(popup_716a1fa4421ece3efee339ecbbe2e18f)
+        circle_marker_5fd2f5a49ec8f59dee269886f3add84e.bindPopup(popup_e8522aee76a9a891520bfd3a6fa77572)
         ;
 
         
     
     
-            circle_marker_dfbda8a7b81d382623f44db1c83549c8.bindTooltip(
+            circle_marker_5fd2f5a49ec8f59dee269886f3add84e.bindTooltip(
                 `<div>
                      Balanagar  |  Morning LMCI: 0.16  |  Persistent
                  </div>`,
@@ -264,30 +264,30 @@
             );
         
     
-            var circle_marker_dc62a632cb3a1ffeed089734924aa4d4 = L.circleMarker(
+            var circle_marker_e54861f94728a611987731c658c783d0 = L.circleMarker(
                 [17.4718855, 78.4261182],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.536292373527104, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_0cc528873c2dc091cbf5d396a74177d6 = L.popup({
+        var popup_6589b44a1cb445a498a7430eed235623 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_e285b1ebcd2b48e1d79087fe10989961 = $(`<div id="html_e285b1ebcd2b48e1d79087fe10989961" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Moosapet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.02</b></td></tr><tr><td>Midday LMCI</td><td><b>4.92</b></td></tr><tr><td>Evening LMCI</td><td><b>4.92</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.90 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.23</b></td></tr></table></div></div>`)[0];
-                popup_0cc528873c2dc091cbf5d396a74177d6.setContent(html_e285b1ebcd2b48e1d79087fe10989961);
+                var html_a9c56e059364773d64a2aaa8908c1e3c = $(`<div id="html_a9c56e059364773d64a2aaa8908c1e3c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Moosapet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.02</b></td></tr><tr><td>Midday LMCI</td><td><b>4.92</b></td></tr><tr><td>Evening LMCI</td><td><b>4.92</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.90 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.23</b></td></tr></table></div></div>`)[0];
+                popup_6589b44a1cb445a498a7430eed235623.setContent(html_a9c56e059364773d64a2aaa8908c1e3c);
             
         
 
-        circle_marker_dc62a632cb3a1ffeed089734924aa4d4.bindPopup(popup_0cc528873c2dc091cbf5d396a74177d6)
+        circle_marker_e54861f94728a611987731c658c783d0.bindPopup(popup_6589b44a1cb445a498a7430eed235623)
         ;
 
         
     
     
-            circle_marker_dc62a632cb3a1ffeed089734924aa4d4.bindTooltip(
+            circle_marker_e54861f94728a611987731c658c783d0.bindTooltip(
                 `<div>
                      Moosapet  |  Morning LMCI: 3.02  |  Partial
                  </div>`,
@@ -297,30 +297,30 @@
             );
         
     
-            var circle_marker_dc860f51ad357032775011377237c831 = L.circleMarker(
+            var circle_marker_c14a78cef0ab0aff5f0852693f6a5624 = L.circleMarker(
                 [17.4629092, 78.4305364],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.044367889451575, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_abf208b8ae7ecfc04207a8db5ce668c1 = L.popup({
+        var popup_c626afc608dc6e6154aca6bb1b9d8840 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_8dc6ae93a1c4208954b87a3711747d73 = $(`<div id="html_8dc6ae93a1c4208954b87a3711747d73" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Bharat Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.15</b></td></tr><tr><td>Midday LMCI</td><td><b>3.95</b></td></tr><tr><td>Evening LMCI</td><td><b>3.88</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.80 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.07</b></td></tr></table></div></div>`)[0];
-                popup_abf208b8ae7ecfc04207a8db5ce668c1.setContent(html_8dc6ae93a1c4208954b87a3711747d73);
+                var html_69f48142526f70408d542daa8fb06a72 = $(`<div id="html_69f48142526f70408d542daa8fb06a72" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Bharat Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.15</b></td></tr><tr><td>Midday LMCI</td><td><b>3.95</b></td></tr><tr><td>Evening LMCI</td><td><b>3.88</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.80 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.07</b></td></tr></table></div></div>`)[0];
+                popup_c626afc608dc6e6154aca6bb1b9d8840.setContent(html_69f48142526f70408d542daa8fb06a72);
             
         
 
-        circle_marker_dc860f51ad357032775011377237c831.bindPopup(popup_abf208b8ae7ecfc04207a8db5ce668c1)
+        circle_marker_c14a78cef0ab0aff5f0852693f6a5624.bindPopup(popup_c626afc608dc6e6154aca6bb1b9d8840)
         ;
 
         
     
     
-            circle_marker_dc860f51ad357032775011377237c831.bindTooltip(
+            circle_marker_c14a78cef0ab0aff5f0852693f6a5624.bindTooltip(
                 `<div>
                      Bharat Nagar  |  Morning LMCI: 3.15  |  Persistent
                  </div>`,
@@ -330,30 +330,30 @@
             );
         
     
-            var circle_marker_1826c10fc59e2f25287bd06ea9add598 = L.circleMarker(
+            var circle_marker_b4904eb5022ef046a53b984be666efcd = L.circleMarker(
                 [17.4570487, 78.4335811],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.76093661695889, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_18486fb44d45725b3aaad9a939d27598 = L.popup({
+        var popup_fc927f7ed987207c7fffa22295e93d4a = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_5e739705051b540963cd68821874e548 = $(`<div id="html_5e739705051b540963cd68821874e548" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Erragadda</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.42</b></td></tr><tr><td>Midday LMCI</td><td><b>1.80</b></td></tr><tr><td>Evening LMCI</td><td><b>1.38</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.38 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.93</b></td></tr></table></div></div>`)[0];
-                popup_18486fb44d45725b3aaad9a939d27598.setContent(html_5e739705051b540963cd68821874e548);
+                var html_f4d25bf9d9817c53544ced354ea80222 = $(`<div id="html_f4d25bf9d9817c53544ced354ea80222" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Erragadda</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.42</b></td></tr><tr><td>Midday LMCI</td><td><b>1.80</b></td></tr><tr><td>Evening LMCI</td><td><b>1.38</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.38 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.93</b></td></tr></table></div></div>`)[0];
+                popup_fc927f7ed987207c7fffa22295e93d4a.setContent(html_f4d25bf9d9817c53544ced354ea80222);
             
         
 
-        circle_marker_1826c10fc59e2f25287bd06ea9add598.bindPopup(popup_18486fb44d45725b3aaad9a939d27598)
+        circle_marker_b4904eb5022ef046a53b984be666efcd.bindPopup(popup_fc927f7ed987207c7fffa22295e93d4a)
         ;
 
         
     
     
-            circle_marker_1826c10fc59e2f25287bd06ea9add598.bindTooltip(
+            circle_marker_b4904eb5022ef046a53b984be666efcd.bindTooltip(
                 `<div>
                      Erragadda  |  Morning LMCI: 1.42  |  Persistent
                  </div>`,
@@ -363,30 +363,30 @@
             );
         
     
-            var circle_marker_9a7765f63e5122e7f33c691ac78457c7 = L.circleMarker(
+            var circle_marker_cada3c711a70b219aaa7a3ab7588ffec = L.circleMarker(
                 [17.4486969, 78.4376283],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.266397834065828, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_28fab569642363425baa57b0898a488d = L.popup({
+        var popup_806b3716259d082ce30c4ddf9982c530 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_46d0864db8751e4317a4361d43e30a0f = $(`<div id="html_46d0864db8751e4317a4361d43e30a0f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>ESI Hospital</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.44</b></td></tr><tr><td>Midday LMCI</td><td><b>2.65</b></td></tr><tr><td>Evening LMCI</td><td><b>2.34</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.21 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.11</b></td></tr></table></div></div>`)[0];
-                popup_28fab569642363425baa57b0898a488d.setContent(html_46d0864db8751e4317a4361d43e30a0f);
+                var html_611558df6a6c3950ede85c160f03edb4 = $(`<div id="html_611558df6a6c3950ede85c160f03edb4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>ESI Hospital</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.44</b></td></tr><tr><td>Midday LMCI</td><td><b>2.65</b></td></tr><tr><td>Evening LMCI</td><td><b>2.34</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.21 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>7.11</b></td></tr></table></div></div>`)[0];
+                popup_806b3716259d082ce30c4ddf9982c530.setContent(html_611558df6a6c3950ede85c160f03edb4);
             
         
 
-        circle_marker_9a7765f63e5122e7f33c691ac78457c7.bindPopup(popup_28fab569642363425baa57b0898a488d)
+        circle_marker_cada3c711a70b219aaa7a3ab7588ffec.bindPopup(popup_806b3716259d082ce30c4ddf9982c530)
         ;
 
         
     
     
-            circle_marker_9a7765f63e5122e7f33c691ac78457c7.bindTooltip(
+            circle_marker_cada3c711a70b219aaa7a3ab7588ffec.bindTooltip(
                 `<div>
                      ESI Hospital  |  Morning LMCI: 1.44  |  Persistent
                  </div>`,
@@ -396,30 +396,30 @@
             );
         
     
-            var circle_marker_c454c564e3e38f672fd7af4a20fffa52 = L.circleMarker(
+            var circle_marker_0fa32f200bdfda40add6aed2b3656dee = L.circleMarker(
                 [17.4431205, 78.4407241],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.673876941154564, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_98e1195c463d8521f6ad2e627405bc41 = L.popup({
+        var popup_ecb0f4dcebdbd7e8e1c5fa19c6f47e0e = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_abc6c6cdc1bdd650d3ee881dcb24863e = $(`<div id="html_abc6c6cdc1bdd650d3ee881dcb24863e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>S. R. Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.63</b></td></tr><tr><td>Midday LMCI</td><td><b>3.95</b></td></tr><tr><td>Evening LMCI</td><td><b>3.06</b></td></tr><tr><td>Temporal Gap</td><td><b>-2.32 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>6.12</b></td></tr></table></div></div>`)[0];
-                popup_98e1195c463d8521f6ad2e627405bc41.setContent(html_abc6c6cdc1bdd650d3ee881dcb24863e);
+                var html_22654f8e90d9ef613b231eeb5f415ae5 = $(`<div id="html_22654f8e90d9ef613b231eeb5f415ae5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>S. R. Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.63</b></td></tr><tr><td>Midday LMCI</td><td><b>3.95</b></td></tr><tr><td>Evening LMCI</td><td><b>3.06</b></td></tr><tr><td>Temporal Gap</td><td><b>-2.32 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>6.12</b></td></tr></table></div></div>`)[0];
+                popup_ecb0f4dcebdbd7e8e1c5fa19c6f47e0e.setContent(html_22654f8e90d9ef613b231eeb5f415ae5);
             
         
 
-        circle_marker_c454c564e3e38f672fd7af4a20fffa52.bindPopup(popup_98e1195c463d8521f6ad2e627405bc41)
+        circle_marker_0fa32f200bdfda40add6aed2b3656dee.bindPopup(popup_ecb0f4dcebdbd7e8e1c5fa19c6f47e0e)
         ;
 
         
     
     
-            circle_marker_c454c564e3e38f672fd7af4a20fffa52.bindTooltip(
+            circle_marker_0fa32f200bdfda40add6aed2b3656dee.bindTooltip(
                 `<div>
                      S. R. Nagar  |  Morning LMCI: 1.63  |  Persistent
                  </div>`,
@@ -429,30 +429,30 @@
             );
         
     
-            var circle_marker_b1ca31a1ee56f57863ba937e6c143747 = L.circleMarker(
+            var circle_marker_ca2b4d9f7e60097f0660865524e14b8a = L.circleMarker(
                 [17.4357214, 78.4447933],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.173749932030255, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_10a8c019d040e8a558acb318bc114899 = L.popup({
+        var popup_dc6c779a60e964502bcfa9943071b342 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_150def90005980a58d297a4583749f42 = $(`<div id="html_150def90005980a58d297a4583749f42" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Ameerpet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.94</b></td></tr><tr><td>Midday LMCI</td><td><b>3.82</b></td></tr><tr><td>Evening LMCI</td><td><b>3.73</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.88 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.29</b></td></tr></table></div></div>`)[0];
-                popup_10a8c019d040e8a558acb318bc114899.setContent(html_150def90005980a58d297a4583749f42);
+                var html_8aeaab5d974d6414ebec262d8cc29a2a = $(`<div id="html_8aeaab5d974d6414ebec262d8cc29a2a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Ameerpet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.94</b></td></tr><tr><td>Midday LMCI</td><td><b>3.82</b></td></tr><tr><td>Evening LMCI</td><td><b>3.73</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.88 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.29</b></td></tr></table></div></div>`)[0];
+                popup_dc6c779a60e964502bcfa9943071b342.setContent(html_8aeaab5d974d6414ebec262d8cc29a2a);
             
         
 
-        circle_marker_b1ca31a1ee56f57863ba937e6c143747.bindPopup(popup_10a8c019d040e8a558acb318bc114899)
+        circle_marker_ca2b4d9f7e60097f0660865524e14b8a.bindPopup(popup_dc6c779a60e964502bcfa9943071b342)
         ;
 
         
     
     
-            circle_marker_b1ca31a1ee56f57863ba937e6c143747.bindTooltip(
+            circle_marker_ca2b4d9f7e60097f0660865524e14b8a.bindTooltip(
                 `<div>
                      Ameerpet  |  Morning LMCI: 2.94  |  Persistent
                  </div>`,
@@ -462,30 +462,30 @@
             );
         
     
-            var circle_marker_2a87b20223490cae26dd573d2f3241f2 = L.circleMarker(
+            var circle_marker_d5bdf88b34b5e2be8fcb650ace75b200 = L.circleMarker(
                 [17.4289362, 78.450955],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.878588527516712, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_5db606422059019bae3c2f5e945f5360 = L.popup({
+        var popup_18a08d9e783ba16187c2a265d96711d3 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_5139187eedc74a7968f7527ae4374f5f = $(`<div id="html_5139187eedc74a7968f7527ae4374f5f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Panjagutta</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.46</b></td></tr><tr><td>Midday LMCI</td><td><b>5.77</b></td></tr><tr><td>Evening LMCI</td><td><b>5.06</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.31 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>None</b></td></tr><tr><td>Priority Score</td><td><b>3.13</b></td></tr></table></div></div>`)[0];
-                popup_5db606422059019bae3c2f5e945f5360.setContent(html_5139187eedc74a7968f7527ae4374f5f);
+                var html_7892f845541495cf94772561b6be94ec = $(`<div id="html_7892f845541495cf94772561b6be94ec" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Panjagutta</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.46</b></td></tr><tr><td>Midday LMCI</td><td><b>5.77</b></td></tr><tr><td>Evening LMCI</td><td><b>5.06</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.31 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>None</b></td></tr><tr><td>Priority Score</td><td><b>3.13</b></td></tr></table></div></div>`)[0];
+                popup_18a08d9e783ba16187c2a265d96711d3.setContent(html_7892f845541495cf94772561b6be94ec);
             
         
 
-        circle_marker_2a87b20223490cae26dd573d2f3241f2.bindPopup(popup_5db606422059019bae3c2f5e945f5360)
+        circle_marker_d5bdf88b34b5e2be8fcb650ace75b200.bindPopup(popup_18a08d9e783ba16187c2a265d96711d3)
         ;
 
         
     
     
-            circle_marker_2a87b20223490cae26dd573d2f3241f2.bindTooltip(
+            circle_marker_d5bdf88b34b5e2be8fcb650ace75b200.bindTooltip(
                 `<div>
                      Panjagutta  |  Morning LMCI: 4.46  |  None
                  </div>`,
@@ -495,30 +495,30 @@
             );
         
     
-            var circle_marker_4b71e172cee72e2b91960071f1d9c39c = L.circleMarker(
+            var circle_marker_6ed7ab215ddae76692dc7c71fb0c8132 = L.circleMarker(
                 [17.4202292, 78.4563489],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.730064788874923, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_0184bc7e60bd21559aeda6ec959455f4 = L.popup({
+        var popup_6a6faddc703d8cdf0e782f7483f6a930 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_e6082d719c05fb511341398aa1c3c6cd = $(`<div id="html_e6082d719c05fb511341398aa1c3c6cd" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Erra Manzil</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.76</b></td></tr><tr><td>Midday LMCI</td><td><b>4.53</b></td></tr><tr><td>Evening LMCI</td><td><b>3.85</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.77 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.55</b></td></tr></table></div></div>`)[0];
-                popup_0184bc7e60bd21559aeda6ec959455f4.setContent(html_e6082d719c05fb511341398aa1c3c6cd);
+                var html_2ca2c44919c92b779b64f668adf1952f = $(`<div id="html_2ca2c44919c92b779b64f668adf1952f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Erra Manzil</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.76</b></td></tr><tr><td>Midday LMCI</td><td><b>4.53</b></td></tr><tr><td>Evening LMCI</td><td><b>3.85</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.77 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.55</b></td></tr></table></div></div>`)[0];
+                popup_6a6faddc703d8cdf0e782f7483f6a930.setContent(html_2ca2c44919c92b779b64f668adf1952f);
             
         
 
-        circle_marker_4b71e172cee72e2b91960071f1d9c39c.bindPopup(popup_0184bc7e60bd21559aeda6ec959455f4)
+        circle_marker_6ed7ab215ddae76692dc7c71fb0c8132.bindPopup(popup_6a6faddc703d8cdf0e782f7483f6a930)
         ;
 
         
     
     
-            circle_marker_4b71e172cee72e2b91960071f1d9c39c.bindTooltip(
+            circle_marker_6ed7ab215ddae76692dc7c71fb0c8132.bindTooltip(
                 `<div>
                      Erra Manzil  |  Morning LMCI: 3.76  |  Partial
                  </div>`,
@@ -528,30 +528,30 @@
             );
         
     
-            var circle_marker_f6c6e38338cb813752c9af73d168e50b = L.circleMarker(
+            var circle_marker_9c0cb79e5c1addef08fb2fca0e86810e = L.circleMarker(
                 [17.4116323, 78.4608678],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.488603220721254, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_1b5f3f34eeae0a022290ebb51989cbb8 = L.popup({
+        var popup_1c1c1f11437318eaec67971ee0ed9499 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_33e3ee6efca7c3434d93ad1cc213fde8 = $(`<div id="html_33e3ee6efca7c3434d93ad1cc213fde8" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Khairatabad</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.43</b></td></tr><tr><td>Midday LMCI</td><td><b>4.71</b></td></tr><tr><td>Evening LMCI</td><td><b>3.89</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.28 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.15</b></td></tr></table></div></div>`)[0];
-                popup_1b5f3f34eeae0a022290ebb51989cbb8.setContent(html_33e3ee6efca7c3434d93ad1cc213fde8);
+                var html_a31df9629a72b574e1277ed2126b2ee9 = $(`<div id="html_a31df9629a72b574e1277ed2126b2ee9" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Khairatabad</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.43</b></td></tr><tr><td>Midday LMCI</td><td><b>4.71</b></td></tr><tr><td>Evening LMCI</td><td><b>3.89</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.28 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.15</b></td></tr></table></div></div>`)[0];
+                popup_1c1c1f11437318eaec67971ee0ed9499.setContent(html_a31df9629a72b574e1277ed2126b2ee9);
             
         
 
-        circle_marker_f6c6e38338cb813752c9af73d168e50b.bindPopup(popup_1b5f3f34eeae0a022290ebb51989cbb8)
+        circle_marker_9c0cb79e5c1addef08fb2fca0e86810e.bindPopup(popup_1c1c1f11437318eaec67971ee0ed9499)
         ;
 
         
     
     
-            circle_marker_f6c6e38338cb813752c9af73d168e50b.bindTooltip(
+            circle_marker_9c0cb79e5c1addef08fb2fca0e86810e.bindTooltip(
                 `<div>
                      Khairatabad  |  Morning LMCI: 4.43  |  Partial
                  </div>`,
@@ -561,30 +561,30 @@
             );
         
     
-            var circle_marker_44d11e220533f6771f874e11912859eb = L.circleMarker(
+            var circle_marker_5989d210dd8b7b7b81891646f1327128 = L.circleMarker(
                 [17.4040433, 78.4649442],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.25333895939748, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_360008f1e92be4659afa54ee2fc694ca = L.popup({
+        var popup_c4c2f768b1c900ef1f4a9dfaa1523e68 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_9346c84b50c4e1b92f71faf2fe518931 = $(`<div id="html_9346c84b50c4e1b92f71faf2fe518931" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Lakdi-ka-pul</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.20</b></td></tr><tr><td>Midday LMCI</td><td><b>7.21</b></td></tr><tr><td>Evening LMCI</td><td><b>6.92</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.01 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.42</b></td></tr></table></div></div>`)[0];
-                popup_360008f1e92be4659afa54ee2fc694ca.setContent(html_9346c84b50c4e1b92f71faf2fe518931);
+                var html_4c7f72dba2277426bcada94c8186d03d = $(`<div id="html_4c7f72dba2277426bcada94c8186d03d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Lakdi-ka-pul</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.20</b></td></tr><tr><td>Midday LMCI</td><td><b>7.21</b></td></tr><tr><td>Evening LMCI</td><td><b>6.92</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.01 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.42</b></td></tr></table></div></div>`)[0];
+                popup_c4c2f768b1c900ef1f4a9dfaa1523e68.setContent(html_4c7f72dba2277426bcada94c8186d03d);
             
         
 
-        circle_marker_44d11e220533f6771f874e11912859eb.bindPopup(popup_360008f1e92be4659afa54ee2fc694ca)
+        circle_marker_5989d210dd8b7b7b81891646f1327128.bindPopup(popup_c4c2f768b1c900ef1f4a9dfaa1523e68)
         ;
 
         
     
     
-            circle_marker_44d11e220533f6771f874e11912859eb.bindTooltip(
+            circle_marker_5989d210dd8b7b7b81891646f1327128.bindTooltip(
                 `<div>
                      Lakdi-ka-pul  |  Morning LMCI: 7.20  |  None
                  </div>`,
@@ -594,30 +594,30 @@
             );
         
     
-            var circle_marker_d0914734a1e91c3ed3299194474bf4ba = L.circleMarker(
+            var circle_marker_935418cb1503ff5890dc3d9d21c375c7 = L.circleMarker(
                 [17.3979907, 78.4708797],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.650318626079601, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_c153349bfd37d1a803f0b7214818f61e = L.popup({
+        var popup_781bb203ca0206fa0f3ccd315ddf78ab = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_03de0aee046a8d3ecd30f9bd0b6b2f1a = $(`<div id="html_03de0aee046a8d3ecd30f9bd0b6b2f1a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Assembly</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.88</b></td></tr><tr><td>Midday LMCI</td><td><b>3.25</b></td></tr><tr><td>Evening LMCI</td><td><b>2.60</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.37 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>6.08</b></td></tr></table></div></div>`)[0];
-                popup_c153349bfd37d1a803f0b7214818f61e.setContent(html_03de0aee046a8d3ecd30f9bd0b6b2f1a);
+                var html_c53429b5959212103a4408862126210e = $(`<div id="html_c53429b5959212103a4408862126210e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Assembly</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>2.88</b></td></tr><tr><td>Midday LMCI</td><td><b>3.25</b></td></tr><tr><td>Evening LMCI</td><td><b>2.60</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.37 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>6.08</b></td></tr></table></div></div>`)[0];
+                popup_781bb203ca0206fa0f3ccd315ddf78ab.setContent(html_c53429b5959212103a4408862126210e);
             
         
 
-        circle_marker_d0914734a1e91c3ed3299194474bf4ba.bindPopup(popup_c153349bfd37d1a803f0b7214818f61e)
+        circle_marker_935418cb1503ff5890dc3d9d21c375c7.bindPopup(popup_781bb203ca0206fa0f3ccd315ddf78ab)
         ;
 
         
     
     
-            circle_marker_d0914734a1e91c3ed3299194474bf4ba.bindTooltip(
+            circle_marker_935418cb1503ff5890dc3d9d21c375c7.bindTooltip(
                 `<div>
                      Assembly  |  Morning LMCI: 2.88  |  Persistent
                  </div>`,
@@ -627,30 +627,30 @@
             );
         
     
-            var circle_marker_7e2322306ea0828a43aa190e0024fe7e = L.circleMarker(
+            var circle_marker_2c0a0d584a7d0157f9408beb67b51d8c = L.circleMarker(
                 [17.392222, 78.4701612],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.904612043142578, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_04ce0c1486608ce9a1b4b74d04a85e8d = L.popup({
+        var popup_5c4f7a7d4df67d23ea3d8acf1245b77b = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_6a0ff71c83d80419a39e26703b0cec59 = $(`<div id="html_6a0ff71c83d80419a39e26703b0cec59" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Nampally</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.41</b></td></tr><tr><td>Midday LMCI</td><td><b>1.49</b></td></tr><tr><td>Evening LMCI</td><td><b>1.16</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.08 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>8.17</b></td></tr></table></div></div>`)[0];
-                popup_04ce0c1486608ce9a1b4b74d04a85e8d.setContent(html_6a0ff71c83d80419a39e26703b0cec59);
+                var html_ff8781058244e5187811f169dae5fae4 = $(`<div id="html_ff8781058244e5187811f169dae5fae4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Nampally</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>1.41</b></td></tr><tr><td>Midday LMCI</td><td><b>1.49</b></td></tr><tr><td>Evening LMCI</td><td><b>1.16</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.08 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#d73027'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>8.17</b></td></tr></table></div></div>`)[0];
+                popup_5c4f7a7d4df67d23ea3d8acf1245b77b.setContent(html_ff8781058244e5187811f169dae5fae4);
             
         
 
-        circle_marker_7e2322306ea0828a43aa190e0024fe7e.bindPopup(popup_04ce0c1486608ce9a1b4b74d04a85e8d)
+        circle_marker_2c0a0d584a7d0157f9408beb67b51d8c.bindPopup(popup_5c4f7a7d4df67d23ea3d8acf1245b77b)
         ;
 
         
     
     
-            circle_marker_7e2322306ea0828a43aa190e0024fe7e.bindTooltip(
+            circle_marker_2c0a0d584a7d0157f9408beb67b51d8c.bindTooltip(
                 `<div>
                      Nampally  |  Morning LMCI: 1.41  |  Persistent
                  </div>`,
@@ -660,30 +660,30 @@
             );
         
     
-            var circle_marker_f45eaa2e260a77b2ed8440b1d3d35bf5 = L.circleMarker(
+            var circle_marker_661b3973ca795a7962df795e81111e0e = L.circleMarker(
                 [17.3858253, 78.4733347],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.49290709255518, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_6547db651f7337c1cdcc3a120c1851b5 = L.popup({
+        var popup_5ffb05ec15c28b84bbd5d466a961ade0 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_a0f3640095f8c38470100646ec2fdbba = $(`<div id="html_a0f3640095f8c38470100646ec2fdbba" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Gandhi Bhavan</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.59</b></td></tr><tr><td>Midday LMCI</td><td><b>3.24</b></td></tr><tr><td>Evening LMCI</td><td><b>2.48</b></td></tr><tr><td>Temporal Gap</td><td><b>0.36 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.82</b></td></tr></table></div></div>`)[0];
-                popup_6547db651f7337c1cdcc3a120c1851b5.setContent(html_a0f3640095f8c38470100646ec2fdbba);
+                var html_686d77255660413a8f4d97cc2be67715 = $(`<div id="html_686d77255660413a8f4d97cc2be67715" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Gandhi Bhavan</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.59</b></td></tr><tr><td>Midday LMCI</td><td><b>3.24</b></td></tr><tr><td>Evening LMCI</td><td><b>2.48</b></td></tr><tr><td>Temporal Gap</td><td><b>0.36 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.82</b></td></tr></table></div></div>`)[0];
+                popup_5ffb05ec15c28b84bbd5d466a961ade0.setContent(html_686d77255660413a8f4d97cc2be67715);
             
         
 
-        circle_marker_f45eaa2e260a77b2ed8440b1d3d35bf5.bindPopup(popup_6547db651f7337c1cdcc3a120c1851b5)
+        circle_marker_661b3973ca795a7962df795e81111e0e.bindPopup(popup_5ffb05ec15c28b84bbd5d466a961ade0)
         ;
 
         
     
     
-            circle_marker_f45eaa2e260a77b2ed8440b1d3d35bf5.bindTooltip(
+            circle_marker_661b3973ca795a7962df795e81111e0e.bindTooltip(
                 `<div>
                      Gandhi Bhavan  |  Morning LMCI: 3.59  |  Persistent
                  </div>`,
@@ -693,30 +693,30 @@
             );
         
     
-            var circle_marker_b63bfb544856261cf481545875232975 = L.circleMarker(
+            var circle_marker_e4bc45ee015b9e6d47509e8b8f5fd075 = L.circleMarker(
                 [17.3820769, 78.4817011],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.512787829864795, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_de3f3b9808693460e653a8e72edcd450 = L.popup({
+        var popup_4f4f07862fb7abc3584ea734525b1490 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_d4e54967d41018135ded266161362e41 = $(`<div id="html_d4e54967d41018135ded266161362e41" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Osmania Medical College</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.43</b></td></tr><tr><td>Midday LMCI</td><td><b>6.88</b></td></tr><tr><td>Evening LMCI</td><td><b>6.06</b></td></tr><tr><td>Temporal Gap</td><td><b>0.55 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.85</b></td></tr></table></div></div>`)[0];
-                popup_de3f3b9808693460e653a8e72edcd450.setContent(html_d4e54967d41018135ded266161362e41);
+                var html_b0af662d4a8f840a50136d41e9395bea = $(`<div id="html_b0af662d4a8f840a50136d41e9395bea" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Osmania Medical College</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.43</b></td></tr><tr><td>Midday LMCI</td><td><b>6.88</b></td></tr><tr><td>Evening LMCI</td><td><b>6.06</b></td></tr><tr><td>Temporal Gap</td><td><b>0.55 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.85</b></td></tr></table></div></div>`)[0];
+                popup_4f4f07862fb7abc3584ea734525b1490.setContent(html_b0af662d4a8f840a50136d41e9395bea);
             
         
 
-        circle_marker_b63bfb544856261cf481545875232975.bindPopup(popup_de3f3b9808693460e653a8e72edcd450)
+        circle_marker_e4bc45ee015b9e6d47509e8b8f5fd075.bindPopup(popup_4f4f07862fb7abc3584ea734525b1490)
         ;
 
         
     
     
-            circle_marker_b63bfb544856261cf481545875232975.bindTooltip(
+            circle_marker_e4bc45ee015b9e6d47509e8b8f5fd075.bindTooltip(
                 `<div>
                      Osmania Medical College  |  Morning LMCI: 7.43  |  None
                  </div>`,
@@ -726,30 +726,30 @@
             );
         
     
-            var circle_marker_ddc36e02d9e2afc238354672bf165cdc = L.circleMarker(
+            var circle_marker_0963d325f0794caac59b65b2e1efe7f6 = L.circleMarker(
                 [17.3797886, 78.4861571],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.067885037947478, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_2e16b5c9a2e4685cf4df48e47b07990b = L.popup({
+        var popup_d8c8363fe3d87a430849c88587d315d0 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_ffc372e3233eb59e9f9a8fbf070e8deb = $(`<div id="html_ffc372e3233eb59e9f9a8fbf070e8deb" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Mahatma Gandhi Bus Station</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.71</b></td></tr><tr><td>Midday LMCI</td><td><b>3.76</b></td></tr><tr><td>Evening LMCI</td><td><b>3.41</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.05 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.11</b></td></tr></table></div></div>`)[0];
-                popup_2e16b5c9a2e4685cf4df48e47b07990b.setContent(html_ffc372e3233eb59e9f9a8fbf070e8deb);
+                var html_5e614349dbc397e6ad7387b66775e548 = $(`<div id="html_5e614349dbc397e6ad7387b66775e548" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Mahatma Gandhi Bus Station</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.71</b></td></tr><tr><td>Midday LMCI</td><td><b>3.76</b></td></tr><tr><td>Evening LMCI</td><td><b>3.41</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.05 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Persistent</b></td></tr><tr><td>Priority Score</td><td><b>5.11</b></td></tr></table></div></div>`)[0];
+                popup_d8c8363fe3d87a430849c88587d315d0.setContent(html_5e614349dbc397e6ad7387b66775e548);
             
         
 
-        circle_marker_ddc36e02d9e2afc238354672bf165cdc.bindPopup(popup_2e16b5c9a2e4685cf4df48e47b07990b)
+        circle_marker_0963d325f0794caac59b65b2e1efe7f6.bindPopup(popup_d8c8363fe3d87a430849c88587d315d0)
         ;
 
         
     
     
-            circle_marker_ddc36e02d9e2afc238354672bf165cdc.bindTooltip(
+            circle_marker_0963d325f0794caac59b65b2e1efe7f6.bindTooltip(
                 `<div>
                      Mahatma Gandhi Bus Station  |  Morning LMCI: 3.71  |  Persistent
                  </div>`,
@@ -759,30 +759,30 @@
             );
         
     
-            var circle_marker_9d6864977fd0a751d6ebdf214249bc3f = L.circleMarker(
+            var circle_marker_32230d3a52901112f368f51b28f80ff7 = L.circleMarker(
                 [17.3771888, 78.4939356],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.120048134728608, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_384a09e347c4ccbf06824ee356697490 = L.popup({
+        var popup_8856791a6ec2199944441bce1c45d734 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_c1307f0eef39c31917b672fadc1acebd = $(`<div id="html_c1307f0eef39c31917b672fadc1acebd" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Malakpet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.68</b></td></tr><tr><td>Midday LMCI</td><td><b>5.47</b></td></tr><tr><td>Evening LMCI</td><td><b>4.25</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.79 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>None</b></td></tr><tr><td>Priority Score</td><td><b>3.53</b></td></tr></table></div></div>`)[0];
-                popup_384a09e347c4ccbf06824ee356697490.setContent(html_c1307f0eef39c31917b672fadc1acebd);
+                var html_41eefdf3d0ed995b35c922dfea8a8cee = $(`<div id="html_41eefdf3d0ed995b35c922dfea8a8cee" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Malakpet</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.68</b></td></tr><tr><td>Midday LMCI</td><td><b>5.47</b></td></tr><tr><td>Evening LMCI</td><td><b>4.25</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.79 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>None</b></td></tr><tr><td>Priority Score</td><td><b>3.53</b></td></tr></table></div></div>`)[0];
+                popup_8856791a6ec2199944441bce1c45d734.setContent(html_41eefdf3d0ed995b35c922dfea8a8cee);
             
         
 
-        circle_marker_9d6864977fd0a751d6ebdf214249bc3f.bindPopup(popup_384a09e347c4ccbf06824ee356697490)
+        circle_marker_32230d3a52901112f368f51b28f80ff7.bindPopup(popup_8856791a6ec2199944441bce1c45d734)
         ;
 
         
     
     
-            circle_marker_9d6864977fd0a751d6ebdf214249bc3f.bindTooltip(
+            circle_marker_32230d3a52901112f368f51b28f80ff7.bindTooltip(
                 `<div>
                      Malakpet  |  Morning LMCI: 4.68  |  None
                  </div>`,
@@ -792,30 +792,30 @@
             );
         
     
-            var circle_marker_3016d3ab34bf3de68008bfa9c51726a9 = L.circleMarker(
+            var circle_marker_0bb39b643413541dd88251cb7e362bea = L.circleMarker(
                 [17.3734454, 78.5031791],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.642720978889852, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_45ecded6153ba143b1fdb75390f4dc37 = L.popup({
+        var popup_e21464ccb85b373298335eaceda1812e = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_6f09995a936925d81e402d4cdf537c0e = $(`<div id="html_6f09995a936925d81e402d4cdf537c0e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>New Market</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.60</b></td></tr><tr><td>Midday LMCI</td><td><b>5.19</b></td></tr><tr><td>Evening LMCI</td><td><b>3.67</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.59 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.40</b></td></tr></table></div></div>`)[0];
-                popup_45ecded6153ba143b1fdb75390f4dc37.setContent(html_6f09995a936925d81e402d4cdf537c0e);
+                var html_129ca45529d1e62b4d2732c90e724ada = $(`<div id="html_129ca45529d1e62b4d2732c90e724ada" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>New Market</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.60</b></td></tr><tr><td>Midday LMCI</td><td><b>5.19</b></td></tr><tr><td>Evening LMCI</td><td><b>3.67</b></td></tr><tr><td>Temporal Gap</td><td><b>-1.59 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.40</b></td></tr></table></div></div>`)[0];
+                popup_e21464ccb85b373298335eaceda1812e.setContent(html_129ca45529d1e62b4d2732c90e724ada);
             
         
 
-        circle_marker_3016d3ab34bf3de68008bfa9c51726a9.bindPopup(popup_45ecded6153ba143b1fdb75390f4dc37)
+        circle_marker_0bb39b643413541dd88251cb7e362bea.bindPopup(popup_e21464ccb85b373298335eaceda1812e)
         ;
 
         
     
     
-            circle_marker_3016d3ab34bf3de68008bfa9c51726a9.bindTooltip(
+            circle_marker_0bb39b643413541dd88251cb7e362bea.bindTooltip(
                 `<div>
                      New Market  |  Morning LMCI: 3.60  |  Partial
                  </div>`,
@@ -825,30 +825,30 @@
             );
         
     
-            var circle_marker_6aa5dd4fcc120107586e9c8331252379 = L.circleMarker(
+            var circle_marker_743939b8dc9029392f08340e3ae8b8aa = L.circleMarker(
                 [17.3710873, 78.5119545],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f46d43", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.858586897587768, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_6d06884242d3a120029d80777a0ce90c = L.popup({
+        var popup_182821a97f422f1d6b3eec264f8d5dcc = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_884008abdca827dcd35069a5b692b19a = $(`<div id="html_884008abdca827dcd35069a5b692b19a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Musarambagh</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.64</b></td></tr><tr><td>Midday LMCI</td><td><b>4.57</b></td></tr><tr><td>Evening LMCI</td><td><b>3.45</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.93 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.76</b></td></tr></table></div></div>`)[0];
-                popup_6d06884242d3a120029d80777a0ce90c.setContent(html_884008abdca827dcd35069a5b692b19a);
+                var html_315416ef53db030343a6bce6f15416a6 = $(`<div id="html_315416ef53db030343a6bce6f15416a6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Musarambagh</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>3.64</b></td></tr><tr><td>Midday LMCI</td><td><b>4.57</b></td></tr><tr><td>Evening LMCI</td><td><b>3.45</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.93 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#f46d43'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.76</b></td></tr></table></div></div>`)[0];
+                popup_182821a97f422f1d6b3eec264f8d5dcc.setContent(html_315416ef53db030343a6bce6f15416a6);
             
         
 
-        circle_marker_6aa5dd4fcc120107586e9c8331252379.bindPopup(popup_6d06884242d3a120029d80777a0ce90c)
+        circle_marker_743939b8dc9029392f08340e3ae8b8aa.bindPopup(popup_182821a97f422f1d6b3eec264f8d5dcc)
         ;
 
         
     
     
-            circle_marker_6aa5dd4fcc120107586e9c8331252379.bindTooltip(
+            circle_marker_743939b8dc9029392f08340e3ae8b8aa.bindTooltip(
                 `<div>
                      Musarambagh  |  Morning LMCI: 3.64  |  Partial
                  </div>`,
@@ -858,30 +858,30 @@
             );
         
     
-            var circle_marker_ed866477062c00c1a43931ea6dfb8a52 = L.circleMarker(
+            var circle_marker_4c2d82acd073650fa67c05f45f58e9d1 = L.circleMarker(
                 [17.3685493, 78.5253873],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.836415332861701, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_c1362e4d899554c7f2761c59afa563d8 = L.popup({
+        var popup_8e3ea202485f231e464d38f1806757d1 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_e18f2f4df8904dabbad1d3d02df3362a = $(`<div id="html_e18f2f4df8904dabbad1d3d02df3362a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Dilsukh Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.15</b></td></tr><tr><td>Midday LMCI</td><td><b>4.44</b></td></tr><tr><td>Evening LMCI</td><td><b>3.15</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.29 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.73</b></td></tr></table></div></div>`)[0];
-                popup_c1362e4d899554c7f2761c59afa563d8.setContent(html_e18f2f4df8904dabbad1d3d02df3362a);
+                var html_3b07e2d0a81fc4f46dcfd2eb4cb7758d = $(`<div id="html_3b07e2d0a81fc4f46dcfd2eb4cb7758d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Dilsukh Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>4.15</b></td></tr><tr><td>Midday LMCI</td><td><b>4.44</b></td></tr><tr><td>Evening LMCI</td><td><b>3.15</b></td></tr><tr><td>Temporal Gap</td><td><b>-0.29 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>4.73</b></td></tr></table></div></div>`)[0];
+                popup_8e3ea202485f231e464d38f1806757d1.setContent(html_3b07e2d0a81fc4f46dcfd2eb4cb7758d);
             
         
 
-        circle_marker_ed866477062c00c1a43931ea6dfb8a52.bindPopup(popup_c1362e4d899554c7f2761c59afa563d8)
+        circle_marker_4c2d82acd073650fa67c05f45f58e9d1.bindPopup(popup_8e3ea202485f231e464d38f1806757d1)
         ;
 
         
     
     
-            circle_marker_ed866477062c00c1a43931ea6dfb8a52.bindTooltip(
+            circle_marker_4c2d82acd073650fa67c05f45f58e9d1.bindTooltip(
                 `<div>
                      Dilsukh Nagar  |  Morning LMCI: 4.15  |  Partial
                  </div>`,
@@ -891,30 +891,30 @@
             );
         
     
-            var circle_marker_f8096eaa7e7d82fbbb699291c65a53ec = L.circleMarker(
+            var circle_marker_a51001fc85a99dae0c7af6185c88d7ec = L.circleMarker(
                 [17.3681501, 78.5381335],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.396123989290784, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_8b357eee8af1de2d99e6497aed3aa308 = L.popup({
+        var popup_ae1dd192cac01e2652b9ea19cac6b1e0 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_7ac92172f6485f7c6e626c95bbcad232 = $(`<div id="html_7ac92172f6485f7c6e626c95bbcad232" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Chaitanyapuri</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>5.06</b></td></tr><tr><td>Midday LMCI</td><td><b>4.58</b></td></tr><tr><td>Evening LMCI</td><td><b>3.74</b></td></tr><tr><td>Temporal Gap</td><td><b>0.47 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>3.99</b></td></tr></table></div></div>`)[0];
-                popup_8b357eee8af1de2d99e6497aed3aa308.setContent(html_7ac92172f6485f7c6e626c95bbcad232);
+                var html_6e5530a28661e5074ed7d24c1f74abb0 = $(`<div id="html_6e5530a28661e5074ed7d24c1f74abb0" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Chaitanyapuri</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>5.06</b></td></tr><tr><td>Midday LMCI</td><td><b>4.58</b></td></tr><tr><td>Evening LMCI</td><td><b>3.74</b></td></tr><tr><td>Temporal Gap</td><td><b>0.47 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#fee08b'>Partial</b></td></tr><tr><td>Priority Score</td><td><b>3.99</b></td></tr></table></div></div>`)[0];
+                popup_ae1dd192cac01e2652b9ea19cac6b1e0.setContent(html_6e5530a28661e5074ed7d24c1f74abb0);
             
         
 
-        circle_marker_f8096eaa7e7d82fbbb699291c65a53ec.bindPopup(popup_8b357eee8af1de2d99e6497aed3aa308)
+        circle_marker_a51001fc85a99dae0c7af6185c88d7ec.bindPopup(popup_ae1dd192cac01e2652b9ea19cac6b1e0)
         ;
 
         
     
     
-            circle_marker_f8096eaa7e7d82fbbb699291c65a53ec.bindTooltip(
+            circle_marker_a51001fc85a99dae0c7af6185c88d7ec.bindTooltip(
                 `<div>
                      Chaitanyapuri  |  Morning LMCI: 5.06  |  Partial
                  </div>`,
@@ -924,30 +924,30 @@
             );
         
     
-            var circle_marker_acdadb5ab93fcc585862890f1395d849 = L.circleMarker(
+            var circle_marker_260bfde57253204309723e1e3bb91537 = L.circleMarker(
                 [17.3618565, 78.5439622],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.90799054436139, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_f9033c607b71a5d1d242a268d501fd7a = L.popup({
+        var popup_85043f3d768c079092a6387245a1e61b = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_e5f29a7b9da37a6178eddd679868cc5d = $(`<div id="html_e5f29a7b9da37a6178eddd679868cc5d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Victoria Memorial</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.18</b></td></tr><tr><td>Midday LMCI</td><td><b>6.31</b></td></tr><tr><td>Evening LMCI</td><td><b>5.41</b></td></tr><tr><td>Temporal Gap</td><td><b>0.87 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>1.51</b></td></tr></table></div></div>`)[0];
-                popup_f9033c607b71a5d1d242a268d501fd7a.setContent(html_e5f29a7b9da37a6178eddd679868cc5d);
+                var html_7f13413bdd161a1aeab793811bf82bf8 = $(`<div id="html_7f13413bdd161a1aeab793811bf82bf8" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>Victoria Memorial</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.18</b></td></tr><tr><td>Midday LMCI</td><td><b>6.31</b></td></tr><tr><td>Evening LMCI</td><td><b>5.41</b></td></tr><tr><td>Temporal Gap</td><td><b>0.87 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>1.51</b></td></tr></table></div></div>`)[0];
+                popup_85043f3d768c079092a6387245a1e61b.setContent(html_7f13413bdd161a1aeab793811bf82bf8);
             
         
 
-        circle_marker_acdadb5ab93fcc585862890f1395d849.bindPopup(popup_f9033c607b71a5d1d242a268d501fd7a)
+        circle_marker_260bfde57253204309723e1e3bb91537.bindPopup(popup_85043f3d768c079092a6387245a1e61b)
         ;
 
         
     
     
-            circle_marker_acdadb5ab93fcc585862890f1395d849.bindTooltip(
+            circle_marker_260bfde57253204309723e1e3bb91537.bindTooltip(
                 `<div>
                      Victoria Memorial  |  Morning LMCI: 7.18  |  None
                  </div>`,
@@ -957,30 +957,30 @@
             );
         
     
-            var circle_marker_50cd6f368d1df01bfb24a8ac7d16ae58 = L.circleMarker(
+            var circle_marker_c636b7bf2fa92e8735300cc9782bbce2 = L.circleMarker(
                 [17.349846, 78.5479412],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66bd63", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.00000000080809, "stroke": true, "weight": 2.0}
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-        var popup_fd4084ded54c4492cb8ecebfec0f96c3 = L.popup({
+        var popup_870230362b80622999cece8ea0e176f4 = L.popup({
   "maxWidth": 270,
 });
 
         
             
-                var html_427098b86d53bf342a8d3986aef6c74d = $(`<div id="html_427098b86d53bf342a8d3986aef6c74d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>L. B. Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.76</b></td></tr><tr><td>Midday LMCI</td><td><b>7.39</b></td></tr><tr><td>Evening LMCI</td><td><b>7.12</b></td></tr><tr><td>Temporal Gap</td><td><b>0.37 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.00</b></td></tr></table></div></div>`)[0];
-                popup_fd4084ded54c4492cb8ecebfec0f96c3.setContent(html_427098b86d53bf342a8d3986aef6c74d);
+                var html_24d291486673dcb01c69aec15ce4a5e3 = $(`<div id="html_24d291486673dcb01c69aec15ce4a5e3" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:210px'><b style='font-size:14px'>L. B. Nagar</b><hr style='margin:4px 0'><table style='width:100%;font-size:12px'><tr><td>Morning LMCI</td><td><b>7.76</b></td></tr><tr><td>Midday LMCI</td><td><b>7.39</b></td></tr><tr><td>Evening LMCI</td><td><b>7.12</b></td></tr><tr><td>Temporal Gap</td><td><b>0.37 pts</b></td></tr><tr><td>Desert Severity</td><td><b style='color:#66bd63'>None</b></td></tr><tr><td>Priority Score</td><td><b>0.00</b></td></tr></table></div></div>`)[0];
+                popup_870230362b80622999cece8ea0e176f4.setContent(html_24d291486673dcb01c69aec15ce4a5e3);
             
         
 
-        circle_marker_50cd6f368d1df01bfb24a8ac7d16ae58.bindPopup(popup_fd4084ded54c4492cb8ecebfec0f96c3)
+        circle_marker_c636b7bf2fa92e8735300cc9782bbce2.bindPopup(popup_870230362b80622999cece8ea0e176f4)
         ;
 
         
     
     
-            circle_marker_50cd6f368d1df01bfb24a8ac7d16ae58.bindTooltip(
+            circle_marker_c636b7bf2fa92e8735300cc9782bbce2.bindTooltip(
                 `<div>
                      L. B. Nagar  |  Morning LMCI: 7.76  |  None
                  </div>`,
@@ -990,14 +990,14 @@
             );
         
     
-            var marker_ea2d52573c902be2568cd381cb0bee38 = L.marker(
+            var marker_61aaebf428824227779dbfabc786e4b0 = L.marker(
                 [17.450741756084618, 78.4237118729536],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_314ab8aed0d36d788ffdd6aabea14028 = L.divIcon({
+            var div_icon_3b450ed3002768933b1d8ec2eef89282 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1005,24 +1005,24 @@
 });
         
     
-        var popup_8a48e7b9e91446c826fb9eb6d7bf2ff2 = L.popup({
+        var popup_1f82648577b0ae4b1b5b997f3a11d5f6 = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_e430d6a1e03d7641b63273fc54ef10c6 = $(`<div id="html_e430d6a1e03d7641b63273fc54ef10c6" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #1</b><br>Weighted gain: 6.783<br>Cum. coverage: 43.1%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_8a48e7b9e91446c826fb9eb6d7bf2ff2.setContent(html_e430d6a1e03d7641b63273fc54ef10c6);
+                var html_01acfe11d0d419851fcdaacb679ca31b = $(`<div id="html_01acfe11d0d419851fcdaacb679ca31b" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #1</b><br>Weighted gain: 6.783<br>Cum. coverage: 43.1%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_1f82648577b0ae4b1b5b997f3a11d5f6.setContent(html_01acfe11d0d419851fcdaacb679ca31b);
             
         
 
-        marker_ea2d52573c902be2568cd381cb0bee38.bindPopup(popup_8a48e7b9e91446c826fb9eb6d7bf2ff2)
+        marker_61aaebf428824227779dbfabc786e4b0.bindPopup(popup_1f82648577b0ae4b1b5b997f3a11d5f6)
         ;
 
         
     
     
-            marker_ea2d52573c902be2568cd381cb0bee38.bindTooltip(
+            marker_61aaebf428824227779dbfabc786e4b0.bindTooltip(
                 `<div>
                      Stop #1 | gain=6.783
                  </div>`,
@@ -1032,17 +1032,17 @@
             );
         
     
-                marker_ea2d52573c902be2568cd381cb0bee38.setIcon(div_icon_314ab8aed0d36d788ffdd6aabea14028);
+                marker_61aaebf428824227779dbfabc786e4b0.setIcon(div_icon_3b450ed3002768933b1d8ec2eef89282);
             
     
-            var marker_50c4b8b85a33179846a36ec4320720cd = L.marker(
+            var marker_5bcbbf329a1c0924f6ec948eaaea9f1a = L.marker(
                 [17.403122377960134, 78.48173372802134],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_4809225261c5dfc87b64bbf353714a34 = L.divIcon({
+            var div_icon_cf5b7dcfb40b3d3b9bd3af587ff83d52 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1050,24 +1050,24 @@
 });
         
     
-        var popup_c562bf041056258ca762f4f6a6426aec = L.popup({
+        var popup_1c6b98450cd9df1a11ac0ac61429137c = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_1af931ab6754747cdefd0ab6a6b0b781 = $(`<div id="html_1af931ab6754747cdefd0ab6a6b0b781" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #2</b><br>Weighted gain: 5.921<br>Cum. coverage: 47.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_c562bf041056258ca762f4f6a6426aec.setContent(html_1af931ab6754747cdefd0ab6a6b0b781);
+                var html_0a20039104359d6c4178ff5cdd3286f1 = $(`<div id="html_0a20039104359d6c4178ff5cdd3286f1" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #2</b><br>Weighted gain: 5.921<br>Cum. coverage: 47.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_1c6b98450cd9df1a11ac0ac61429137c.setContent(html_0a20039104359d6c4178ff5cdd3286f1);
             
         
 
-        marker_50c4b8b85a33179846a36ec4320720cd.bindPopup(popup_c562bf041056258ca762f4f6a6426aec)
+        marker_5bcbbf329a1c0924f6ec948eaaea9f1a.bindPopup(popup_1c6b98450cd9df1a11ac0ac61429137c)
         ;
 
         
     
     
-            marker_50c4b8b85a33179846a36ec4320720cd.bindTooltip(
+            marker_5bcbbf329a1c0924f6ec948eaaea9f1a.bindTooltip(
                 `<div>
                      Stop #2 | gain=5.921
                  </div>`,
@@ -1077,17 +1077,17 @@
             );
         
     
-                marker_50c4b8b85a33179846a36ec4320720cd.setIcon(div_icon_4809225261c5dfc87b64bbf353714a34);
+                marker_5bcbbf329a1c0924f6ec948eaaea9f1a.setIcon(div_icon_cf5b7dcfb40b3d3b9bd3af587ff83d52);
             
     
-            var marker_6c8fe7d7911cd9850717ab010097468b = L.marker(
+            var marker_4b7cc8a9a3f405d7c17fb95f90a9778d = L.marker(
                 [17.437729822319817, 78.43112084436002],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_fd58f122d330fb6b1c6679d1410f96c0 = L.divIcon({
+            var div_icon_a8f51b503c7b02bc37c4a621c96d7771 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1095,24 +1095,24 @@
 });
         
     
-        var popup_e08f473e2164633ca1758b2b6b78969f = L.popup({
+        var popup_c95bccb17f69f8c7d28179b92aa987ac = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_562a2d7149cf4433189e118355547cc7 = $(`<div id="html_562a2d7149cf4433189e118355547cc7" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #3</b><br>Weighted gain: 5.596<br>Cum. coverage: 51.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_e08f473e2164633ca1758b2b6b78969f.setContent(html_562a2d7149cf4433189e118355547cc7);
+                var html_b9072fdb47f2d982034cd95a5bf7664e = $(`<div id="html_b9072fdb47f2d982034cd95a5bf7664e" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #3</b><br>Weighted gain: 5.596<br>Cum. coverage: 51.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_c95bccb17f69f8c7d28179b92aa987ac.setContent(html_b9072fdb47f2d982034cd95a5bf7664e);
             
         
 
-        marker_6c8fe7d7911cd9850717ab010097468b.bindPopup(popup_e08f473e2164633ca1758b2b6b78969f)
+        marker_4b7cc8a9a3f405d7c17fb95f90a9778d.bindPopup(popup_c95bccb17f69f8c7d28179b92aa987ac)
         ;
 
         
     
     
-            marker_6c8fe7d7911cd9850717ab010097468b.bindTooltip(
+            marker_4b7cc8a9a3f405d7c17fb95f90a9778d.bindTooltip(
                 `<div>
                      Stop #3 | gain=5.596
                  </div>`,
@@ -1122,17 +1122,17 @@
             );
         
     
-                marker_6c8fe7d7911cd9850717ab010097468b.setIcon(div_icon_fd58f122d330fb6b1c6679d1410f96c0);
+                marker_4b7cc8a9a3f405d7c17fb95f90a9778d.setIcon(div_icon_a8f51b503c7b02bc37c4a621c96d7771);
             
     
-            var marker_11f9c5675e0fee91b1fa598760437d65 = L.marker(
+            var marker_3f927a697fc027d03e262ddd7177fd8a = L.marker(
                 [17.50666969868494, 78.41400773769531],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_4aa652a89792bbb317a9de2224da01e9 = L.divIcon({
+            var div_icon_ebc28c5ee89ca3edb22f9fc023c5de94 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1140,24 +1140,24 @@
 });
         
     
-        var popup_decfcdd5a164799df54bb4458a6d8ced = L.popup({
+        var popup_42beea8f533dc471e807cde8a009e9af = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_6acbf18a674626db57993df986e2054d = $(`<div id="html_6acbf18a674626db57993df986e2054d" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #4</b><br>Weighted gain: 5.445<br>Cum. coverage: 55.2%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_decfcdd5a164799df54bb4458a6d8ced.setContent(html_6acbf18a674626db57993df986e2054d);
+                var html_e129da01f2d56666213239716db24360 = $(`<div id="html_e129da01f2d56666213239716db24360" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #4</b><br>Weighted gain: 5.445<br>Cum. coverage: 55.2%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_42beea8f533dc471e807cde8a009e9af.setContent(html_e129da01f2d56666213239716db24360);
             
         
 
-        marker_11f9c5675e0fee91b1fa598760437d65.bindPopup(popup_decfcdd5a164799df54bb4458a6d8ced)
+        marker_3f927a697fc027d03e262ddd7177fd8a.bindPopup(popup_42beea8f533dc471e807cde8a009e9af)
         ;
 
         
     
     
-            marker_11f9c5675e0fee91b1fa598760437d65.bindTooltip(
+            marker_3f927a697fc027d03e262ddd7177fd8a.bindTooltip(
                 `<div>
                      Stop #4 | gain=5.445
                  </div>`,
@@ -1167,17 +1167,17 @@
             );
         
     
-                marker_11f9c5675e0fee91b1fa598760437d65.setIcon(div_icon_4aa652a89792bbb317a9de2224da01e9);
+                marker_3f927a697fc027d03e262ddd7177fd8a.setIcon(div_icon_ebc28c5ee89ca3edb22f9fc023c5de94);
             
     
-            var marker_32267361a2c5f44a2786c717cba28e09 = L.marker(
+            var marker_ba4da36f9f92ee3b5f37a3425d26968d = L.marker(
                 [17.461340217235588, 78.44675897113237],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_ebae4b086952397134190a8b544daf3a = L.divIcon({
+            var div_icon_d1d0462be74260c417914a811a69ebf1 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1185,24 +1185,24 @@
 });
         
     
-        var popup_c1e89588c1c243619a9ea23bab0f3079 = L.popup({
+        var popup_a0123de4553505d3102b88a833eceb66 = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_90767b997be5c0e394f899d42974447a = $(`<div id="html_90767b997be5c0e394f899d42974447a" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #5</b><br>Weighted gain: 5.240<br>Cum. coverage: 58.9%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_c1e89588c1c243619a9ea23bab0f3079.setContent(html_90767b997be5c0e394f899d42974447a);
+                var html_a7aac3ba4be851ed6e2c7efb739a6c22 = $(`<div id="html_a7aac3ba4be851ed6e2c7efb739a6c22" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #5</b><br>Weighted gain: 5.240<br>Cum. coverage: 58.9%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_a0123de4553505d3102b88a833eceb66.setContent(html_a7aac3ba4be851ed6e2c7efb739a6c22);
             
         
 
-        marker_32267361a2c5f44a2786c717cba28e09.bindPopup(popup_c1e89588c1c243619a9ea23bab0f3079)
+        marker_ba4da36f9f92ee3b5f37a3425d26968d.bindPopup(popup_a0123de4553505d3102b88a833eceb66)
         ;
 
         
     
     
-            marker_32267361a2c5f44a2786c717cba28e09.bindTooltip(
+            marker_ba4da36f9f92ee3b5f37a3425d26968d.bindTooltip(
                 `<div>
                      Stop #5 | gain=5.240
                  </div>`,
@@ -1212,17 +1212,17 @@
             );
         
     
-                marker_32267361a2c5f44a2786c717cba28e09.setIcon(div_icon_ebae4b086952397134190a8b544daf3a);
+                marker_ba4da36f9f92ee3b5f37a3425d26968d.setIcon(div_icon_d1d0462be74260c417914a811a69ebf1);
             
     
-            var marker_d3b47b0725e29279582f5afa1547017f = L.marker(
+            var marker_dc5cfe8371fb03f61636355dd0f759ea = L.marker(
                 [17.501473470437976, 78.36231518797508],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_bdf55f9abc241616e31fb08bf37bb4ef = L.divIcon({
+            var div_icon_81dde37fda3753be3e39da51bc652dcc = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1230,24 +1230,24 @@
 });
         
     
-        var popup_6a224a86c9874081a31ea9b7b8da0ff3 = L.popup({
+        var popup_1f16073fb7781b55a3e2c7df5869a379 = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_276287fcc5d316159e80e9a736cde1f9 = $(`<div id="html_276287fcc5d316159e80e9a736cde1f9" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #6</b><br>Weighted gain: 4.761<br>Cum. coverage: 62.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_6a224a86c9874081a31ea9b7b8da0ff3.setContent(html_276287fcc5d316159e80e9a736cde1f9);
+                var html_75c45a2679a458030089c37479940638 = $(`<div id="html_75c45a2679a458030089c37479940638" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #6</b><br>Weighted gain: 4.761<br>Cum. coverage: 62.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_1f16073fb7781b55a3e2c7df5869a379.setContent(html_75c45a2679a458030089c37479940638);
             
         
 
-        marker_d3b47b0725e29279582f5afa1547017f.bindPopup(popup_6a224a86c9874081a31ea9b7b8da0ff3)
+        marker_dc5cfe8371fb03f61636355dd0f759ea.bindPopup(popup_1f16073fb7781b55a3e2c7df5869a379)
         ;
 
         
     
     
-            marker_d3b47b0725e29279582f5afa1547017f.bindTooltip(
+            marker_dc5cfe8371fb03f61636355dd0f759ea.bindTooltip(
                 `<div>
                      Stop #6 | gain=4.761
                  </div>`,
@@ -1257,17 +1257,17 @@
             );
         
     
-                marker_d3b47b0725e29279582f5afa1547017f.setIcon(div_icon_bdf55f9abc241616e31fb08bf37bb4ef);
+                marker_dc5cfe8371fb03f61636355dd0f759ea.setIcon(div_icon_81dde37fda3753be3e39da51bc652dcc);
             
     
-            var marker_d77812ab495956012e3874917610ff56 = L.marker(
+            var marker_06147c9ffdcfd07e8f3235cd2acb2b92 = L.marker(
                 [17.389689481410688, 78.45866151687059],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_65b3330385c7450073196cbdeeddb77a = L.divIcon({
+            var div_icon_662677123ce82218dba770ae65a881b8 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1275,24 +1275,24 @@
 });
         
     
-        var popup_898541b290e1bebccf02db9819bee9ad = L.popup({
+        var popup_270cccae34e21f1fd7f7f4858185ce13 = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_a70c7780e2a2a86dafe813d972874969 = $(`<div id="html_a70c7780e2a2a86dafe813d972874969" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #7</b><br>Weighted gain: 4.677<br>Cum. coverage: 65.7%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_898541b290e1bebccf02db9819bee9ad.setContent(html_a70c7780e2a2a86dafe813d972874969);
+                var html_fb878c4299125a21e54bbab6b9060b88 = $(`<div id="html_fb878c4299125a21e54bbab6b9060b88" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #7</b><br>Weighted gain: 4.677<br>Cum. coverage: 65.7%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_270cccae34e21f1fd7f7f4858185ce13.setContent(html_fb878c4299125a21e54bbab6b9060b88);
             
         
 
-        marker_d77812ab495956012e3874917610ff56.bindPopup(popup_898541b290e1bebccf02db9819bee9ad)
+        marker_06147c9ffdcfd07e8f3235cd2acb2b92.bindPopup(popup_270cccae34e21f1fd7f7f4858185ce13)
         ;
 
         
     
     
-            marker_d77812ab495956012e3874917610ff56.bindTooltip(
+            marker_06147c9ffdcfd07e8f3235cd2acb2b92.bindTooltip(
                 `<div>
                      Stop #7 | gain=4.677
                  </div>`,
@@ -1302,17 +1302,17 @@
             );
         
     
-                marker_d77812ab495956012e3874917610ff56.setIcon(div_icon_65b3330385c7450073196cbdeeddb77a);
+                marker_06147c9ffdcfd07e8f3235cd2acb2b92.setIcon(div_icon_662677123ce82218dba770ae65a881b8);
             
     
-            var marker_c46b358137949d3775ce7d9481631416 = L.marker(
+            var marker_bcd741f2dd1f42814cfa57ff84320419 = L.marker(
                 [17.389772584928647, 78.50429600469656],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_20df26f285ead9dddeddf31ac2607b6d = L.divIcon({
+            var div_icon_212ddd3697d0345aae63cfc46f7ee57e = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1320,24 +1320,24 @@
 });
         
     
-        var popup_4a7b54623e9a6ab2578544f139f7e599 = L.popup({
+        var popup_20bd7f69ef3193b064dda133a49299de = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_500d1c6dad48f0f9e0d6f8b78a0cd04b = $(`<div id="html_500d1c6dad48f0f9e0d6f8b78a0cd04b" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #8</b><br>Weighted gain: 4.317<br>Cum. coverage: 68.8%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_4a7b54623e9a6ab2578544f139f7e599.setContent(html_500d1c6dad48f0f9e0d6f8b78a0cd04b);
+                var html_32a1e4bd58ccce8994a0489e3c402838 = $(`<div id="html_32a1e4bd58ccce8994a0489e3c402838" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #8</b><br>Weighted gain: 4.317<br>Cum. coverage: 68.8%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_20bd7f69ef3193b064dda133a49299de.setContent(html_32a1e4bd58ccce8994a0489e3c402838);
             
         
 
-        marker_c46b358137949d3775ce7d9481631416.bindPopup(popup_4a7b54623e9a6ab2578544f139f7e599)
+        marker_bcd741f2dd1f42814cfa57ff84320419.bindPopup(popup_20bd7f69ef3193b064dda133a49299de)
         ;
 
         
     
     
-            marker_c46b358137949d3775ce7d9481631416.bindTooltip(
+            marker_bcd741f2dd1f42814cfa57ff84320419.bindTooltip(
                 `<div>
                      Stop #8 | gain=4.317
                  </div>`,
@@ -1347,17 +1347,17 @@
             );
         
     
-                marker_c46b358137949d3775ce7d9481631416.setIcon(div_icon_20df26f285ead9dddeddf31ac2607b6d);
+                marker_bcd741f2dd1f42814cfa57ff84320419.setIcon(div_icon_212ddd3697d0345aae63cfc46f7ee57e);
             
     
-            var marker_1857a9f991ac8056c46c023e69dce725 = L.marker(
+            var marker_75091b47b3a0fc64df955aac9eaa0fd4 = L.marker(
                 [17.490401362531152, 78.39187640630541],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_c3798d49047390bb9d4fb98bf17b0abf = L.divIcon({
+            var div_icon_a41155ee1f5d1fd685a310e7d98af1ba = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1365,24 +1365,24 @@
 });
         
     
-        var popup_17fed2c254a260b19280b09ec32c1acb = L.popup({
+        var popup_1d49c11f7ac3757020bccc6d5035cd11 = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_d31ec97931f0a79e6a2f014487327d45 = $(`<div id="html_d31ec97931f0a79e6a2f014487327d45" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #9</b><br>Weighted gain: 3.542<br>Cum. coverage: 71.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_17fed2c254a260b19280b09ec32c1acb.setContent(html_d31ec97931f0a79e6a2f014487327d45);
+                var html_5b7aa5a347f076ec8f1fe3ab3284fa35 = $(`<div id="html_5b7aa5a347f076ec8f1fe3ab3284fa35" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #9</b><br>Weighted gain: 3.542<br>Cum. coverage: 71.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_1d49c11f7ac3757020bccc6d5035cd11.setContent(html_5b7aa5a347f076ec8f1fe3ab3284fa35);
             
         
 
-        marker_1857a9f991ac8056c46c023e69dce725.bindPopup(popup_17fed2c254a260b19280b09ec32c1acb)
+        marker_75091b47b3a0fc64df955aac9eaa0fd4.bindPopup(popup_1d49c11f7ac3757020bccc6d5035cd11)
         ;
 
         
     
     
-            marker_1857a9f991ac8056c46c023e69dce725.bindTooltip(
+            marker_75091b47b3a0fc64df955aac9eaa0fd4.bindTooltip(
                 `<div>
                      Stop #9 | gain=3.542
                  </div>`,
@@ -1392,17 +1392,17 @@
             );
         
     
-                marker_1857a9f991ac8056c46c023e69dce725.setIcon(div_icon_c3798d49047390bb9d4fb98bf17b0abf);
+                marker_75091b47b3a0fc64df955aac9eaa0fd4.setIcon(div_icon_a41155ee1f5d1fd685a310e7d98af1ba);
             
     
-            var marker_3f318dd3a63441da26e479b787026a5f = L.marker(
+            var marker_893b4263efe508dd55bf6a12eafa882e = L.marker(
                 [17.44016525144024, 78.4560009335381],
                 {
 }
-            ).addTo(map_327bea75f78f5db1a09073e50e363a09);
+            ).addTo(map_97905a1def812c9e672659176fcf1692);
         
     
-            var div_icon_92017bb7f7887a2f6cd48f7ab7f0d0ee = L.divIcon({
+            var div_icon_5e30d6cd2d283b6cf4aada1f17e3ea06 = L.divIcon({
   "html": "\u003cdiv style=\u0027font-size:20px;color:#e67e22;font-weight:bold;text-shadow:0 0 3px #fff\u0027\u003e*\u003c/div\u003e",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1410,24 +1410,24 @@
 });
         
     
-        var popup_f96e87d9a7ea17b9bccc7945721e25a1 = L.popup({
+        var popup_8c326cb8f82ecb07273484f109dd8ec5 = L.popup({
   "maxWidth": 230,
 });
 
         
             
-                var html_fdc8395ca207cc6eeea8c0fe63522b5a = $(`<div id="html_fdc8395ca207cc6eeea8c0fe63522b5a" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #10</b><br>Weighted gain: 2.773<br>Cum. coverage: 73.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
-                popup_f96e87d9a7ea17b9bccc7945721e25a1.setContent(html_fdc8395ca207cc6eeea8c0fe63522b5a);
+                var html_58bf49a4f0f17ebd2399c961aa669b2c = $(`<div id="html_58bf49a4f0f17ebd2399c961aa669b2c" style="width: 100.0%; height: 100.0%;"><b>MCLP Feeder Stop #10</b><br>Weighted gain: 2.773<br>Cum. coverage: 73.3%<br>Desert zone: Yes<br>Equity-forced: No</div>`)[0];
+                popup_8c326cb8f82ecb07273484f109dd8ec5.setContent(html_58bf49a4f0f17ebd2399c961aa669b2c);
             
         
 
-        marker_3f318dd3a63441da26e479b787026a5f.bindPopup(popup_f96e87d9a7ea17b9bccc7945721e25a1)
+        marker_893b4263efe508dd55bf6a12eafa882e.bindPopup(popup_8c326cb8f82ecb07273484f109dd8ec5)
         ;
 
         
     
     
-            marker_3f318dd3a63441da26e479b787026a5f.bindTooltip(
+            marker_893b4263efe508dd55bf6a12eafa882e.bindTooltip(
                 `<div>
                      Stop #10 | gain=2.773
                  </div>`,
@@ -1437,7 +1437,7 @@
             );
         
     
-                marker_3f318dd3a63441da26e479b787026a5f.setIcon(div_icon_92017bb7f7887a2f6cd48f7ab7f0d0ee);
+                marker_893b4263efe508dd55bf6a12eafa882e.setIcon(div_icon_5e30d6cd2d283b6cf4aada1f17e3ea06);
             
 </script>
 </html>
